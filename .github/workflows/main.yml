@@ -21,3 +21,12 @@ jobs:
         with:
           name: dissertation-pdf
           path: tese.pdf
+
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOSTNAME }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: 22
+          script: "cd /home/bmac/renner/www/MAC0499 && wget ${{ steps.artifact-upload-step.outputs.artifact-url }} && rm -f tese.pdf && unzip dissertation-pdf.zip && rm dissertation-pdf.zip"
