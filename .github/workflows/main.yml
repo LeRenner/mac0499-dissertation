@@ -10,16 +10,19 @@ jobs:
     name: Build and release PDF
     runs-on: ubuntu-latest
     steps:
+      - name: Bump version and push tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: Check out the repo
         uses: actions/checkout@v3
       
       - name: Build dissertation PDF
         uses: lerenner/mac0499-latex-cicd@v5
 
-      - name: Release with Notes
-        uses: softprops/action-gh-release@v2
+      - uses: actions/upload-artifact@v4
         with:
-          files: |
-            tese.pdf
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: dissertation-pdf
+          path: tese.pdf
