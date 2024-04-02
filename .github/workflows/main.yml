@@ -13,7 +13,7 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v3
       
-      - uses: lerenner/mac0499-latex-cicd@v2
+      - uses: lerenner/mac0499-latex-cicd@v3
         with:
           output: "builds"
 
