@@ -13,9 +13,8 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v3
       
-      - uses: lerenner/mac0499-latex-cicd@v3
-        with:
-          output: "builds"
+      - name: Build dissertation PDF
+        uses: lerenner/mac0499-latex-cicd@v4
 
       - name: Release with Notes
         uses: softprops/action-gh-release@v2
