@@ -1,0 +1,37 @@
+name: Create and release document PDF
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  push_to_registry:
+    name: Build and release PDF
+    runs-on: ubuntu-latest
+    steps:
+          
+      - name: Check out the repo
+        uses: actions/checkout@v3
+      
+      - name: Build LaTeX PDF
+        uses: docker://lerenner/build-latex-pdf:main
+        
+      - name: remove existing tese.pdf
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOSTNAME }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: 22
+          script: "cd /home/bmac/renner/www/MAC0499 && rm -f tese.pdf"
+
+      - name: send tese over scp
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOSTNAME }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: 22
+          source: "tese.pdf"
+          target: "/home/bmac/renner/www/MAC0499"
