@@ -1,2 +1,4 @@
-# mac0499-dissertation
-Código fonte em Latex da minha dissertação do Trabalho de Conclusão de Curso
+# MAC0499 - Dissertação
+Este repositório contém o código fonte do meu Trabalho de Conclusão de Curso para o Bacharelado em Ciência da Computação no Instituto de Matemática e Estatística da Universidade de São Paulo. Minha dissertação é escrita em LaTeX, baseada no [modelo-latex](https://gitlab.com/ccsl-usp/modelo-latex/), desenvolvido pelo Centro de Competência em Software Livre da USP.
+
+Este projeto tem uma pipeline de CI-CD que utiliza o Github Actions para automaticamente compilar o PDF da Tese e enviar ela para [minha página](https://linux.ime.usp.br/~renner/MAC0499/) da Rede Linux (me mande uma mensagem se quiser aprender como fazer isso!). 
