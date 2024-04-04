@@ -17,15 +17,6 @@ jobs:
       - name: Build LaTeX PDF
         uses: docker://lerenner/build-latex-pdf:main
 
-      - name: remove existing tese.pdf
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.SSH_HOSTNAME }}
-          username: renner
-          password: ${{ secrets.SSH_PASSWORD }}
-          port: 22
-          script: "cd /home/bmac/renner/www/MAC0499 && rm -f tese.pdf"
-
       - name: send tese over scp
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -35,3 +26,12 @@ jobs:
           port: 22
           source: "src/tese.pdf"
           target: "/home/bmac/renner/www/MAC0499"
+
+      - name: organize files in correct locations
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOSTNAME }}
+          username: renner
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: 22
+          script: "cd /home/bmac/renner/www/MAC0499 && rm -f tese.pdf && mv src/tese.pdf . && rm -rf src"
