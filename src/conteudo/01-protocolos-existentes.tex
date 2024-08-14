@@ -6,6 +6,8 @@
 
 No desenvolvimento de um protocolo de mensagens descentralizado, o primeiro passo essencial é analisar as soluções de código aberto já existentes. Essas implementações fornecem uma base para compreender os desafios práticos, as abordagens de arquitetura e as estratégias de mitigação de problemas que foram desenvolvidas e testadas pela comunidade. Os protocolos analisados foram selecionados por serem abertos, descentralizados, e por terem uma arquitetura de rede singular, sendo relevante para este estudo. Os protocolos analisados foram categorizados pela sua arquitetura de rede, e divididos em quatro grupos principais: federados, peer-to-peer com relays que usam tor, peer-to-peer com relays que não usam tor, e peer-to-peer sem relays. 
 
+Relays são servidores intermediários que encaminham mensagens entre usuários, e são utilizados para contornar restrições de rede, como NATs e firewalls. A rede Tor é uma rede de anonimização que permite a comunicação anônima e segura entre usuários, mesmo quando eles estão em redes censuradas, com NATs, ou com firewalls restritivos.
+
 Os protocolos analisados federados são:
 \begin{itemize}
   \item \href{https://matrix.org/}{Matrix}
@@ -97,7 +99,7 @@ O IRC (Internet Relay Chat) é um protocolo de comunicação em tempo real que p
 
 \subsubsection{LoRaWan}
 
-O LoRaWan é um protocolo de comunicação de longo alcance e baixa potência que permite a comunicação entre dispositivos de IoT. O protocolo se utiliza tanto de LoRa, que é uma tecnologia de modulação de rádio, quanto de redes de relays para transmitir mensagens entre dispositivos pela internet \cite{lorawan}.
+O LoRaWan é um protocolo de comunicação de longo alcance e baixa potência que permite a comunicação entre dispositivos de Internet of Things (IoT). O protocolo se utiliza tanto de LoRa, que é uma tecnologia de modulação de rádio, quanto de redes de relays para transmitir mensagens entre dispositivos pela internet \cite{lorawan}.
 
 \begin{itemize}
   \item \textbf{Tipo de endereço}: endereço de dispositivo

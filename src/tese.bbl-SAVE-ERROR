@@ -19,512 +19,613 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global}
-    \entry{gridftp}{misc}{}
+    \entry{bitmessage}{online}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=1605332064e1021702c6a15cb21132c1}{%
-           family={Allcock},
-           familyi={A\bibinitperiod},
-           given={William},
-           giveni={W\bibinitperiod},
-           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b6c36e1ffdaa6417bf3942905aadc618}{%
+           family={{Bitmessage}},
+           familyi={B\bibinitperiod}}}%
       }
-      \strng{namehash}{1605332064e1021702c6a15cb21132c1}
-      \strng{fullhash}{1605332064e1021702c6a15cb21132c1}
-      \strng{bibnamehash}{1605332064e1021702c6a15cb21132c1}
-      \strng{authorbibnamehash}{1605332064e1021702c6a15cb21132c1}
-      \strng{authornamehash}{1605332064e1021702c6a15cb21132c1}
-      \strng{authorfullhash}{1605332064e1021702c6a15cb21132c1}
-      \field{labelalpha}{All03}
-      \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{{GridFTP} Protocol Specification. {Global Grid Forum} Recommendation ({GFD}.20)}
-      \field{year}{2003}
-    \endentry
-    \entry{alves03:simi}{inproceedings}{}
-      \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=206353fb8f80c4986b7ddbcab5e972b7}{%
-           family={Alves},
-           familyi={A\bibinitperiod},
-           given={Carlos\bibnamedelimb E.\bibnamedelimi R.},
-           giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod\bibinitdelim R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=073ed5b897f90dc39a8d920be48ab272}{%
-           family={Cáceres},
-           familyi={C\bibinitperiod},
-           given={Edson\bibnamedelima N.},
-           giveni={E\bibinitperiod\bibinitdelim N\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=79492b3b4704b729b7c5bb0a9b87345c}{%
-           family={Dehne},
-           familyi={D\bibinitperiod},
-           given={Frank},
-           giveni={F\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=8f3617d7f595a18fc62136814211c36a}{%
-           family={Song},
-           familyi={S\bibinitperiod},
-           given={Siang\bibnamedelima W.},
-           giveni={S\bibinitperiod\bibinitdelim W\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Springer-Verlag}%
-      }
-      \strng{namehash}{b146ab810da375e41574d046e88a7a86}
-      \strng{fullhash}{6356f4f566fb0d219040c04e454e3e5b}
-      \strng{bibnamehash}{6356f4f566fb0d219040c04e454e3e5b}
-      \strng{authorbibnamehash}{6356f4f566fb0d219040c04e454e3e5b}
-      \strng{authornamehash}{b146ab810da375e41574d046e88a7a86}
-      \strng{authorfullhash}{6356f4f566fb0d219040c04e454e3e5b}
-      \field{labelalpha}{Alv+03}
-      \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{ICCSA'03: The 2003 International Conference on Computational Science and its Applications}
-      \field{month}{5}
-      \field{title}{A Parallel Wavefront Algorithm for Efficient Biological Sequence Comparison}
-      \field{year}{2003}
-      \field{pages}{249\bibrangedash 258}
-      \range{pages}{10}
-    \endentry
-    \entry{alvisi99:analysisCIC}{report}{}
-      \name{author}{5}{}{%
-        {{un=0,uniquepart=base,hash=b837a18883176d2f82d17c4fcb2a300b}{%
-           family={Alvisi},
-           familyi={A\bibinitperiod},
-           given={Lorenzo},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e2b6fa6272689884f00760f903245092}{%
-           family={Elnozahy},
-           familyi={E\bibinitperiod},
-           given={Elmootazbellah},
-           giveni={E\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=cc6c00801c40d1d1ab266b8bfeceb53e}{%
-           family={Rao},
-           familyi={R\bibinitperiod},
-           given={Sriram\bibnamedelima S.},
-           giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=de2e0c135816cbef19413e128a9d60ac}{%
-           family={Husain},
-           familyi={H\bibinitperiod},
-           given={Syed\bibnamedelima A.},
-           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=25b2f5a13385851969550ec4f956bb59}{%
-           family={Mel},
-           familyi={M\bibinitperiod},
-           given={Asanka\bibnamedelima Del},
-           giveni={A\bibinitperiod\bibinitdelim D\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{institution}{1}{%
-        {Department of Computer Science, University of Texas at Austin}%
-      }
-      \list{location}{1}{%
-        {Austin, USA}%
-      }
-      \strng{namehash}{06f5382800dadb5e72e9a2b0d9957e1b}
-      \strng{fullhash}{833f614507724b23316eeb743cb35070}
-      \strng{bibnamehash}{833f614507724b23316eeb743cb35070}
-      \strng{authorbibnamehash}{833f614507724b23316eeb743cb35070}
-      \strng{authornamehash}{06f5382800dadb5e72e9a2b0d9957e1b}
-      \strng{authorfullhash}{833f614507724b23316eeb743cb35070}
-      \field{labelalpha}{Alv+99}
-      \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{number}{TR-99-01}
-      \field{title}{An Analysis of Comunication-Induced Checkpointing}
-      \field{type}{techreport}
-      \field{year}{1999}
-    \endentry
-    \entry{bobaoglu93:concepts}{incollection}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=076295e13847a1c03f06d3d9dbf0f4f1}{%
-           family={Babaoglu},
-           familyi={B\bibinitperiod},
-           given={Ozalp},
-           giveni={O\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d9e087e51bcc6bccce82700b8e7df265}{%
-           family={Marzullo},
-           familyi={M\bibinitperiod},
-           given={Keith},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-      }
-      \name{editor}{1}{}{%
-        {{hash=c61969d4cf13f3deaae1287a4fa7882e}{%
-           family={Mullender},
-           familyi={M\bibinitperiod},
-           given={Sape},
-           giveni={S\bibinitperiod}}}%
-      }
-      \strng{namehash}{879aedcd3b90e6753a5ffe80238d1732}
-      \strng{fullhash}{879aedcd3b90e6753a5ffe80238d1732}
-      \strng{bibnamehash}{879aedcd3b90e6753a5ffe80238d1732}
-      \strng{authorbibnamehash}{879aedcd3b90e6753a5ffe80238d1732}
-      \strng{authornamehash}{879aedcd3b90e6753a5ffe80238d1732}
-      \strng{authorfullhash}{879aedcd3b90e6753a5ffe80238d1732}
-      \strng{editorbibnamehash}{c61969d4cf13f3deaae1287a4fa7882e}
-      \strng{editornamehash}{c61969d4cf13f3deaae1287a4fa7882e}
-      \strng{editorfullhash}{c61969d4cf13f3deaae1287a4fa7882e}
-      \field{labelalpha}{BM93}
+      \strng{namehash}{b6c36e1ffdaa6417bf3942905aadc618}
+      \strng{fullhash}{b6c36e1ffdaa6417bf3942905aadc618}
+      \strng{bibnamehash}{b6c36e1ffdaa6417bf3942905aadc618}
+      \strng{authorbibnamehash}{b6c36e1ffdaa6417bf3942905aadc618}
+      \strng{authornamehash}{b6c36e1ffdaa6417bf3942905aadc618}
+      \strng{authorfullhash}{b6c36e1ffdaa6417bf3942905aadc618}
+      \field{labelalpha}{Bit24}
       \field{sortinit}{B}
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Distributed Systems}
-      \field{edition}{2}
-      \field{title}{Consistent Global States of Distributed Systems: Fundamental Concepts and Mechanisms}
-      \field{year}{1993}
-      \field{pages}{55\bibrangedash 96}
-      \range{pages}{42}
+      \field{note}{Acesso em 14 de agosto de 2024}
+      \field{title}{Bitmessage}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://github.com/Bitmessage/PyBitmessage
+      \endverb
+      \verb{url}
+      \verb https://github.com/Bitmessage/PyBitmessage
+      \endverb
     \endentry
-    \entry{natbib}{manual}{}
+    \entry{briar}{online}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=8d668f2ff08c48a82cff87c087cdf12e}{%
-           family={Daly},
+        {{un=0,uniquepart=base,hash=c90a7b74abb6e00a489a8be99c6703dc}{%
+           family={{Briar}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{c90a7b74abb6e00a489a8be99c6703dc}
+      \strng{fullhash}{c90a7b74abb6e00a489a8be99c6703dc}
+      \strng{bibnamehash}{c90a7b74abb6e00a489a8be99c6703dc}
+      \strng{authorbibnamehash}{c90a7b74abb6e00a489a8be99c6703dc}
+      \strng{authornamehash}{c90a7b74abb6e00a489a8be99c6703dc}
+      \strng{authorfullhash}{c90a7b74abb6e00a489a8be99c6703dc}
+      \field{labelalpha}{Bri24}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Acesso em 14 de agosto de 2024}
+      \field{title}{Briar}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://briarproject.org/how-it-works/
+      \endverb
+      \verb{url}
+      \verb https://briarproject.org/how-it-works/
+      \endverb
+    \endentry
+    \entry{cwtch}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=30f75bf5ab472322ce1e554c0a305a72}{%
+           family={{Cwtch}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{30f75bf5ab472322ce1e554c0a305a72}
+      \strng{fullhash}{30f75bf5ab472322ce1e554c0a305a72}
+      \strng{bibnamehash}{30f75bf5ab472322ce1e554c0a305a72}
+      \strng{authorbibnamehash}{30f75bf5ab472322ce1e554c0a305a72}
+      \strng{authornamehash}{30f75bf5ab472322ce1e554c0a305a72}
+      \strng{authorfullhash}{30f75bf5ab472322ce1e554c0a305a72}
+      \field{labelalpha}{Cwt24}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Acesso em 14 de agosto de 2024}
+      \field{title}{Cwtch}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://docs.cwtch.im/
+      \endverb
+      \verb{url}
+      \verb https://docs.cwtch.im/
+      \endverb
+    \endentry
+    \entry{UlrichDolata}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=20161fb9e933f689ebbe98ae95174702}{%
+           family={Dolata},
            familyi={D\bibinitperiod},
-           given={Patrick\bibnamedelima W.},
-           giveni={P\bibinitperiod\bibinitdelim W\bibinitperiod},
+           given={Ulrich},
+           giveni={U\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b7fb22106af396a7f385a28589289de2}{%
+           family={Schrape},
+           familyi={S\bibinitperiod},
+           given={Jan-Felix},
+           giveni={J\bibinithyphendelim F\bibinitperiod},
            givenun=0}}%
       }
-      \strng{namehash}{8d668f2ff08c48a82cff87c087cdf12e}
-      \strng{fullhash}{8d668f2ff08c48a82cff87c087cdf12e}
-      \strng{bibnamehash}{8d668f2ff08c48a82cff87c087cdf12e}
-      \strng{authorbibnamehash}{8d668f2ff08c48a82cff87c087cdf12e}
-      \strng{authornamehash}{8d668f2ff08c48a82cff87c087cdf12e}
-      \strng{authorfullhash}{8d668f2ff08c48a82cff87c087cdf12e}
-      \field{labelalpha}{Dal10}
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{20b1586ce95d857c5399bc2f32be1044}
+      \strng{fullhash}{20b1586ce95d857c5399bc2f32be1044}
+      \strng{bibnamehash}{20b1586ce95d857c5399bc2f32be1044}
+      \strng{authorbibnamehash}{20b1586ce95d857c5399bc2f32be1044}
+      \strng{authornamehash}{20b1586ce95d857c5399bc2f32be1044}
+      \strng{authorfullhash}{20b1586ce95d857c5399bc2f32be1044}
+      \field{labelalpha}{DS18}
       \field{sortinit}{D}
       \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{day}{13}
-      \field{month}{9}
-      \field{title}{Reference sheet for \texttt{natbib} usage}
-      \field{urlday}{20}
-      \field{urlmonth}{12}
-      \field{urlyear}{2018}
-      \field{year}{2010}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb mirrors.ctan.org/macros/latex/contrib/natbib/natnotes.pdf
-      \endverb
-      \verb{url}
-      \verb mirrors.ctan.org/macros/latex/contrib/natbib/natnotes.pdf
-      \endverb
+      \field{isbn}{978-3319784137}
+      \field{title}{Collectivity and Power on the Internet: A Sociological Perspective}
+      \field{year}{2018}
     \endentry
-    \entry{fowler04:designDead}{online}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=312ac886938a9b2be4f8eb607567fe4c}{%
-           family={Fowler},
-           familyi={F\bibinitperiod},
-           given={Martin},
-           giveni={M\bibinitperiod},
+    \entry{Holz2020}{article}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=c062bb49df33d6bbcc0cbe4b0fabc8cd}{%
+           family={Holz},
+           familyi={H\bibinitperiod},
+           given={Ralph},
+           giveni={R\bibinitperiod},
            givenun=0}}%
-      }
-      \strng{namehash}{312ac886938a9b2be4f8eb607567fe4c}
-      \strng{fullhash}{312ac886938a9b2be4f8eb607567fe4c}
-      \strng{bibnamehash}{312ac886938a9b2be4f8eb607567fe4c}
-      \strng{authorbibnamehash}{312ac886938a9b2be4f8eb607567fe4c}
-      \strng{authornamehash}{312ac886938a9b2be4f8eb607567fe4c}
-      \strng{authorfullhash}{312ac886938a9b2be4f8eb607567fe4c}
-      \field{labelalpha}{Fow04}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{month}{5}
-      \field{title}{Is Design Dead?}
-      \field{urlday}{30}
-      \field{urlmonth}{1}
-      \field{urlyear}{2010}
-      \field{year}{2004}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb martinfowler.com/articles/designDead.html
-      \endverb
-      \verb{url}
-      \verb martinfowler.com/articles/designDead.html
-      \endverb
-    \endentry
-    \entry{FSF:GNU-GPL}{online}{}
-      \name{author}{1}{}{%
-        {{hash=cb96118d65be9f05ad10bd5cfdaf0f6d}{%
-           family={{Free Software Foundation}},
-           familyi={F\bibinitperiod}}}%
-      }
-      \name{shortauthor}{1}{}{%
-        {{un=0,uniquepart=base,hash=7f00b429e992d73afa545cd0bb8b6635}{%
-           family={FSF},
-           familyi={F\bibinitperiod}}}%
-      }
-      \strng{namehash}{7f00b429e992d73afa545cd0bb8b6635}
-      \strng{fullhash}{cb96118d65be9f05ad10bd5cfdaf0f6d}
-      \strng{bibnamehash}{7f00b429e992d73afa545cd0bb8b6635}
-      \strng{authorbibnamehash}{cb96118d65be9f05ad10bd5cfdaf0f6d}
-      \strng{authornamehash}{cb96118d65be9f05ad10bd5cfdaf0f6d}
-      \strng{authorfullhash}{cb96118d65be9f05ad10bd5cfdaf0f6d}
-      \strng{shortauthorbibnamehash}{7f00b429e992d73afa545cd0bb8b6635}
-      \strng{shortauthornamehash}{7f00b429e992d73afa545cd0bb8b6635}
-      \strng{shortauthorfullhash}{7f00b429e992d73afa545cd0bb8b6635}
-      \field{labelalpha}{FSF07}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{shortauthor}
-      \field{labeltitlesource}{title}
-      \field{title}{{GNU} General Public License}
-      \field{urlday}{30}
-      \field{urlmonth}{1}
-      \field{urlyear}{2010}
-      \field{year}{2007}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb www.gnu.org/copyleft/gpl.html
-      \endverb
-      \verb{url}
-      \verb www.gnu.org/copyleft/gpl.html
-      \endverb
-    \endentry
-    \entry{garcia01:PhD}{thesis}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=87623975f72a977cb786a45599d598c2}{%
-           family={Garcia},
-           familyi={G\bibinitperiod},
-           given={Islene\bibnamedelima C.},
-           giveni={I\bibinitperiod\bibinitdelim C\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{institution}{1}{%
-        {Instituto de Computação, Universidade de Campinas}%
-      }
-      \list{location}{1}{%
-        {Campinas, Brasil}%
-      }
-      \strng{namehash}{87623975f72a977cb786a45599d598c2}
-      \strng{fullhash}{87623975f72a977cb786a45599d598c2}
-      \strng{bibnamehash}{87623975f72a977cb786a45599d598c2}
-      \strng{authorbibnamehash}{87623975f72a977cb786a45599d598c2}
-      \strng{authornamehash}{87623975f72a977cb786a45599d598c2}
-      \strng{authorfullhash}{87623975f72a977cb786a45599d598c2}
-      \field{labelalpha}{Gar01}
-      \field{sortinit}{G}
-      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{month}{12}
-      \field{title}{Visões Progressivas de Computações Distribuídas}
-      \field{type}{phdthesis}
-      \field{year}{2001}
-    \endentry
-    \entry{Knuth:96}{book}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=ec08e6f01da5f3814f28a70c89c64656}{%
-           family={Knuth},
-           familyi={K\bibinitperiod},
-           given={Donald\bibnamedelima E.},
-           giveni={D\bibinitperiod\bibinitdelim E\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1ca0733f7a6a0267291e74aeac45cf39}{%
-           family={Larrabee},
-           familyi={L\bibinitperiod},
-           given={Tracy},
-           giveni={T\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=30c6d2b761a77719052fcc00bf2db37c}{%
-           family={Roberts},
-           familyi={R\bibinitperiod},
-           given={Paul\bibnamedelima M.},
-           giveni={P\bibinitperiod\bibinitdelim M\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {The Mathematical Association of America}%
-      }
-      \strng{namehash}{bdb7650fb32d3ea7897427911d6d66f6}
-      \strng{fullhash}{2f43e5174fe728abb34620c66b868f79}
-      \strng{bibnamehash}{2f43e5174fe728abb34620c66b868f79}
-      \strng{authorbibnamehash}{2f43e5174fe728abb34620c66b868f79}
-      \strng{authornamehash}{bdb7650fb32d3ea7897427911d6d66f6}
-      \strng{authorfullhash}{2f43e5174fe728abb34620c66b868f79}
-      \field{labelalpha}{KLR96}
-      \field{sortinit}{K}
-      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{month}{9}
-      \field{title}{Mathematical Writing}
-      \field{year}{1996}
-    \endentry
-    \entry{biblatex}{manual}{}
-      \name{author}{5}{}{%
-        {{un=0,uniquepart=base,hash=97afecc8539f253db93a1c737d62212c}{%
-           family={Lehman},
-           familyi={L\bibinitperiod},
-           given={Philipp},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=518f52ea2d73db1cfac0095db0482363}{%
-           family={Kime},
-           familyi={K\bibinitperiod},
-           given={Philip},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e1cc18b9b6d3955ba487be6c20e4d7db}{%
-           family={Wemheuer},
-           familyi={W\bibinitperiod},
-           given={Moritz},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=f551f4df6b727289e225343a679ca7ab}{%
-           family={Boruvka},
-           familyi={B\bibinitperiod},
-           given={Audrey},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=93c71fed62527d4c8c6ae13ee771fcdd}{%
-           family={Wright},
-           familyi={W\bibinitperiod},
-           given={Joseph},
+        {{un=0,uniquepart=base,hash=c181cca26e9c84c2a6ece15465858520}{%
+           family={Hiller},
+           familyi={H\bibinitperiod},
+           given={Jens},
            giveni={J\bibinitperiod},
            givenun=0}}%
+        {{un=0,uniquepart=base,hash=f01d211f4ad4e5c379879cd44442d223}{%
+           family={Amann},
+           familyi={A\bibinitperiod},
+           given={Johanna},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dd3ed52d80061f53072c218aa4b7e362}{%
+           family={Razaghpanah},
+           familyi={R\bibinitperiod},
+           given={Abbas},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1766c9ef1682d4c0231a00799398505c}{%
+           family={Jost},
+           familyi={J\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cd7d19d6b432a34fba27fab0c4b9ca39}{%
+           family={Vallina-Rodriguez},
+           familyi={V\bibinithyphendelim R\bibinitperiod},
+           given={Narseo},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fadddf24b02ab95d9d7cbb82bd8910a5}{%
+           family={Hohlfeld},
+           familyi={H\bibinitperiod},
+           given={Oliver},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
       }
-      \strng{namehash}{34e4cbaf0989c9ce668a625f61e8360c}
-      \strng{fullhash}{661c56e3bb17dc444ea939264f83c2a3}
-      \strng{bibnamehash}{661c56e3bb17dc444ea939264f83c2a3}
-      \strng{authorbibnamehash}{661c56e3bb17dc444ea939264f83c2a3}
-      \strng{authornamehash}{34e4cbaf0989c9ce668a625f61e8360c}
-      \strng{authorfullhash}{661c56e3bb17dc444ea939264f83c2a3}
-      \field{labelalpha}{Leh+18}
-      \field{sortinit}{L}
-      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \list{publisher}{1}{%
+        {Association for Computing Machinery (ACM)}%
+      }
+      \strng{namehash}{af3e66cbd146373cfae366294ad47ab6}
+      \strng{fullhash}{b38b90f7b21a2100c79c1945ff68fdb1}
+      \strng{bibnamehash}{af3e66cbd146373cfae366294ad47ab6}
+      \strng{authorbibnamehash}{af3e66cbd146373cfae366294ad47ab6}
+      \strng{authornamehash}{af3e66cbd146373cfae366294ad47ab6}
+      \strng{authorfullhash}{b38b90f7b21a2100c79c1945ff68fdb1}
+      \field{labelalpha}{Hol+20}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{day}{30}
-      \field{month}{10}
-      \field{title}{The \texttt{biblatex} Package}
-      \field{urlday}{20}
-      \field{urlmonth}{12}
-      \field{urlyear}{2018}
-      \field{year}{2018}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
+      \field{issn}{0146-4833}
+      \field{journaltitle}{ACM SIGCOMM Computer Communication Review}
+      \field{month}{7}
+      \field{number}{3}
+      \field{title}{Tracking the deployment of TLS 1.3 on the web: a story of experimentation and centralization}
+      \field{volume}{50}
+      \field{year}{2020}
+      \field{pages}{3\bibrangedash 15}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1145/3411740.3411742
+      \endverb
       \verb{urlraw}
-      \verb mirrors.ctan.org/macros/latex/contrib/biblatex/doc/biblatex.pdf
+      \verb http://dx.doi.org/10.1145/3411740.3411742
       \endverb
       \verb{url}
-      \verb mirrors.ctan.org/macros/latex/contrib/biblatex/doc/biblatex.pdf
+      \verb http://dx.doi.org/10.1145/3411740.3411742
       \endverb
     \endentry
-    \entry{floats2014}{article}{}
+    \entry{rfc2810}{online}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=9355edd511e3f6fdd880ee98722a53fb}{%
-           family={Mittelbach},
-           familyi={M\bibinitperiod},
-           given={Frank},
-           giveni={F\bibinitperiod},
-           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fbf1a89914ce3c840fd37282c75e2e70}{%
+           family={{Internet Engineering Task Force}},
+           familyi={I\bibinitperiod}}}%
       }
-      \list{location}{1}{%
-        {Portland ({OR}), {USA}}%
+      \strng{namehash}{fbf1a89914ce3c840fd37282c75e2e70}
+      \strng{fullhash}{fbf1a89914ce3c840fd37282c75e2e70}
+      \strng{bibnamehash}{fbf1a89914ce3c840fd37282c75e2e70}
+      \strng{authorbibnamehash}{fbf1a89914ce3c840fd37282c75e2e70}
+      \strng{authornamehash}{fbf1a89914ce3c840fd37282c75e2e70}
+      \strng{authorfullhash}{fbf1a89914ce3c840fd37282c75e2e70}
+      \field{extraname}{1}
+      \field{labelalpha}{Int00}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Acesso em 14 de agosto de 2024}
+      \field{title}{Internet Relay Chat: Architecture}
+      \field{year}{2000}
+      \verb{urlraw}
+      \verb https://datatracker.ietf.org/doc/html/rfc2810
+      \endverb
+      \verb{url}
+      \verb https://datatracker.ietf.org/doc/html/rfc2810
+      \endverb
+    \endentry
+    \entry{rfc5321}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=fbf1a89914ce3c840fd37282c75e2e70}{%
+           family={{Internet Engineering Task Force}},
+           familyi={I\bibinitperiod}}}%
       }
-      \list{publisher}{1}{%
-        {\TeX{} {Users} {Group}}%
+      \strng{namehash}{fbf1a89914ce3c840fd37282c75e2e70}
+      \strng{fullhash}{fbf1a89914ce3c840fd37282c75e2e70}
+      \strng{bibnamehash}{fbf1a89914ce3c840fd37282c75e2e70}
+      \strng{authorbibnamehash}{fbf1a89914ce3c840fd37282c75e2e70}
+      \strng{authornamehash}{fbf1a89914ce3c840fd37282c75e2e70}
+      \strng{authorfullhash}{fbf1a89914ce3c840fd37282c75e2e70}
+      \field{extraname}{2}
+      \field{labelalpha}{Int08}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Acesso em 14 de agosto de 2024}
+      \field{title}{Simple Mail Transfer Protocol}
+      \field{year}{2008}
+      \verb{urlraw}
+      \verb https://datatracker.ietf.org/doc/html/rfc5321
+      \endverb
+      \verb{url}
+      \verb https://datatracker.ietf.org/doc/html/rfc5321
+      \endverb
+    \endentry
+    \entry{matrixspec}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b4964a132cc13191b78678f4da6295da}{%
+           family={{Matrix.org}},
+           familyi={M\bibinitperiod}}}%
       }
-      \strng{namehash}{9355edd511e3f6fdd880ee98722a53fb}
-      \strng{fullhash}{9355edd511e3f6fdd880ee98722a53fb}
-      \strng{bibnamehash}{9355edd511e3f6fdd880ee98722a53fb}
-      \strng{authorbibnamehash}{9355edd511e3f6fdd880ee98722a53fb}
-      \strng{authornamehash}{9355edd511e3f6fdd880ee98722a53fb}
-      \strng{authorfullhash}{9355edd511e3f6fdd880ee98722a53fb}
-      \field{labelalpha}{Mit14}
+      \strng{namehash}{b4964a132cc13191b78678f4da6295da}
+      \strng{fullhash}{b4964a132cc13191b78678f4da6295da}
+      \strng{bibnamehash}{b4964a132cc13191b78678f4da6295da}
+      \strng{authorbibnamehash}{b4964a132cc13191b78678f4da6295da}
+      \strng{authornamehash}{b4964a132cc13191b78678f4da6295da}
+      \strng{authorfullhash}{b4964a132cc13191b78678f4da6295da}
+      \field{labelalpha}{Mat24}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journalsubtitle}{Communications of the \TeX{} Users Group}
-      \field{journaltitle}{{TUGboat}}
-      \field{number}{3}
-      \field{title}{How to influence the position of float environments like figure and table in {\LaTeX}?}
-      \field{urlday}{9}
-      \field{urlmonth}{1}
-      \field{urlyear}{2020}
-      \field{volume}{35}
-      \field{year}{2014}
-      \field{urldateera}{ce}
+      \field{note}{Acesso em 14 de agosto de 2024}
+      \field{title}{Matrix Specification}
+      \field{year}{2024}
       \verb{urlraw}
-      \verb tug.org/TUGboat/tb35-3/tb111mitt-float.pdf
+      \verb https://spec.matrix.org/latest/
       \endverb
       \verb{url}
-      \verb tug.org/TUGboat/tb35-3/tb111mitt-float.pdf
+      \verb https://spec.matrix.org/latest/
       \endverb
     \endentry
-    \entry{schmidt03:MSc}{thesis}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=ddc6301cfc4f0d93eb7736e5ad506357}{%
-           family={Schmidt},
-           familyi={S\bibinitperiod},
-           given={Rodrigo\bibnamedelima M.},
-           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod},
+    \entry{Moura2020}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=13aa965acac3f5e2d209fd467f00e316}{%
+           family={Moura},
+           familyi={M\bibinitperiod},
+           given={Giovane\bibnamedelimb C.\bibnamedelimi M.},
+           giveni={G\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b8a78272558fa1406677d637af48845f}{%
+           family={Castro},
+           familyi={C\bibinitperiod},
+           given={Sebastian},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9c41ce1afcf9c05635615f21c732b1cc}{%
+           family={Hardaker},
+           familyi={H\bibinitperiod},
+           given={Wes},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3d27356a0d9b31e2c6e2a8b538cf1775}{%
+           family={Wullink},
+           familyi={W\bibinitperiod},
+           given={Maarten},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b66b07d332523d6c437f04e5e8a19126}{%
+           family={Hesselman},
+           familyi={H\bibinitperiod},
+           given={Cristian},
+           giveni={C\bibinitperiod},
            givenun=0}}%
       }
-      \list{institution}{1}{%
-        {Instituto de Computação, Universidade de Campinas}%
+      \list{publisher}{1}{%
+        {ACM}%
       }
-      \list{location}{1}{%
-        {Campinas, Brasil}%
+      \strng{namehash}{a105b4369747a7b496ece026c2fd9121}
+      \strng{fullhash}{858b676a846aee05a9b24f7ec48a4165}
+      \strng{bibnamehash}{858b676a846aee05a9b24f7ec48a4165}
+      \strng{authorbibnamehash}{858b676a846aee05a9b24f7ec48a4165}
+      \strng{authornamehash}{a105b4369747a7b496ece026c2fd9121}
+      \strng{authorfullhash}{858b676a846aee05a9b24f7ec48a4165}
+      \field{labelalpha}{Mou+20}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the ACM Internet Measurement Conference}
+      \field{month}{10}
+      \field{series}{IMC ’20}
+      \field{title}{Clouding up the Internet: how centralized is DNS traffic becoming?}
+      \field{year}{2020}
+      \verb{doi}
+      \verb 10.1145/3419394.3423625
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1145/3419394.3423625
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1145/3419394.3423625
+      \endverb
+    \endentry
+    \entry{ricochet}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e38f161f104780d651e487674b3130ac}{%
+           family={{Ricochet}},
+           familyi={R\bibinitperiod}}}%
       }
-      \strng{namehash}{ddc6301cfc4f0d93eb7736e5ad506357}
-      \strng{fullhash}{ddc6301cfc4f0d93eb7736e5ad506357}
-      \strng{bibnamehash}{ddc6301cfc4f0d93eb7736e5ad506357}
-      \strng{authorbibnamehash}{ddc6301cfc4f0d93eb7736e5ad506357}
-      \strng{authornamehash}{ddc6301cfc4f0d93eb7736e5ad506357}
-      \strng{authorfullhash}{ddc6301cfc4f0d93eb7736e5ad506357}
-      \field{labelalpha}{Sch03}
+      \strng{namehash}{e38f161f104780d651e487674b3130ac}
+      \strng{fullhash}{e38f161f104780d651e487674b3130ac}
+      \strng{bibnamehash}{e38f161f104780d651e487674b3130ac}
+      \strng{authorbibnamehash}{e38f161f104780d651e487674b3130ac}
+      \strng{authornamehash}{e38f161f104780d651e487674b3130ac}
+      \strng{authorfullhash}{e38f161f104780d651e487674b3130ac}
+      \field{labelalpha}{Ric24}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Acesso em 14 de agosto de 2024}
+      \field{title}{Ricochet}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://github.com/ricochet-im/ricochet
+      \endverb
+      \verb{url}
+      \verb https://github.com/ricochet-im/ricochet
+      \endverb
+    \endentry
+    \entry{scuttlebutt}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=babe89d85e6643dbc34d1dba1f9b3ddb}{%
+           family={{Scuttlebutt}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{babe89d85e6643dbc34d1dba1f9b3ddb}
+      \strng{fullhash}{babe89d85e6643dbc34d1dba1f9b3ddb}
+      \strng{bibnamehash}{babe89d85e6643dbc34d1dba1f9b3ddb}
+      \strng{authorbibnamehash}{babe89d85e6643dbc34d1dba1f9b3ddb}
+      \strng{authornamehash}{babe89d85e6643dbc34d1dba1f9b3ddb}
+      \strng{authorfullhash}{babe89d85e6643dbc34d1dba1f9b3ddb}
+      \field{labelalpha}{Scu24}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{month}{10}
-      \field{title}{Coleta de Lixo para Protocolos de \emph{Checkpointing}}
-      \field{type}{mathesis}
-      \field{year}{2003}
+      \field{note}{Acesso em 14 de agosto de 2024}
+      \field{title}{Scuttlebutt}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://ssbc.github.io/scuttlebutt-protocol-guide/
+      \endverb
+      \verb{url}
+      \verb https://ssbc.github.io/scuttlebutt-protocol-guide/
+      \endverb
+    \endentry
+    \entry{simplex}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c29b57aba6e166b1d5f34ec617d03038}{%
+           family={{Simplex Chat}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{c29b57aba6e166b1d5f34ec617d03038}
+      \strng{fullhash}{c29b57aba6e166b1d5f34ec617d03038}
+      \strng{bibnamehash}{c29b57aba6e166b1d5f34ec617d03038}
+      \strng{authorbibnamehash}{c29b57aba6e166b1d5f34ec617d03038}
+      \strng{authornamehash}{c29b57aba6e166b1d5f34ec617d03038}
+      \strng{authorfullhash}{c29b57aba6e166b1d5f34ec617d03038}
+      \field{labelalpha}{Sim24}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Acesso em 14 de agosto de 2024}
+      \field{title}{Simplex Chat}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://github.com/simplex-chat/simplex-chat
+      \endverb
+      \verb{url}
+      \verb https://github.com/simplex-chat/simplex-chat
+      \endverb
+    \endentry
+    \entry{lorawan}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d6d2b2ef177586fdd3acc752a5369164}{%
+           family={{The Things Network}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{d6d2b2ef177586fdd3acc752a5369164}
+      \strng{fullhash}{d6d2b2ef177586fdd3acc752a5369164}
+      \strng{bibnamehash}{d6d2b2ef177586fdd3acc752a5369164}
+      \strng{authorbibnamehash}{d6d2b2ef177586fdd3acc752a5369164}
+      \strng{authornamehash}{d6d2b2ef177586fdd3acc752a5369164}
+      \strng{authorfullhash}{d6d2b2ef177586fdd3acc752a5369164}
+      \field{labelalpha}{The24}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Acesso em 14 de agosto de 2024}
+      \field{title}{LoRaWAN}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://www.thethingsnetwork.org/docs/lorawan/
+      \endverb
+      \verb{url}
+      \verb https://www.thethingsnetwork.org/docs/lorawan/
+      \endverb
+    \endentry
+    \entry{toxcore}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=015a6ef07e0cfb6c7f7344f152f926d1}{%
+           family={{TokTok}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{015a6ef07e0cfb6c7f7344f152f926d1}
+      \strng{fullhash}{015a6ef07e0cfb6c7f7344f152f926d1}
+      \strng{bibnamehash}{015a6ef07e0cfb6c7f7344f152f926d1}
+      \strng{authorbibnamehash}{015a6ef07e0cfb6c7f7344f152f926d1}
+      \strng{authornamehash}{015a6ef07e0cfb6c7f7344f152f926d1}
+      \strng{authorfullhash}{015a6ef07e0cfb6c7f7344f152f926d1}
+      \field{labelalpha}{Tok24}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Acesso em 14 de agosto de 2024}
+      \field{title}{Tox}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://github.com/TokTok/c-toxcore
+      \endverb
+      \verb{url}
+      \verb https://github.com/TokTok/c-toxcore
+      \endverb
+    \endentry
+    \entry{Vermeulen2023}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=d23489faed9de9db11e5df0e4229051d}{%
+           family={Vermeulen},
+           familyi={V\bibinitperiod},
+           given={Kevin},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=98851432b69b2804b1e06fd8bdc99927}{%
+           family={Salamatian},
+           familyi={S\bibinitperiod},
+           given={Loqman},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=70e545eee17daca529cb200143185473}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Sang\bibnamedelima Hoon},
+           giveni={S\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b9b15d7434942f95039f203ef365b073}{%
+           family={Calder},
+           familyi={C\bibinitperiod},
+           given={Matt},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=53f652cbbb5d9aa1b585aa2434277747}{%
+           family={Katz-Bassett},
+           familyi={K\bibinithyphendelim B\bibinitperiod},
+           given={Ethan},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{e0b8176ceeba1f79ab4277d577c542d6}
+      \strng{fullhash}{66d9557c32dfdaac750eb009facda3ec}
+      \strng{bibnamehash}{66d9557c32dfdaac750eb009facda3ec}
+      \strng{authorbibnamehash}{66d9557c32dfdaac750eb009facda3ec}
+      \strng{authornamehash}{e0b8176ceeba1f79ab4277d577c542d6}
+      \strng{authorfullhash}{66d9557c32dfdaac750eb009facda3ec}
+      \field{labelalpha}{Ver+23}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 22nd ACM Workshop on Hot Topics in Networks}
+      \field{month}{11}
+      \field{series}{HotNets ’23}
+      \field{title}{The Central Problem with Distributed Content: Common CDN Deployments Centralize Traffic In A Risky Way}
+      \field{year}{2023}
+      \verb{doi}
+      \verb 10.1145/3626111.3628213
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1145/3626111.3628213
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1145/3626111.3628213
+      \endverb
+    \endentry
+    \entry{xmppspec}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b329a00389282d3e4c2ef3dc60be8524}{%
+           family={{XMPP Standards Foundation}},
+           familyi={X\bibinitperiod}}}%
+      }
+      \strng{namehash}{b329a00389282d3e4c2ef3dc60be8524}
+      \strng{fullhash}{b329a00389282d3e4c2ef3dc60be8524}
+      \strng{bibnamehash}{b329a00389282d3e4c2ef3dc60be8524}
+      \strng{authorbibnamehash}{b329a00389282d3e4c2ef3dc60be8524}
+      \strng{authornamehash}{b329a00389282d3e4c2ef3dc60be8524}
+      \strng{authorfullhash}{b329a00389282d3e4c2ef3dc60be8524}
+      \field{labelalpha}{XMP24}
+      \field{sortinit}{X}
+      \field{sortinithash}{1965c258adceecf23ce3d67b05113442}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Acesso em 14 de agosto de 2024}
+      \field{title}{XMPP: Core}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://xmpp.org/about/technology-overview/
+      \endverb
+      \verb{url}
+      \verb https://xmpp.org/about/technology-overview/
+      \endverb
     \endentry
   \enddatalist
+  \missing{FSF:GNU-GPL}
+  \missing{Knuth:96}
+  \missing{Zembruzki2022}
+  \missing{alves03:simi}
+  \missing{alvisi99:analysisCIC}
+  \missing{biblatex}
+  \missing{bobaoglu93:concepts}
+  \missing{floats2014}
+  \missing{fowler04:designDead}
+  \missing{garcia01:PhD}
+  \missing{gridftp}
+  \missing{natbib}
+  \missing{schmidt03:MSc}
 \endrefsection
 \endinput
 
