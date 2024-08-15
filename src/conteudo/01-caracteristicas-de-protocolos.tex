@@ -6,7 +6,7 @@
 
 Antes de analisar implementações existentes de protocolos de envio de mensagens descentralizados, é importante definir alguns conceitos e características importantes para a compreensão do funcionamento desses protocolos. Este capitulo será dedicado a explicar importantes definições e características de protocolos de comunicação.
 
-\section{Protocolos de comunicação}
+\section{Tipos de protocolos de comunicação}
 
 Uma primeira distinção importante a ser feita é entre protocolos de comunicação centralizados e descentralizados. A partir dessas definições é possível definir melhor outros termos e conceitos relacionados a protocolos de comunicação.
 
@@ -28,21 +28,7 @@ Por outro lado, podemos definir um protocolo descentralizado como:
 
 Os protocolos descentralizados têm várias vantagens em relação aos centralizados, como maior resistência a falhas, maior privacidade e menor vulnerabilidade a censura. No entanto, eles também apresentam desafios, como a necessidade de garantir a integridade e a consistência dos dados em um ambiente distribuído e a necessidade de lidar com questões de escalabilidade e desempenho. Além disso, a ausência de uma entidade centralizada pode dificultar a implementação de certas funcionalidades, como backups, moderação de conteúdo e integração com outros serviços.
 
-Uma vez que a transmissão de dados na rede passa por muitos computadores até chegar ao seu destino, é importante garantir que esses dados sejam transmitidos de forma segura e confiável. Uma maneira de fazer isso é através da criptografia. Podemos a definir como:
-
-\statetheoremsolid{
-\begin{defin}
-    A \textbf{criptografia} é o processo de codificar informações de forma que apenas o destinatário pretendido possa decodificá-las. A criptografia é amplamente utilizada em protocolos de comunicação para garantir a confidencialidade, integridade e autenticidade dos dados transmitidos.
-\end{defin}
-}
-
-Sistemas de comunicação modernos podem utilizar criptografia em passos discretos do processo de comunicação, ou no caminho completo de ponta a ponta. A criptografia de ponta a ponta é um método de criptografia em que os dados são criptografados no dispositivo do remetente e só podem ser descriptografados no dispositivo do destinatário. Isso garante que os dados permaneçam seguros, mesmo se forem roteados por uma entidade central, ou sejam transmitidos por uma rede não confiável.
-
-Algumas outras definições importantes para discussões nesse capítulo incluem:
-
-\section{Características de protocolos de comunicação}
-
-Além das definições acima, existem várias características importantes que podem ser usadas para avaliar e comparar diferentes protocolos de envio de mensagens descentralizados. Algumas dessas características incluem:
+Independente do seu nível de centralização ou descentralização, os protocolos de comunicação podem ser classificados de acordo com várias características e funcionalidades. Algumas das características mais importantes incluem:
 
 \begin{itemize}
     \item \textbf{Privacidade de metadados:} Mesmo que a grande maioria dos protocolos modernos de comunicação garantam a privacidade do conteúdo das mensagens, muitos deles ainda coletam e armazenam metadados, como informações sobre quem enviou a mensagem, quando foi enviada e para quem foi enviada. Além disso, durante a sua transmissão, dados relacionados com os computadores de origem e destino, informações de interfaces de rede, endereços de IP podem ser coletadas por terceiros. Protocolos que garantem a privacidade de metadados são capazes de proteger essas informações e garantir que elas permaneçam privadas.
@@ -54,9 +40,37 @@ Além das definições acima, existem várias características importantes que p
     \item \textbf{Assincronicidade:} Protocolos assíncronos permitem que os usuários enviem mensagens sem depender da disponibilidade do destinatário. Esta funcionalidade geralmente depende de um sistema de armazenamento de mensagens, que pode ser centralizado ou não, que permite que as mensagens sejam entregues mesmo quando o destinatário não está online.
 \end{itemize}
 
+\section{Confidencialidade, integridade e autenticidade}
+
+Como mensagens transmitidas pela internet passam por muitos computadores diferentes antes de chegarem ao seu destino, é importante garantir que elas permaneçam seguras e protegidas durante todo o processo. Dentro desse contexto, surgem três definições fundamentais para a segurança de comunicações:
+
+\statetheoremsolid{
+\begin{defin}
+    A \textbf{confidencialidade} é a garantia de que as informações transmitidas permaneçam privadas e só possam ser acessadas por pessoas autorizadas.
+\end{defin}
+}
+
+\statetheoremsolid{
+\begin{defin}
+    A \textbf{integridade} é a garantia de que as informações transmitidas não foram alteradas ou corrompidas durante o processo de comunicação.
+\end{defin}
+}
+
+\statetheoremsolid{
+\begin{defin}
+    A \textbf{autenticidade} é a garantia de que as informações transmitidas são provenientes de uma fonte confiável e não foram falsificadas ou alteradas por terceiros.
+\end{defin}
+}
+
+Esses três requerimentos podem ser atendidos através de criptografia, que é o processo de codificar informações de forma que apenas pessoas autorizadas possam decodificá-las. Protocolos modernos de criptografação, assinatura digital, e verificação de integridade permitem que qualquer mensagem recebida possa ser verificada, garantindo que veio de um remetente confiável, e que não foi alterada ou lida durante a sua transmissão.
+
+Sistemas de comunicação modernos podem utilizar estas ferramentas em passos discretos do processo de comunicação, ou no caminho completo do remetente ao destinatário. A criptografia de ponta a ponta é um método de criptografia em que os dados são criptografados no dispositivo do remetente e só podem ser descriptografados no dispositivo do destinatário. Isso garante que os dados permaneçam seguros, mesmo se forem roteados por uma entidade central, ou sejam transmitidos por uma rede não confiável.
+
 \section {Redes locais, NATs e firewalls}
 
-A grande maioria de usuários da internet não possuem diretamente um endereço de IP público, que é um endereço único e globalmente acessível que identifica um dispositivo na internet. Em vez disso, eles estão conectados a uma rede local, que é uma rede privada em que múltiplos dispositivos compartilham um único endereço de IP público. O roteador é o dispositivo reponsável por gerenciar o tráfego de dados entre a rede local e a internet, redirecionando dados recebidos externamente para os dispositivos corretos na rede local. 
+A grande maioria de usuários da internet não possuem diretamente um endereço de IP público, que é um endereço único e globalmente acessível que identifica um dispositivo na internet. Em vez disso, eles estão conectados a uma rede local, que é uma rede privada em que múltiplos dispositivos compartilham um único endereço de IP público. O roteador é o dispositivo reponsável por gerenciar o tráfego de dados entre a rede local e a internet, redirecionando dados de respostas de serviços externos para os dispositivos corretos na rede local.
+
+Geralmente, dispositivos que estão conectados a uma rede local por meio de um NAT possuem grandes restrições na sua habilidade de receber conexões de fora da rede local. Isso ocorre porque o NAT não sabe para qual dispositivo na rede local deve redirecionar a conexão recebida. Além disso, firewalls, que são programas de segurança que monitoram e controlam o tráfego de dados entre a rede local e a internet, podem bloquear conexões recebidas de fora da rede local. Enquanto existem protocolos que permitem que um dispositivos dentro de um NAT receba conexões externas, não é incomum que ambos os dispositivos encontrem-se em redes que não permitem conexões externas. Nesse caso, eles não conseguem estabelecer uma conexão direta entre si, e vão precisar de um intermediário para ajudar a encaminhar as mensagens entre eles.
 
 \section {Relays em protocolos de comunicação}
 
@@ -64,7 +78,7 @@ Um tipo de computador comumente utilizado em protocolos de comunicação descent
 
 \statetheoremsolid{
 \begin{defin}
-    Um \textbf{relay} é um servidor intermediário que ajuda a encaminhar mensagens entre diferentes usuários em um protocolo de comunicação descentralizado. Os relays geralmente possuem arquitetura interna bem simples, apenas encaminhando mensagens entre usuários, sem armazenar ou processar dados.
+    Um \textbf{relay} é um servidor intermediário que ajuda a encaminhar mensagens entre diferentes usuários em um protocolo de comunicação descentralizado. Os relays geralmente possuem arquitetura interna bem simples, apenas encaminhando mensagens entre usuários, sem armazenar definitivamente ou processar dados.
 \end{defin}
 }
 
@@ -74,20 +88,34 @@ Relays são principalmente utilizados para contornar restrições de roteamento 
 
 O Tor é uma rede de comunicação descentralizada que permite que os usuários naveguem na internet de forma anônima e segura. Ele é composto por uma rede de servidores de voluntários, chamados de relays, que se dispõe a redirecionar o tráfego de internet de forma anônima. Como estes voluntários são desconhecidos, o protocolo da rede é desenhado para minimizar a quantidade de informações que cada relay tem acesso, garantindo a privacidade dos usuários. Esta rede pode ser utilizada tanto para navegação em websites comuns da internet com mais privacidade, assim como para acessar serviços ocultos, que são sites que só podem ser acessados através da rede Tor.
 
+\subsection{Circuitos e troca de chaves}
+
+Quando um usuário se conecta à rede Tor, o seu tráfego é roteado através de uma série de relays, chamados de circuito. Cada circuito é composto por três relays, chamados de entrada, intermediário e saída. O relay de entrada é o primeiro a receber a mensagem do usuário, o relay intermediário é o segundo a receber a mensagem, e o relay de saída é o último a enviar a mensagem para o destino. Cada relay apenas tem acesso a informações sobre o relay anterior e o próximo, o que ajuda a limitar a quantidade de informações que cada relay tem acesso.
+
+O usuário realiza a troca de chaves criptográficas com cada relay do circuito, de forma que cada relay possa criptografar e descriptografar a mensagem. Quando o usuário vai enviar um pedido, ele o criptografa com todas as chaves dos relays do circuito, começando com a chave do relay de saída, depois a chave do relay intermediário, e por fim a chave do relay de entrada. Cada relay descriptografa a mensagem com a sua chave, e analisa se deve encaminhar a mensagem para o próximo relay ou atuar como um relay de saída.
+
+Esse processo pode ser realizado uma vez para o usuário enviar uma requisição para um website na internet comum, ou várias vezes para o usuário acessar um serviço oculto.
+
 \subsection{Acesso a sites comuns}
 
-Quando um usuário acessa um site comum da internet através da rede Tor, a sua conexão é roteada através de três relays diferentes, chamados de entrada, intermediário e saída. Cada relay apenas tem acesso a informações sobre o relay anterior e o próximo, o que ajuda a limitar a quantidade de informações que cada relay tem acesso:
+Quando um usuário acessa um site comum da internet através da rede Tor, ele apenas precisa estabelecer um circuito. Ele já é suficiente para obfuscar o tráfego, uma vez que cada relay apenas tem acesso a informações sobre o relay anterior e o próximo. Isso significa que:
 
 \begin{itemize}
     \item O relay de entrada sabe o endereço IP do usuário, mas não sabe o que ele está acessando.
-    \item O relay intermediário não sabe nada sobre usuários e não pode ver o conteúdo transmitido.
+    \item O relay intermediário não sabe nada sobre remetentes ou destinatários e não pode ver o conteúdo transmitido, apenas sabendo a quantidade de dados transmitidos.
     \item O relay de saída sabe que algum usuário da rede está acessando aquele serviço, mas não sabe quem é o usuário.
 \end{itemize}
 
-Um vídeo excelente publicado pela Universidade de Nottingham que entra em mais detalhes sobre a troca de chaves e a criptografia do protocolo Tor pode ser encontrado em \cite{computerphile}.
+Um vídeo excelente publicado pela Universidade de Nottingham que entra em mais detalhes sobre a troca de chaves e a criptografia do protocolo Tor pode ser encontrado em \cite{computerphile-tor}.
 
 A utilização do protocolo Tor para acessar sites comuns da internet é conceitualmente similar a utilizar um serviço de Virtual Private Network (VPN). Ambos agem como um intermediário entre o usuário e o site acessado, escondendo o endereço IP real do usuário e protegendo a sua privacidade. No entanto, enquanto Tor é gratuito, mais anônimo e descentralizado, VPNs são pagas, centralizadas, mas geralmente possuem melhor desempenho.
 
 \subsection{Acesso a serviços ocultos}
 
-Além de permitir o acesso a sites comuns da internet de forma anônima, o Tor também suporta a criação e acesso a serviços ocultos, que são sites que só podem ser acessados através da rede Tor. Estes sites possuem um endereço especial, terminado em .onion, que é gerado a partir de uma chave pública do servidor. A utilização de serviços ocultos permite que os usuários hospedem sites de forma anônima e segura, sem precisarem de um firewall aberto e sem revelar a localização física do servidor.
+Além de permitir o acesso a sites comuns da internet de forma anônima, o Tor também suporta a criação e acesso a serviços ocultos, que são sites que só podem ser acessados através da rede Tor. Estes sites possuem um endereço especial, terminado em .onion, que é gerado a partir de uma chave pública do servidor. A utilização de serviços ocultos permite que os usuários hospedem sites de forma anônima e segura, contornando restrições de firewalls e NATs, sem precisarem expor a localização física do servidor.
+
+Quando um usuário acessa um serviço oculto, ele estabelece uma série de circuitos, buscando que tanto ele quanto o serviço oculto estabeleçam um circuito com um relay intermediário em comum. Isso permite que o usuário e o serviço oculto possam se comunicar de forma anônima, sem que nenhum dos dois saiba a localização física do outro.
+
+A Universidade de Nottingham também publicou um vídeo excelente que entra em mais detalhes sobre como funcionam os serviços ocultos do protocolo Tor, que pode ser encontrado em \cite{computerphile-hidden-services}.
+
+Serviços ocultos são extremamente úteis no contexto da transmissão segura de mensagens online, uma vez que eles lidam com limitações de firewalls e NATs, oferecendo comunicação que é segura e anônima. Por outro lado, a grande quantidade de intermediários no encaminhamento de mensagens significa que a latência e a velocidade da comunicação podem ser comprometidas.
