@@ -1,0 +1,93 @@
+%!TeX root=../tese.tex
+%("dica" para o editor de texto: este arquivo é parte de um documento maior)
+% para saber mais: https://tex.stackexchange.com/q/78101
+
+\chapter{Definições importantes}
+
+Antes de analisar implementações existentes de protocolos de envio de mensagens descentralizados, é importante definir alguns conceitos e características importantes para a compreensão do funcionamento desses protocolos. Este capitulo será dedicado a explicar importantes definições e características de protocolos de comunicação.
+
+\section{Protocolos de comunicação}
+
+Uma primeira distinção importante a ser feita é entre protocolos de comunicação centralizados e descentralizados. A partir dessas definições é possível definir melhor outros termos e conceitos relacionados a protocolos de comunicação.
+
+\statetheoremsolid{
+\begin{defin}
+    Um \textbf{protocolo centralizado} de envio de mensagens é aquele em que suas comunicações passam por servidores controlados por uma única entidade ou organização. Nesse modelo, os servidores centrais gerenciam a transmissão e roteamento das mensagens. Em muitos casos essa entidade central também pode ser responsável pelo armazenamento e criptografia dos dados dos usuários. 
+\end{defin}
+}
+
+Um protocolo com arquitetura centralizada permite um controle mais rigoroso sobre o fluxo de dados, o que facilita a implementação de funcionalidades como backups, moderação de conteúdo e integração com outros serviços. No entanto, essa centralização também implica riscos, como maior vulnerabilidade a falhas de segurança, falhas de serviço e questões relacionadas à privacidade, já que todos os dados dos usuários são concentrados em um único ponto. Além disso, a dependência de uma entidade centralizada pode levar a restrições de acesso e à censura, uma vez que o controle das comunicações está nas mãos de uma única organização.
+
+Por outro lado, podemos definir um protocolo descentralizado como:
+
+\statetheoremsolid{
+\begin{defin}
+    Um \textbf{protocolo descentralizado} de envio de mensagens é aquele em que as comunicações são distribuídas entre vários nós ou servidores, sem a necessidade de uma entidade central para gerenciar ou governar o fluxo de dados. Nesse modelo, os usuários podem se comunicar diretamente uns com os outros, sem depender de intermediários centralizados.
+\end{defin}
+}
+
+Os protocolos descentralizados têm várias vantagens em relação aos centralizados, como maior resistência a falhas, maior privacidade e menor vulnerabilidade a censura. No entanto, eles também apresentam desafios, como a necessidade de garantir a integridade e a consistência dos dados em um ambiente distribuído e a necessidade de lidar com questões de escalabilidade e desempenho. Além disso, a ausência de uma entidade centralizada pode dificultar a implementação de certas funcionalidades, como backups, moderação de conteúdo e integração com outros serviços.
+
+Uma vez que a transmissão de dados na rede passa por muitos computadores até chegar ao seu destino, é importante garantir que esses dados sejam transmitidos de forma segura e confiável. Uma maneira de fazer isso é através da criptografia. Podemos a definir como:
+
+\statetheoremsolid{
+\begin{defin}
+    A \textbf{criptografia} é o processo de codificar informações de forma que apenas o destinatário pretendido possa decodificá-las. A criptografia é amplamente utilizada em protocolos de comunicação para garantir a confidencialidade, integridade e autenticidade dos dados transmitidos.
+\end{defin}
+}
+
+Sistemas de comunicação modernos podem utilizar criptografia em passos discretos do processo de comunicação, ou no caminho completo de ponta a ponta. A criptografia de ponta a ponta é um método de criptografia em que os dados são criptografados no dispositivo do remetente e só podem ser descriptografados no dispositivo do destinatário. Isso garante que os dados permaneçam seguros, mesmo se forem roteados por uma entidade central, ou sejam transmitidos por uma rede não confiável.
+
+Algumas outras definições importantes para discussões nesse capítulo incluem:
+
+\section{Características de protocolos de comunicação}
+
+Além das definições acima, existem várias características importantes que podem ser usadas para avaliar e comparar diferentes protocolos de envio de mensagens descentralizados. Algumas dessas características incluem:
+
+\begin{itemize}
+    \item \textbf{Privacidade de metadados:} Mesmo que a grande maioria dos protocolos modernos de comunicação garantam a privacidade do conteúdo das mensagens, muitos deles ainda coletam e armazenam metadados, como informações sobre quem enviou a mensagem, quando foi enviada e para quem foi enviada. Além disso, durante a sua transmissão, dados relacionados com os computadores de origem e destino, informações de interfaces de rede, endereços de IP podem ser coletadas por terceiros. Protocolos que garantem a privacidade de metadados são capazes de proteger essas informações e garantir que elas permaneçam privadas.
+    
+    \item \textbf{Escalabilidade:} A escalabilidade é a capacidade de um sistema de crescer e lidar com um aumento no número de usuários e mensagens sem comprometer o desempenho. Protocolos não escaláveis não conseguem lidar com um aumento da demanda mesmo com a adição de mais recursos.
+    
+    \item \textbf{Interoperabilidade:} A interoperabilidade é a capacidade de diferentes sistemas e protocolos de comunicação trabalharem juntos de forma eficiente e eficaz. Alguns protocolos analisados nesta monografia são mais versáteis e implementam uma série de padrões e especificações que permitem a comunicação com outros sistemas e protocolos.
+
+    \item \textbf{Assincronicidade:} Protocolos assíncronos permitem que os usuários enviem mensagens sem depender da disponibilidade do destinatário. Esta funcionalidade geralmente depende de um sistema de armazenamento de mensagens, que pode ser centralizado ou não, que permite que as mensagens sejam entregues mesmo quando o destinatário não está online.
+\end{itemize}
+
+\section {Redes locais, NATs e firewalls}
+
+A grande maioria de usuários da internet não possuem diretamente um endereço de IP público, que é um endereço único e globalmente acessível que identifica um dispositivo na internet. Em vez disso, eles estão conectados a uma rede local, que é uma rede privada em que múltiplos dispositivos compartilham um único endereço de IP público. O roteador é o dispositivo reponsável por gerenciar o tráfego de dados entre a rede local e a internet, redirecionando dados recebidos externamente para os dispositivos corretos na rede local. 
+
+\section {Relays em protocolos de comunicação}
+
+Um tipo de computador comumente utilizado em protocolos de comunicação descentralizados é o relay.
+
+\statetheoremsolid{
+\begin{defin}
+    Um \textbf{relay} é um servidor intermediário que ajuda a encaminhar mensagens entre diferentes usuários em um protocolo de comunicação descentralizado. Os relays geralmente possuem arquitetura interna bem simples, apenas encaminhando mensagens entre usuários, sem armazenar ou processar dados.
+\end{defin}
+}
+
+Relays são principalmente utilizados para contornar restrições de roteamento em redes que possuem camadas de Network Address Translation (NAT) ou firewalls, que podem impedir a comunicação direta entre dois usuários. Outras funcionalidades que eles podem prover incluem a capacidade de armazenar mensagens temporariamente, para que possam ser entregues mesmo quando o destinatário não está online, e a capacidade de diminuir os metadados que estão sendo transmitidos, uma vez que ele pode ocultar o endereço IP real do remetente e destinatário.
+
+\section{The Onion Router (Tor)}
+
+O Tor é uma rede de comunicação descentralizada que permite que os usuários naveguem na internet de forma anônima e segura. Ele é composto por uma rede de servidores de voluntários, chamados de relays, que se dispõe a redirecionar o tráfego de internet de forma anônima. Como estes voluntários são desconhecidos, o protocolo da rede é desenhado para minimizar a quantidade de informações que cada relay tem acesso, garantindo a privacidade dos usuários. Esta rede pode ser utilizada tanto para navegação em websites comuns da internet com mais privacidade, assim como para acessar serviços ocultos, que são sites que só podem ser acessados através da rede Tor.
+
+\subsection{Acesso a sites comuns}
+
+Quando um usuário acessa um site comum da internet através da rede Tor, a sua conexão é roteada através de três relays diferentes, chamados de entrada, intermediário e saída. Cada relay apenas tem acesso a informações sobre o relay anterior e o próximo, o que ajuda a limitar a quantidade de informações que cada relay tem acesso:
+
+\begin{itemize}
+    \item O relay de entrada sabe o endereço IP do usuário, mas não sabe o que ele está acessando.
+    \item O relay intermediário não sabe nada sobre usuários e não pode ver o conteúdo transmitido.
+    \item O relay de saída sabe que algum usuário da rede está acessando aquele serviço, mas não sabe quem é o usuário.
+\end{itemize}
+
+Um vídeo excelente publicado pela Universidade de Nottingham que entra em mais detalhes sobre a troca de chaves e a criptografia do protocolo Tor pode ser encontrado em \cite{computerphile}.
+
+A utilização do protocolo Tor para acessar sites comuns da internet é conceitualmente similar a utilizar um serviço de Virtual Private Network (VPN). Ambos agem como um intermediário entre o usuário e o site acessado, escondendo o endereço IP real do usuário e protegendo a sua privacidade. No entanto, enquanto Tor é gratuito, mais anônimo e descentralizado, VPNs são pagas, centralizadas, mas geralmente possuem melhor desempenho.
+
+\subsection{Acesso a serviços ocultos}
+
+Além de permitir o acesso a sites comuns da internet de forma anônima, o Tor também suporta a criação e acesso a serviços ocultos, que são sites que só podem ser acessados através da rede Tor. Estes sites possuem um endereço especial, terminado em .onion, que é gerado a partir de uma chave pública do servidor. A utilização de serviços ocultos permite que os usuários hospedem sites de forma anônima e segura, sem precisarem de um firewall aberto e sem revelar a localização física do servidor.

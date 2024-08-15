@@ -184,6 +184,34 @@
 % Basta copiar e colar o resultado aqui.
 \fichacatalografica{}
 
+\usepackage{xcolor}
+\definecolor{amber}{rgb}{1.0, 0.49, 0.0}
+\definecolor{cadmiumgreen}{rgb}{0.0, 0.42, 0.24}
+
+\usepackage{amsthm}
+\usepackage{tikz}
+
+\newtheoremstyle{styleth}%
+{3pt}% Space above
+{3pt}% Space below 
+{}% Body font
+{}% Indent amount
+{\bfseries\color{black}}% Theorem head font
+{}% Punctuation after theorem head
+{.5em}% Space after theorem head
+{}% Theorem head spec (can be left empty, meaning ‘normal’)
+\theoremstyle{styleth}
+\newtheorem{defin}{Definição}
+
+\newcommand{\statetheoremsolid}[2][\textwidth]{
+  \par\noindent\tikzstyle{mybox} = [draw=black,fill=white,
+   thick,rectangle,rounded corners,inner sep=6pt]
+  \begin{tikzpicture}
+    \node [mybox] (box){%
+    \begin{minipage}{#1}{#2}\end{minipage}
+   };
+  \end{tikzpicture}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%% AQUI COMEÇA O CONTEÚDO DE FATO %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -346,8 +374,8 @@ fazendo companhia, me dando algo para fazer todo dia.
 \pagestyle{unnumberedchapter}
 \input{conteudo/00-introducao}
 \pagestyle{mainmatter}
-\input{conteudo/01-protocolos-existentes}
-\input{conteudo/02-caracteristicas-de-protocolos}
+\input{conteudo/01-caracteristicas-de-protocolos}
+\input{conteudo/02-protocolos-existentes}
 \input{conteudo/03-exemplo-latex}
 \input{conteudo/04-exemplo-tutorial}
 \input{conteudo/05-exemplo-exemplos}
