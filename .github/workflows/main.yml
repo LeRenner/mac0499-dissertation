@@ -3,7 +3,7 @@ name: Create and release document PDF
 on:
   push:
     branches:
-    - main
+    - mainRelease.txt
 
 jobs:
   push_to_registry:
@@ -17,7 +17,7 @@ jobs:
       - name: Build LaTeX PDF
         uses: docker://lerenner/build-latex-pdf:main
 
-      - name: Release
-        uses: softprops/action-gh-release@v2
+      - name: Upload PDF as artifact
+        uses: actions/upload-artifact@v2
         with:
-          files: tese.pdf
+          name: tese.pdf
