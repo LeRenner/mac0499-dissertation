@@ -22,8 +22,8 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOSTNAME }}
           username: renner
-          password: ${{ secrets.SSH_PASSWORD }}
           key: ${{ secrets.SSH_KEY }}
+          password: ${{ secrets.SSH_PASSWORD }}
           port: 22
           source: "src/tese.pdf"
           target: "/home/bmac/renner/www/MAC0499"
