@@ -12,13 +12,13 @@ Os protocolos analisados federados são:
 \begin{itemize}
   \item \href{https://matrix.org/}{Matrix}
   \item \href{https://xmpp.org/}{XMPP}
-  \item \href{https://en.wikipedia.org/wiki/Email}{E-Mail}
+  \item \href{https://datatracker.ietf.org/doc/html/rfc5321}{E-Mail}
 \end{itemize}
 
 Os protocolos analisados peer-to-peer com relays que não usam Tor são:
 \begin{itemize}
   \item \href{https://simplex.chat/}{SimpleX}
-  \item \href{https://www.irc.org/}{IRC}
+  \item \href{https://datatracker.ietf.org/doc/html/rfc2810}{IRC}
   \item \href{https://lora-alliance.org/}{LoRaWan}
 \end{itemize}
 
@@ -40,11 +40,29 @@ A análise de cada protocolo é focada na arquitetura de rede, e não considera 
 
 \section{Protocolos Federados}
 
-Na arquitetura federada de envio de mensagens, os usuários escolhem servidores específicos para armazenar e transmitir suas mensagens. Esses servidores se comunicam entre si para rotear as mensagens destinadas a usuários em outros servidores. Como o servidor é responsável pela entrega das mensagens, os protocolos federados permitem o envio assíncrono de mensagens. Em geral, os endereços dos usuários nesses sistemas consistem em um nome de usuário combinado com o endereço do servidor.
+Na arquitetura federada de envio de mensagens, cada usuário escolhe um servidor para ser seu provedor de mensagens. Essa maquina será responsável por rotear todas as comunicações do usuário, e em alguns casos também armazenar suas mensagens. É importante que o usuário possa confiar no seu provedor de mensagens, uma vez que ele é um intermediário de todas as comunicações do usuário, que muitas vezes podem ser não criptografadas.
+
+Caso um usuário queira se comunicar com outro usuário em um servidor diferente, os servidores precisam se comunicar entre si para rotear as mensagens. Como o servidor é responsável pelo recebimento e entrega das mensagens, os protocolos federados permitem o envio assíncrono de mensagens. Em geral, os endereços dos usuários nesses sistemas consistem em uma combinação de um nome de usuário com o endereço do servidor.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{federated-email}
+
+  % remember to cite the source of the image
+  \caption{Arquitetura do email, um protocolo federado. \cite{email-picture}}
+\end{figure}
 
 \subsection{Matrix}
 
-O protocolo Matrix é um sistema de comunicação descentralizado e federado projetado para suportar mensagens instantâneas e colaboração em tempo real. Desenvolvido para ser uma solução aberta e interoperável, o Matrix visa fornecer uma infraestrutura robusta para comunicação em diversos contextos, desde chat e chamadas de voz até a troca de arquivos \cite{matrixspec}.
+O protocolo Matrix é um sistema de comunicação descentralizado e federado projetado para suportar mensagens instantâneas e colaboração em tempo real. Desenvolvido para ser uma solução aberta e interoperável, o Matrix visa fornecer uma infraestrutura robusta para comunicação em diversos contextos, desde chat e chamadas de voz até a troca de arquivos. \cite{matrixspec}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{matrix}
+
+  % remember to cite the source of the image
+  \caption{Arquitetura do protocolo Matrix \cite{matrixspec}}
+\end{figure}
 
 \begin{itemize}
   \item \textbf{Tipo de endereço}: @usuário:servidor
@@ -53,7 +71,7 @@ O protocolo Matrix é um sistema de comunicação descentralizado e federado pro
 
 \subsection{XMPP}
 
-O protocolo XMPP (Extensible Messaging and Presence Protocol) é um protocolo federado de mensagens instantâneas e presença. Desenvolvido originalmente pela Jabber Inc., o XMPP é um protocolo aberto e extensível que permite a comunicação entre diferentes servidores e clientes \cite{xmppspec}.
+XMPP (Extensible Messaging and Presence Protocol) é um protocolo de comunicação em tempo real, baseado em XML, que permite a troca descentralizada e segura de mensagens, presença e dados estruturados entre clientes e servidores, suportando uma ampla variedade de funcionalidades, como chat, voz, vídeo e colaboração em grupo, sendo reconhecido por sua extensibilidade e interoperabilidade. \cite{xmppspec}
 
 \begin{itemize}
   \item \textbf{Tipo de endereço}: usuário@servidor
@@ -62,7 +80,7 @@ O protocolo XMPP (Extensible Messaging and Presence Protocol) é um protocolo fe
 
 \subsection{E-Mail}
 
-O E-Mail é um protocolo de comunicação assíncrona que permite o envio e recebimento de mensagens de texto, anexos e outros arquivos \cite{rfc5321}.
+O e-mail (correio eletrônico) é um sistema de comunicação digital que permite o envio e recebimento de mensagens e arquivos entre usuários através de redes de computadores, utilizando protocolos como SMTP, POP3 e IMAP para a transmissão e armazenamento das mensagens. É amplamente utilizado para comunicação pessoal e profissional, sendo uma das formas mais comuns de troca de informações na internet. \cite{rfc5321}
 
 \begin{itemize}
   \item \textbf{Tipo de endereço}: usuário@servidor
@@ -79,7 +97,7 @@ Alguns desses protocolos utilizam como relay a rede Tor, que é uma rede de anon
 
 \subsubsection{SimpleX}
 
-O SimpleX é um protocolo de mensagens instantâneas peer-to-peer que utiliza relays para intermediar a comunicação entre usuários. Sua característica distinta é a sua completa ausência de um identificador de usuário, de modo que usuários podem iniciar uma conversa utilizando um simples código de convite \cite{simplex}.
+O SimpleX é um protocolo de mensagens instantâneas peer-to-peer que utiliza relays para intermediar a comunicação entre usuários. Sua característica distinta é a sua completa ausência de um identificador de usuário, de modo que usuários podem iniciar uma conversa utilizando um simples código de convite. \cite{simplex}
 
 \begin{itemize}
   \item \textbf{Tipo de endereço}: Código de convite
@@ -89,7 +107,7 @@ O SimpleX é um protocolo de mensagens instantâneas peer-to-peer que utiliza re
 
 \subsubsection{IRC}
 
-O IRC (Internet Relay Chat) é um protocolo de comunicação em tempo real que permite a troca de mensagens em canais de chat específicos. As mensagens só podem ser recebidas de forma síncrona, uma vez que o servidor se comporta como um broadcast, enviando as mensagens para todos os usuários conectados \cite{rfc2810}.
+O IRC (Internet Relay Chat) é um protocolo de comunicação em tempo real que foi muito popular no final dos anos 90 e início dos anos 2000, e que ainda é utilizado por algumas comunidades online. Neste protocolo, mensagens só podem ser recebidas de forma síncrona, uma vez que o servidor se comporta como um broadcast, enviando as mensagens para todos os usuários conectados. \cite{rfc2810}
 
 \begin{itemize}
   \item \textbf{Tipo de endereço}: endereço de servidor
@@ -99,19 +117,21 @@ O IRC (Internet Relay Chat) é um protocolo de comunicação em tempo real que p
 
 \subsubsection{LoRaWan}
 
-O LoRaWan é um protocolo de comunicação de longo alcance e baixa potência que permite a comunicação entre dispositivos de Internet of Things (IoT). O protocolo se utiliza tanto de LoRa, que é uma tecnologia de modulação de rádio, quanto de redes de relays para transmitir mensagens entre dispositivos pela internet \cite{lorawan}.
+O LoRaWan é um protocolo de comunicação de longo alcance e baixa potência que permite a comunicação entre dispositivos de Internet of Things (IoT). O protocolo se utiliza tanto de LoRa, que é uma tecnologia de modulação de rádio, quanto de redes de relays para transmitir mensagens entre dispositivos pela internet. \cite{lorawan}
 
 \begin{itemize}
-  \item \textbf{Tipo de endereço}: endereço de dispositivo
+  \item \textbf{Tipo de endereço}: endereço do dispositivo
   \item \textbf{Suporte a criptografia de ponta a ponta}: Sim
   \item \textbf{Assíncrono}: Sim
 \end{itemize}
 
 \subsection{Protocolos Peer-to-Peer com Relays que usam Tor}
 
+Os seguintes protocolos utilizam a rede do Tor para mediar a negociação de chaves e a comunicação entre usuários. A rede Tor é uma rede de anonimização que permite a comunicação anônima e segura entre usuários, mesmo quando eles estão em redes censuradas, com NATs, ou com firewalls restritivos.
+
 \subsubsection{Cwtch}
 
-O Cwtch é um protocolo de mensagens instantâneas peer-to-peer que utiliza a rede Tor para intermediar a comunicação entre usuários. Cada usuário roda um serviço oculto no tor, e os usuários se conectam diretamente uns aos outros através da rede Tor \cite{cwtch}.
+O Cwtch é um protocolo de mensagens instantâneas peer-to-peer que utiliza a rede Tor para intermediar a comunicação entre usuários. Cada usuário roda um serviço oculto no tor, e os usuários se conectam diretamente uns aos outros através da rede Tor. \cite{cwtch}
 
 \begin{itemize}
   \item \textbf{Tipo de endereço}: Endereço do serviço oculto
@@ -121,7 +141,7 @@ O Cwtch é um protocolo de mensagens instantâneas peer-to-peer que utiliza a re
 
 \subsubsection{Ricochet}
 
-O Ricochet funciona de maneira muito similar ao Cwtch. Ele utiliza a rede Tor para intermediar a comunicação entre usuários, e não requer um servidor central para funcionar \cite{ricochet}.
+O Ricochet funciona de maneira muito similar ao Cwtch. Cada usuário também roda um serviço oculto, e conecta-se aos serviços ocultos dos outros usuários. \cite{ricochet}
 
 \begin{itemize}
   \item \textbf{Tipo de endereço}: Endereço do serviço oculto
@@ -131,7 +151,7 @@ O Ricochet funciona de maneira muito similar ao Cwtch. Ele utiliza a rede Tor pa
 
 \subsubsection{Briar}
 
-O Briar é um protocolo muito versátil, e que permite o envio de mensagens através de Bluetooth, Wi-Fi, ou da internet. Quando as mensagens são enviadas pela internet, ele utiliza a rede Tor para intermediar a comunicação entre usuários, e é capaz de funcionar mesmo em redes censuradas \cite{briar}.
+O Briar é um protocolo muito versátil, e que permite o envio de mensagens através de Bluetooth, Wi-Fi, ou da internet. Quando as mensagens são enviadas pela internet, ele utiliza a rede Tor para intermediar a comunicação entre usuários, e é capaz de funcionar mesmo em redes censuradas. \cite{briar}
 
 \begin{itemize}
   \item \textbf{Tipo de endereço}: Chave pública e privada (por meio de um QR code)
@@ -145,7 +165,8 @@ Na arquitetura peer-to-peer sem relays, os usuários se conectam diretamente, ou
 
 \subsection{Secure Scuttlebutt}
 
-O Secure Scuttlebutt é um protocolo de rede social descentralizada, que também permite o envio de mensagens privadas entre usuários. Nele, os usuários armazenam as próprias mensagens, e as replicam para outros usuários que estão conectados a eles. Geralmente, usuários vão receber um endereço de um amigo para se conectar, e a partir daí vão receber mensagens de amigos de amigos, e assim por diante \cite{scuttlebutt}.
+O Secure Scuttlebutt é um protocolo de rede social descentralizada. Nele, os usuários enviam suas postagens diretamente ou indiretamente para outros usuários, sendo assim resiliente a falhas e limitações de rede, e permitindo que usuários acessem conteúdo de forma assíncrona. Para permitir o envio indireto de mensagens ele implementa uma Epidemic Broadcast Tree \cite{ebtpaper}, que replica mensagens de usuários para seus amigos na rede. \cite{scuttlebutt}
+\cite{scuttlebutt}
 
 \begin{itemize}
   \item \textbf{Tipo de endereço}: endereço, porta e chave pública
@@ -155,7 +176,7 @@ O Secure Scuttlebutt é um protocolo de rede social descentralizada, que também
 
 \subsection{Tox}
 
-O tox é um protocolo de mensagens que primariamente não utiliza servidores intermediários, mas que pode recorrer a relays quando ambos os usuários não podem receber conexões externas. Ele permite o envio de mensagens, chamadas de voz e videoconferência \cite{toxcore}.
+O tox é um protocolo de mensagens peer-to-peer que permite o envio de mensagens de texto, assim como chamadas de voz e vídeo. Enquanto ele não permite o envio indireto de mensagens, ele implementa "Bootstrap Nodes", que são maquinas que auxiliam usuários a encontrar a Tabela de Hash Distribuida (DHT, do inglês) do tox, que é usada para encontrar outros usuários. \cite{toxcore}
 
 \begin{itemize}
   \item \textbf{Tipo de endereço}: Chave pública
@@ -165,7 +186,7 @@ O tox é um protocolo de mensagens que primariamente não utiliza servidores int
 
 \subsection{Bitmessage}
 
-Bitmessage é um protocolo que apresenta similaridades com o Bitcoin, uma vez que usuários precisam resolver um desafio de prova de trabalho para enviar mensagens. Nele, mensagens percorrem a rede inteira até chegar ao destinatário \cite{bitmessage}.
+Bitmessage é um protocolo que apresenta similaridades com o Bitcoin, uma vez que usuários precisam resolver um desafio de prova de trabalho para enviar mensagens. Nele, mensagens percorrem a rede inteira até chegar ao destinatário. \cite{bitmessage}
 
 \begin{itemize}
   \item \textbf{Tipo de endereço}: Chave pública

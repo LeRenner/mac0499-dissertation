@@ -90,7 +90,7 @@ O Tor é uma rede de comunicação descentralizada que permite que os usuários 
 
 \subsection{Circuitos e troca de chaves}
 
-Quando um usuário se conecta à rede Tor, o seu tráfego é roteado através de uma série de relays, chamados de circuito. Cada circuito é composto por três relays, chamados de entrada, intermediário e saída. O relay de entrada é o primeiro a receber a mensagem do usuário, o relay intermediário é o segundo a receber a mensagem, e o relay de saída é o último a enviar a mensagem para o destino. Cada relay apenas tem acesso a informações sobre o relay anterior e o próximo, o que ajuda a limitar a quantidade de informações que cada relay tem acesso.
+Quando um usuário se conecta à rede Tor, o seu tráfego é roteado através de uma série de relays, chamada de circuito. Cada circuito é composto usualmente por três relays, chamados de entrada, intermediário e saída. O relay de entrada é o primeiro a receber a mensagem do usuário, o relay intermediário é o segundo a receber a mensagem, e o relay de saída é o último a enviar a mensagem para o destino. Cada relay apenas tem acesso a informações sobre o relay anterior e o próximo, o que ajuda a limitar a quantidade de informações que cada relay tem acesso.
 
 O usuário realiza a troca de chaves criptográficas com cada relay do circuito, de forma que cada relay possa criptografar e descriptografar a mensagem. Quando o usuário vai enviar um pedido, ele o criptografa com todas as chaves dos relays do circuito, começando com a chave do relay de saída, depois a chave do relay intermediário, e por fim a chave do relay de entrada. Cada relay descriptografa a mensagem com a sua chave, e analisa se deve encaminhar a mensagem para o próximo relay ou atuar como um relay de saída.
 

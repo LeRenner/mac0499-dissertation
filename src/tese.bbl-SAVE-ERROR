@@ -77,6 +77,38 @@
       \verb https://briarproject.org/how-it-works/
       \endverb
     \endentry
+    \entry{email-picture}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=93d707cc77f037fd02e1c8cfa75317cf}{%
+           family={Commons},
+           familyi={C\bibinitperiod},
+           given={Wikimedia},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{93d707cc77f037fd02e1c8cfa75317cf}
+      \strng{fullhash}{93d707cc77f037fd02e1c8cfa75317cf}
+      \strng{bibnamehash}{93d707cc77f037fd02e1c8cfa75317cf}
+      \strng{authorbibnamehash}{93d707cc77f037fd02e1c8cfa75317cf}
+      \strng{authornamehash}{93d707cc77f037fd02e1c8cfa75317cf}
+      \strng{authorfullhash}{93d707cc77f037fd02e1c8cfa75317cf}
+      \field{labelalpha}{Com17}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Acesso em 22 de agosto de 2024}
+      \field{title}{Email.svg}
+      \field{year}{2017}
+      \verb{urlraw}
+      \verb https://commons.wikimedia.org/wiki/File:Email.svg
+      \endverb
+      \verb{url}
+      \verb https://commons.wikimedia.org/wiki/File:Email.svg
+      \endverb
+    \endentry
     \entry{cwtch}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=30f75bf5ab472322ce1e554c0a305a72}{%
@@ -517,6 +549,70 @@
       \endverb
       \verb{url}
       \verb https://github.com/TokTok/c-toxcore
+      \endverb
+    \endentry
+    \entry{computerphile-tor}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=33849385a5ca26ca28ad86d2def258e0}{%
+           family={{University of Nottingham}},
+           familyi={U\bibinitperiod}}}%
+      }
+      \strng{namehash}{33849385a5ca26ca28ad86d2def258e0}
+      \strng{fullhash}{33849385a5ca26ca28ad86d2def258e0}
+      \strng{bibnamehash}{33849385a5ca26ca28ad86d2def258e0}
+      \strng{authorbibnamehash}{33849385a5ca26ca28ad86d2def258e0}
+      \strng{authornamehash}{33849385a5ca26ca28ad86d2def258e0}
+      \strng{authorfullhash}{33849385a5ca26ca28ad86d2def258e0}
+      \field{extraname}{1}
+      \field{labelalpha}{Uni17}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{extraalpha}{1}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Acesso em 15 de agosto de 2024}
+      \field{title}{How TOR Works}
+      \field{year}{2017}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=QRYzre4bf7I
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=QRYzre4bf7I
+      \endverb
+    \endentry
+    \entry{computerphile-hidden-services}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=33849385a5ca26ca28ad86d2def258e0}{%
+           family={{University of Nottingham}},
+           familyi={U\bibinitperiod}}}%
+      }
+      \strng{namehash}{33849385a5ca26ca28ad86d2def258e0}
+      \strng{fullhash}{33849385a5ca26ca28ad86d2def258e0}
+      \strng{bibnamehash}{33849385a5ca26ca28ad86d2def258e0}
+      \strng{authorbibnamehash}{33849385a5ca26ca28ad86d2def258e0}
+      \strng{authornamehash}{33849385a5ca26ca28ad86d2def258e0}
+      \strng{authorfullhash}{33849385a5ca26ca28ad86d2def258e0}
+      \field{extraname}{2}
+      \field{labelalpha}{Uni17}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{extraalpha}{2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Acesso em 15 de agosto de 2024}
+      \field{title}{TOR Hidden Services}
+      \field{year}{2017}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=lVcbq_a5N9I
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=lVcbq_a5N9I
       \endverb
     \endentry
     \entry{Vermeulen2023}{inproceedings}{}
