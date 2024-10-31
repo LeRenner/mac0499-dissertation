@@ -4,9 +4,7 @@
 
 \chapter{Implementações já existentes}
 
-Este capítulo da monografia realizará a análise de implementações já existentes de protocolos descentralizados de envio de mensagens pela comunidade de código aberto. Essas implementações fornecem uma base para compreender os desafios práticos, as abordagens de arquitetura e as estratégias de mitigação de problemas que foram desenvolvidas e testadas pela comunidade. Os protocolos analisados foram selecionados por serem abertos, descentralizados, e por terem uma arquitetura de rede singular, sendo relevante para este estudo. Os protocolos analisados foram categorizados pela sua arquitetura de rede, e divididos em quatro grupos principais: federados, peer-to-peer com relays que usam tor, peer-to-peer com relays que não usam tor, e peer-to-peer sem relays. 
-
-Relays são servidores intermediários que encaminham mensagens entre usuários, e são utilizados para contornar restrições de rede, como NATs e firewalls. A rede Tor é uma rede de anonimização que permite a comunicação anônima e segura entre usuários, mesmo quando eles estão em redes censuradas, com NATs, ou com firewalls restritivos.
+Este capítulo da monografia realizará a análise de implementações de código aberto já existentes de protocolos descentralizados de envio de mensagens. Essas implementações fornecem uma base para compreender os desafios práticos, as abordagens de arquitetura e as estratégias de mitigação de problemas que foram desenvolvidas e testadas pela comunidade. Os protocolos analisados foram selecionados por serem abertos, descentralizados, e por terem uma arquitetura de rede singular, sendo relevante para este estudo. Os protocolos analisados foram categorizados pela sua arquitetura de rede, e divididos em quatro grupos principais: federados, peer-to-peer com relays que usam tor, peer-to-peer com relays que não usam tor, e peer-to-peer sem relays.
 
 Os protocolos analisados federados são:
 \begin{itemize}
@@ -52,6 +50,15 @@ Caso um usuário queira se comunicar com outro usuário em um servidor diferente
   \caption{Arquitetura do email, um protocolo federado. \cite{email-picture}}
 \end{figure}
 
+\subsection{E-Mail}
+
+O e-mail (correio eletrônico) é um sistema de comunicação digital que permite o envio e recebimento de mensagens e arquivos entre usuários através de redes de computadores, utilizando protocolos como SMTP, POP3 e IMAP para a transmissão e armazenamento das mensagens. É amplamente utilizado para comunicação pessoal e profissional, sendo uma das formas mais comuns de troca de informações na Internet. \cite{rfc5321}
+
+\begin{itemize}
+  \item \textbf{Tipo de endereço}: usuário@servidor
+  \item \textbf{Suporte a criptografia de ponta a ponta}: Sim
+\end{itemize}
+
 \subsection{Matrix}
 
 O protocolo Matrix é um sistema de comunicação descentralizado e federado projetado para suportar mensagens instantâneas e colaboração em tempo real. Desenvolvido para ser uma solução aberta e interoperável, o Matrix visa fornecer uma infraestrutura robusta para comunicação em diversos contextos, desde chat e chamadas de voz até a troca de arquivos. \cite{matrixspec}
@@ -78,24 +85,11 @@ XMPP (Extensible Messaging and Presence Protocol) é um protocolo de comunicaç�
   \item \textbf{Suporte a criptografia de ponta a ponta}: Sim
 \end{itemize}
 
-\subsection{E-Mail}
+\section{Protocolos Peer-to-Peer com Relays que não usam Tor}
 
-O e-mail (correio eletrônico) é um sistema de comunicação digital que permite o envio e recebimento de mensagens e arquivos entre usuários através de redes de computadores, utilizando protocolos como SMTP, POP3 e IMAP para a transmissão e armazenamento das mensagens. É amplamente utilizado para comunicação pessoal e profissional, sendo uma das formas mais comuns de troca de informações na Internet. \cite{rfc5321}
+Na arquitetura peer-to-peer com relays, seja com tor ou não, os usuários se conectam diretamente uns aos outros, e armazenam localmente suas mensagens. Para contornar limitações de rede, como camadas de NAT e firewalls, os usuários podem usar relays para intermediar a comunicação. Os relays são apenas responsáveis por encaminhar diretamente as mensagens, as apagando quando elas são entregues. Em alguns protocolos, esses relays podem armazenar a mensagem por um curto período de tempo, até o destinatário estar disponível para recebê-la. Os seguintes protocolos utilizam relays para intermediar a comunicação entre usuários.
 
-\begin{itemize}
-  \item \textbf{Tipo de endereço}: usuário@servidor
-  \item \textbf{Suporte a criptografia de ponta a ponta}: Sim
-\end{itemize}
-
-\section{Protocolos Peer-to-Peer com Relays}
-
-Na arquitetura peer-to-peer com relays, os usuários se conectam diretamente uns aos outros, e armazenam localmente suas mensagens. Para contornar limitações de rede, como camadas de Network Adress Translation (NAT) e firewalls, os usuários podem usar relays para intermediar a comunicação. Os relays são apenas responsáveis por encaminhar diretamente as mensagens, as apagando quando elas são entregues. Em alguns protocolos, esses relays podem armazenar a mensagem por um curto período de tempo, até o destinatário estar disponível para recebê-la.
-
-Alguns desses protocolos utilizam como relay a rede Tor, que é uma rede de anonimização que permite a comunicação anônima e segura entre usuários, mesmo quando eles encontram-se em redes censuradas, com NATs, ou com firewalls restritivos.
-
-\subsection{Protocolos Peer-to-Peer com Relays que não usam Tor}
-
-\subsubsection{SimpleX}
+\subsection{SimpleX}
 
 O SimpleX é um protocolo de mensagens instantâneas peer-to-peer que utiliza relays para intermediar a comunicação entre usuários. Sua característica distinta é a sua completa ausência de um identificador de usuário, de modo que usuários podem iniciar uma conversa utilizando um simples código de convite. \cite{simplex}
 
@@ -105,7 +99,7 @@ O SimpleX é um protocolo de mensagens instantâneas peer-to-peer que utiliza re
   \item \textbf{Assíncrono}: Sim
 \end{itemize}
 
-\subsubsection{IRC}
+\subsection{IRC}
 
 O IRC (Internet Relay Chat) é um protocolo de comunicação em tempo real que foi muito popular no final dos anos 90 e início dos anos 2000, e que ainda é utilizado por algumas comunidades online. Neste protocolo, mensagens só podem ser recebidas de forma síncrona, uma vez que o servidor se comporta como um broadcast, enviando as mensagens para todos os usuários conectados. \cite{rfc2810}
 
@@ -115,7 +109,7 @@ O IRC (Internet Relay Chat) é um protocolo de comunicação em tempo real que f
   \item \textbf{Assíncrono}: Não
 \end{itemize}
 
-\subsubsection{LoRaWan}
+\subsection{LoRaWan}
 
 O LoRaWan é um protocolo de comunicação de longo alcance e baixa potência que permite a comunicação entre dispositivos de Internet of Things (IoT). O protocolo se utiliza tanto de LoRa, que é uma tecnologia de modulação de rádio, quanto de redes de relays para transmitir mensagens entre dispositivos pela Internet. \cite{lorawan}
 
@@ -125,11 +119,11 @@ O LoRaWan é um protocolo de comunicação de longo alcance e baixa potência qu
   \item \textbf{Assíncrono}: Sim
 \end{itemize}
 
-\subsection{Protocolos Peer-to-Peer com Relays que usam Tor}
+\section{Protocolos Peer-to-Peer com Relays que usam Tor}
 
-Os seguintes protocolos utilizam a rede do Tor para mediar a negociação de chaves e a comunicação entre usuários. A rede Tor é uma rede de anonimização que permite a comunicação anônima e segura entre usuários, mesmo quando eles estão em redes censuradas, com NATs, ou com firewalls restritivos.
+Os seguintes protocolos utilizam a rede do Tor para mediar a negociação de chaves e a comunicação entre usuários.
 
-\subsubsection{Cwtch}
+\subsection{Cwtch}
 
 O Cwtch é um protocolo de mensagens instantâneas peer-to-peer que utiliza a rede Tor para intermediar a comunicação entre usuários. Cada usuário roda um serviço oculto no tor, e os usuários se conectam diretamente uns aos outros através da rede Tor. \cite{cwtch}
 
@@ -139,7 +133,7 @@ O Cwtch é um protocolo de mensagens instantâneas peer-to-peer que utiliza a re
   \item \textbf{Assíncrono}: Não
 \end{itemize}
 
-\subsubsection{Ricochet}
+\subsection{Ricochet}
 
 O Ricochet funciona de maneira muito similar ao Cwtch. Cada usuário também roda um serviço oculto, e conecta-se aos serviços ocultos dos outros usuários. \cite{ricochet}
 
@@ -149,7 +143,7 @@ O Ricochet funciona de maneira muito similar ao Cwtch. Cada usuário também rod
   \item \textbf{Assíncrono}: Não
 \end{itemize}
 
-\subsubsection{Briar}
+\subsection{Briar}
 
 O Briar é um protocolo muito versátil, e que permite o envio de mensagens através de Bluetooth, Wi-Fi, ou da Internet. Quando as mensagens são enviadas pela Internet, ele utiliza a rede Tor para intermediar a comunicação entre usuários, e é capaz de funcionar mesmo em redes censuradas. \cite{briar}
 
@@ -176,7 +170,7 @@ O Secure Scuttlebutt é um protocolo de rede social descentralizada. Nele, os us
 
 \subsection{Tox}
 
-O tox é um protocolo de mensagens peer-to-peer que permite o envio de mensagens de texto, assim como chamadas de voz e vídeo. Enquanto ele não permite o envio indireto de mensagens, ele implementa "Bootstrap Nodes", que são maquinas que auxiliam usuários a encontrar a Tabela de Hash Distribuida (DHT, do inglês) do tox, que é usada para encontrar outros usuários. \cite{toxcore}
+O tox é um protocolo de mensagens peer-to-peer que permite o envio de mensagens de texto, assim como chamadas de voz e vídeo. Enquanto ele não permite o envio indireto de mensagens, ele implementa "Bootstrap Nodes", que são máquinas que auxiliam usuários a encontrar a Tabela de Hash Distríbuida (DHT, do inglês) do tox, que é usada para encontrar outros usuários. \cite{toxcore}
 
 \begin{itemize}
   \item \textbf{Tipo de endereço}: Chave pública

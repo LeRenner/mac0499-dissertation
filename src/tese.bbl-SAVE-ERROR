@@ -313,6 +313,44 @@
       \verb https://datatracker.ietf.org/doc/html/rfc5321
       \endverb
     \endentry
+    \entry{ebtpaper}{online}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=d442750b56e859a16826ade3711e6ae7}{%
+           family={João\bibnamedelima Leitão},
+           familyi={J\bibinitperiod\bibinitdelim L\bibinitperiod},
+           given={José\bibnamedelima Pereira},
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5d8320156219bc2e29580bd98a98ef90}{%
+           family={Rodrigues},
+           familyi={R\bibinitperiod},
+           given={Luís},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{2c72d7d237b39c4a7187396b7a8285b0}
+      \strng{fullhash}{2c72d7d237b39c4a7187396b7a8285b0}
+      \strng{bibnamehash}{2c72d7d237b39c4a7187396b7a8285b0}
+      \strng{authorbibnamehash}{2c72d7d237b39c4a7187396b7a8285b0}
+      \strng{authornamehash}{2c72d7d237b39c4a7187396b7a8285b0}
+      \strng{authorfullhash}{2c72d7d237b39c4a7187396b7a8285b0}
+      \field{labelalpha}{JR07}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Acesso em 26 de agosto de 2024}
+      \field{title}{Epidemic Broadcast Trees}
+      \field{year}{2007}
+      \verb{urlraw}
+      \verb https://www.dpss.inesc-id.pt/~ler/reports/srds07.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.dpss.inesc-id.pt/~ler/reports/srds07.pdf
+      \endverb
+    \endentry
     \entry{matrixspec}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=b4964a132cc13191b78678f4da6295da}{%
@@ -493,6 +531,36 @@
       \verb https://github.com/simplex-chat/simplex-chat
       \endverb
     \endentry
+    \entry{Stallings2017}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=0599c551bf066f66e0e9c44815384cb4}{%
+           family={Stallings},
+           familyi={S\bibinitperiod},
+           given={William},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Pearson}%
+      }
+      \strng{namehash}{0599c551bf066f66e0e9c44815384cb4}
+      \strng{fullhash}{0599c551bf066f66e0e9c44815384cb4}
+      \strng{bibnamehash}{0599c551bf066f66e0e9c44815384cb4}
+      \strng{authorbibnamehash}{0599c551bf066f66e0e9c44815384cb4}
+      \strng{authornamehash}{0599c551bf066f66e0e9c44815384cb4}
+      \strng{authorfullhash}{0599c551bf066f66e0e9c44815384cb4}
+      \field{labelalpha}{Sta17}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{7th}
+      \field{isbn}{978-0133354690}
+      \field{title}{Cryptography and Network Security: Principles and Practice}
+      \field{year}{2017}
+    \endentry
     \entry{lorawan}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=d6d2b2ef177586fdd3acc752a5369164}{%
@@ -510,6 +578,7 @@
       \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
+      \field{extraalpha}{1}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Acesso em 14 de agosto de 2024}
@@ -524,21 +593,22 @@
     \endentry
     \entry{toxcore}{online}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=015a6ef07e0cfb6c7f7344f152f926d1}{%
-           family={{TokTok}},
+        {{un=0,uniquepart=base,hash=4be5727bacb1081d3c5391917172c504}{%
+           family={{The Tox Project}},
            familyi={T\bibinitperiod}}}%
       }
-      \strng{namehash}{015a6ef07e0cfb6c7f7344f152f926d1}
-      \strng{fullhash}{015a6ef07e0cfb6c7f7344f152f926d1}
-      \strng{bibnamehash}{015a6ef07e0cfb6c7f7344f152f926d1}
-      \strng{authorbibnamehash}{015a6ef07e0cfb6c7f7344f152f926d1}
-      \strng{authornamehash}{015a6ef07e0cfb6c7f7344f152f926d1}
-      \strng{authorfullhash}{015a6ef07e0cfb6c7f7344f152f926d1}
-      \field{labelalpha}{Tok24}
+      \strng{namehash}{4be5727bacb1081d3c5391917172c504}
+      \strng{fullhash}{4be5727bacb1081d3c5391917172c504}
+      \strng{bibnamehash}{4be5727bacb1081d3c5391917172c504}
+      \strng{authorbibnamehash}{4be5727bacb1081d3c5391917172c504}
+      \strng{authornamehash}{4be5727bacb1081d3c5391917172c504}
+      \strng{authorfullhash}{4be5727bacb1081d3c5391917172c504}
+      \field{labelalpha}{The24}
       \field{sortinit}{T}
       \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
+      \field{extraalpha}{2}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Acesso em 14 de agosto de 2024}
@@ -708,20 +778,67 @@
       \verb https://xmpp.org/about/technology-overview/
       \endverb
     \endentry
+    \entry{Zembruzki2022}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=6865d253e68cb8d288b0f10d8a18341e}{%
+           family={Zembruzki},
+           familyi={Z\bibinitperiod},
+           given={Luciano},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2974ccb13d9c64db6519ee2691b6e7da}{%
+           family={Sommese},
+           familyi={S\bibinitperiod},
+           given={Raffaele},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=439c45f0d65a976a8c9a68d7cf35f748}{%
+           family={Granville},
+           familyi={G\bibinitperiod},
+           given={Lisandro\bibnamedelima Zambenedetti},
+           giveni={L\bibinitperiod\bibinitdelim Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0b7611119b490d1bf9222126e36d3288}{%
+           family={Jacobs},
+           familyi={J\bibinitperiod},
+           given={Arthur\bibnamedelima Selle},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=13aa965acac3f5e2d209fd467f00e316}{%
+           family={Moura},
+           familyi={M\bibinitperiod},
+           given={Giovane\bibnamedelimb C.\bibnamedelimi M.},
+           giveni={G\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{d9d7ae16d6097da181a85681457c25ac}
+      \strng{fullhash}{ed4b50cfbb0e43d1f3dde65dda16c223}
+      \strng{bibnamehash}{ed4b50cfbb0e43d1f3dde65dda16c223}
+      \strng{authorbibnamehash}{ed4b50cfbb0e43d1f3dde65dda16c223}
+      \strng{authornamehash}{d9d7ae16d6097da181a85681457c25ac}
+      \strng{authorfullhash}{ed4b50cfbb0e43d1f3dde65dda16c223}
+      \field{labelalpha}{Zem+22}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2022 IEEE/IFIP Network Operations and Management Symposium}
+      \field{series}{NOMS 2022}
+      \field{title}{Hosting Industry Centralization and Consolidation}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://doi.org/10.48550/arXiv.2109.01187
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.48550/arXiv.2109.01187
+      \endverb
+    \endentry
   \enddatalist
-  \missing{FSF:GNU-GPL}
-  \missing{Knuth:96}
-  \missing{Zembruzki2022}
-  \missing{alves03:simi}
-  \missing{alvisi99:analysisCIC}
-  \missing{biblatex}
-  \missing{bobaoglu93:concepts}
-  \missing{floats2014}
-  \missing{fowler04:designDead}
-  \missing{garcia01:PhD}
-  \missing{gridftp}
-  \missing{natbib}
-  \missing{schmidt03:MSc}
 \endrefsection
 \endinput
 

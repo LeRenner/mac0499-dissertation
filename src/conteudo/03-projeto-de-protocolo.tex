@@ -4,14 +4,14 @@
 
 \chapter{Projeto de Protocolo}
 
-Agora que já definimos conceitos importantes e analisamos as principais implementações de protocolos de mensagens descentralizados, podemos definir um projeto de protocolo que possua parte das características anteriormente definidas. Este capítulo terá como objetivo explicar as decisões tomadas durante o projeto, e quais compromissos foram tomados para atender a esses requisitos.
+Agora que já definimos conceitos importantes e analisamos as principais implementações de protocolos de mensagens descentralizados, podemos definir um projeto de protocolo que possua parte das características anteriormente definidas. Este capítulo terá como objetivo explicar as decisões tomadas durante o projeto, e quais limitações foram consideradas aceitáveis para o desenvolvimento de uma prova de conceito.
 
 \section{Objetivos para o projeto}
 
-Como não é possível cumprir todos os requisitos possíveis ao desenvolver um protocolo descentralizado, vamos precisar encontrar um bom compromisso de funcionalidades ao desenhar sua arquitetura. Para este projeto vamos designar que as seguintes características são as mais importantes:
+Como não é possível cumprir todos os requisitos possíveis ao desenvolver um protocolo descentralizado, vamos precisar encontrar uma boa combinação de funcionalidades. Para este projeto, vamos considerar os seguintes requisitos:
 
 \begin{itemize}
-    \item \textbf{Facilidade na configuração}: O protocolo não deve precisar de configurações avançadas de rede, e deve funcionar em qualquer conexão residencial comum.
+    \item \textbf{Simplicidade na configuração}: O protocolo não deve precisar de configurações avançadas de rede, e deve funcionar em qualquer conexão residencial comum.
     \item \textbf{Pouca dependência em voluntários}: O protocolo deve ser razoavelmente resistente a maus atores, e deve evitar depender de voluntários para funcionar.
     \item \textbf{Endereço de usuários estável}: O protocolo deve permitir que usuários tenham um endereço único e estável, para que possam ser identificados de maneira fácil.
     \item \textbf{Privacidade}: O protocolo deve evitar expor informações pessoais dos usuários, e deve criptografar os dados do usuário quando possível.
@@ -19,7 +19,7 @@ Como não é possível cumprir todos os requisitos possíveis ao desenvolver um 
 
 Considerando esses requisitos, podemos já definir algumas características da nossa prova de conceito. 
 
-\section{Arquitetura do protocolo}
+\section{Proposta de arquitetura de rede}
 
 Como discutido no primeiro capítulo, as arquiteturas dos protocolos de rede analisados podem ser divididas em quatro grupos diferentes: federados, indiretos por meio de relays específicos da rede, indiretos por meio da rede do Tor, e peer-to-peer. Podemos eliminar algumas dessas possibilidades com base nos requisitos que definimos.
 
@@ -27,8 +27,120 @@ Como consideramos que facilidade na configuração é um requisito importante, p
 
 Queremos evitar que o protocolo seja muito dependente de relays específicos da rede para funcionar. Esses relays dependem de um serviço centralizado para que o usuário os encontre, e eles podem ser fácilmente controlados por maus atores especialmente quando o protocolo não possui muitos usuários. Como queremos que o protocolo não possua essas vulnerabilidades, não vamos desenhar o protocolo com essa arquitetura.
 
-O protocolo do Tor é uma opção interessante, pois ele é descentralizado e não depende de servidores específicos para funcionar. Ele possue grande quantidade de relays voluntários, que vão continuar existindo independente do número de usuários utilizando este protocolo, e é bastante resistente a maus atores. Sua desvantagem é a quantidade de passos necessários para estabelecer uma conexão, o que gera uma latência maior. O Tor também soluciona um problema muito grande da arquitetura peer-to-peer, que é a dificuldade de encontrar outros usuários. Assim, vamos propor para esse projeto um programa de arquiteura hibrida, que utiliza o Tor para encontrar outros usuários, e uma arquitetura peer-to-peer para a comunicação entre eles.
+O protocolo do Tor é uma opção interessante, pois ele é descentralizado e não depende de servidores específicos para funcionar. Ele possue grande quantidade de relays voluntários, que vão continuar existindo independente do número de usuários utilizando este protocolo, e é bastante resistente a maus atores. Sua desvantagem é a quantidade de passos necessários para estabelecer uma conexão, o que gera uma latência maior. O Tor também soluciona um problema muito grande da arquitetura peer-to-peer, que é a dificuldade de encontrar outros usuários na rede, uma vez que endereços de IP residenciais são muitas vezes dinâmicos. Assim, vamos propor para esse projeto um programa de arquiteura hibrida, que utiliza o Tor para encontrar outros usuários, e uma arquitetura peer-to-peer para a comunicação entre eles.
 
-\subsection{Arquitetura híbrida}
+\subsection{Arquitetura de rede proposta: híbrida}
 
-Na arquitetura proposta por esse projeto, quando um usuário estiver online, ele deve hospedar um serviço oculto com seu par de chaves publico-privada. Quando ele quiser enviar mensagens a outro usuário, ele primeiro deve conectar-se ao serviço oculto correspondente ao nome de usuário do destinatário. Ao se conectarem, esses clientes vão trocar endereços de IP e tentar realizar uma conexão p2p. Com essa conexão eles vão realizar troca de mensagens.
+Na arquitetura proposta por esse projeto, quando um usuário estiver online, ele deve hospedar um serviço oculto com seu par de chaves publico-privada. O serviço oculto de cada usuário irá expor uma API para outros usuários. Quando ele quiser realizar qualquer ação com outro usuário, ele deve conectar-se ao serviço oculto do outro usuário, e utilizar algum dos endpoints disponíveis. Esses endpoints permitem diversas funcionalidades, como enviar mensagens, checar se o outro usuário te considera um "amigo", ou até mesmo solicitar uma conexão P2P direta.
+
+Consideramos que privacidade é uma característica importante para o protocolo. Sabemos que a forma de comunicação por serviços ocutos proposta acima tem a grande vantagem de esconder o endereço IP de ambos os usuários, a custo de latência maior. Enquanto algumas pessoas podem preferir se comunicar de forma anônima, outros usuários podem preferir conversar através de uma conexão direta, que é mais rápida e mais eficiente. Para isso, podemos propor um sistema de "amigos" para o protocolo. Quando um usuário considerar que prefere abrir mão de sua anonimidade na conversa com outro usuário, ele pode escolher adicionar aquele endereço como amigo. Quando dois usuários são amigos, eles podem se comunicar diretamente, sem passar pelo serviço oculto. Isso permite que usuários que se conheçam e confiem um no outro possam se comunicar de forma mais eficiente, enquanto ainda mantém a privacidade de usuários que não se conhecem.
+
+De modo a evitar que o servidor do programa esteja constantemente monitorando outros usuários e tentando estabelecer uma conexão P2P, podemos propor que toda vez que um usuário abre a conversa com outro, ele solicita uma conexão P2P. Se ambos os usuários estiverem online, ambos considerarem o outro como amigo, ambos estiverem com o chat aberto com a outra pessoa, e as configurações de rede permitirem, a conexão P2P é estabelecida. Caso contrário, a comunicação é feita através do serviço oculto.
+
+Esta solução permite que mensagens sejam mandadas em qualquer configuração de rede, permite que usuários se comuniquem de forma anônima, permite que os usuários se comuniquem de forma direta, não depende de relays específicos da rede, e é resistente a maus atores.
+
+\section{Detalhes da implementação prática do protocolo}
+
+A implementação desse protótipo foi organizada em torno de um único executável que lida com todos os aspectos do servidor. Este executável roda tor como um subprocesso, e sube todos os endpoints necessários para a comunicação entre usuários. Alguns desses endpoints são acessíveis apenas localmente, enquanto outros serão acessíveis pela rede Tor. A interface do usuário é feita através de um cliente web, que se comunica com o executável através de uma API.
+
+Eu tenho experiência com a linguagem de programação Python, e por isso escolhi utilizá-la para o desenvolvimento do protótipo. Python é uma linguagem de programação de alto nível, que possui uma grande quantidade de bibliotecas disponíveis para diversas funcionalidades. Além disso, Python é uma linguagem de programação muito utilizada para desenvolvimento de aplicações web, o que facilita a interação com a interface do usuário. O cliente web é escrito em HTML, CSS e JavaScript, e não utiliza nenhum framework de frontend.
+
+Enquanto o servidor utiliza muitas bibliotecas, a principal é Flask. Flask é um framework web minimalista para Python, que permite a criação de aplicações web de forma rápida e fácil. Flask é muito utilizado para a criação de APIs, e é muito fácil de se utilizar.
+
+\subsection{Servidor de backend}
+
+O servidor de backend é composto por 12 arquivos, cada um com funções de um propósito específico.
+
+\begin{itemize}
+    \item \textbf{main.py}: Arquivo principal que inicializa o servidor e gerencia subprocessos.
+    \item \textbf{\_\_init\_\_.py}: Vazio, utilizado para indicar que a pasta é um pacote Python.
+    \item \textbf{endpoints.py}: Inicializa todos os endpoints, inicializa variáveis, e inicia o servidor de Flask.
+    \item \textbf{friends.py}: Contém muitas funções relacionadas a amigos, como requests sobre amizades, pedidos de endereço de IP, pedidos de conexão P2P, e funções relacionadas. Esses pedidos serão melhor explicados mais a frente.
+    \item \textbf{jsonOperator.py}: Contém funções para ler e escrever todos os dados que o servidor precisa armazenar. O estado do programa é escrito em um arquivo json. As funções de escrita utilizam um lock para evitar condições de corrida.
+    \item \textbf{middleware.py}: Tanto o tráfego do Tor como o trafego do cliente chegam a mesma API. Para diferenciar entre os dois, utilizamos um middleware que adiciona um header "Tor-Middleware-Header", indicando se o request veio do Tor ou do cliente.
+    \item \textbf{p2p.py}: Contém funções relacionadas a conexão direta entre participantes, seja por meio do localhost, rede local, pela internet utilizando UPnP, ou por meio de relays do Tor. É o arquivo mais complexo do servidor.
+    \item \textbf{privateEndpoints.py}: Contém endpoints que não devem ser acessíveis pela rede Tor, como por exemplo de acesso às mensagens armazenadas, para envio de mensagens, ou para adicionar amigos.
+    \item \textbf{publicEndpoints.py}: Contém endpoints que devem ser acessíveis pela rede Tor, como por exemplo para solicitar endereços de IP, solicitar conexões P2P, ou para enviar mensagens.
+    \item \textbf{serverCrypto.py}: Contém funções relacionadas a criptografia, como por exemplo assinaturas eletrônicas, criptografia de mensagens, e geração de chaves.
+    \item \textbf{setup.py}: Contém funções para inicializar o tor, configurando portas, arquivos de configuração, e inicializando o processo.
+    \item \textbf{upnp.py}: Contém funções para abrir portas no roteador do usuário, utilizando o protocolo UPnP. Contém uma implementação improvisada porque a biblioteca de UPnP para Python não funcionou corretamente.
+\end{itemize}
+
+O servidor abre uma série de endpoints locais e públicos, que são acessíveis pela rede Tor. Os endpoints públicos são:
+
+\begin{itemize}
+\item \textbf{pubEndpoint\_receiveMessage (POST)}: Endpoint utilizado para receber mensagens de outros usuários. As mensagens são criptografadas de ponta-a-ponta pelo próprio protocolo do Tor e são armazenadas no servidor.
+\item \textbf{pubEndpoint\_getPublicKeyBase64 (GET)}: Endpoint que retorna a chave pública do usuário em formato Base64. Essa chave é utilizada para criptografar mensagens enviadas para o usuário e para verificar assinaturas digitais.
+\item \textbf{pubEndpoint\_checkFriendRequest (POST)}: Endpoint que verifica se há um pedido de amizade pendente de um determinado usuário.
+\item \textbf{pubEndpoint\_getIpRequest (POST)}: Endpoint que solicita o endereço IP de um usuário específico. Utilizado para tentar estabelecer uma conexão P2P.
+\item \textbf{pubEndpoint\_getFriendIP (POST)}: Endpoint que retorna o endereço IP de um amigo, caso ambos os usuários tenham se adicionado como amigos.
+\item \textbf{pubEndpoint\_p2pRequest (GET)}: Endpoint que solicita o estabelecimento de uma conexão P2P direta entre dois usuários.
+\item \textbf{pubEndpoint\_receiveGenericFriendRequest (POST)}: Endpoint utilizado para receber pedidos genéricos de amizade de outros usuários.
+\item \textbf{pubEndpoint\_ping (GET)}: Endpoint utilizado para verificar se o servidor está online e respondendo às requisições.
+\end{itemize}
+
+Os endpoints locais são:
+
+\begin{itemize}
+\item \textbf{privEndpoint\_getMessagesFromSender (POST)}: Endpoint utilizado para obter mensagens de um remetente específico.
+\item \textbf{privEndpoint\_sendMessage (POST)}: Endpoint utilizado para enviar mensagens para outros usuários.
+\item \textbf{privEndpoint\_getLatestMessages (GET)}: Endpoint utilizado para obter as mensagens mais recentes.
+\item \textbf{privEndpoint\_getSenders (GET)}: Endpoint utilizado para obter a lista de remetentes.
+\item \textbf{privEndpoint\_getAddress (GET)}: Endpoint utilizado para obter o endereço do usuário.
+\item \textbf{privEndpoint\_startChat (POST)}: Endpoint utilizado para iniciar uma conversa com outro usuário.
+\item \textbf{privEndpoint\_getFriends (GET)}: Endpoint utilizado para obter a lista de amigos.
+\item \textbf{privEndpoint\_addFriend (POST)}: Endpoint utilizado para adicionar um amigo.
+\item \textbf{privEndpoint\_removeFriend (POST)}: Endpoint utilizado para remover um amigo.
+\item \textbf{privEndpoint\_changeFocusedFriend (POST)}: Endpoint utilizado para mudar o amigo focado na interface.
+\item \textbf{privEndpoint\_getFriendConectionStatus (GET)}: Endpoint utilizado para obter o status de conexão de um amigo.
+\end{itemize}
+
+\subsection{Cliente web}
+
+O cliente web não é muito sofisticado, sendo composto por uma aba de conversas e uma aba de amigos. A aba de conversas mostra uma lista com todas as pessoas com as quais o usuário já conversou, e permite que o usuário selecione uma conversa para visualizar. A aba de amigos mostra uma lista com todos os amigos do usuário, e permite que o usuário adicione ou remova amigos.
+
+Como o cliente não é o escopo principal deste projeto, ele é simples, e apenas cumpre os requisitos necessários ao projeto.
+
+\section{Criptografia e handshakes}
+
+O servidor utiliza alguns métodos de criptografia para garantir a segurança das mensagens trocadas entre os usuários. A intenção inicial do projeto era que o servidor utilizasse a mesma chave pública e privada que o subprocesso de tor, porém como o tor usa regras de derivação de chave diferentes que a biblioteca de ED25519 do python, os servidores vão compartilhar chaves privadas, mas vão utilizar chaves públicas diferentes para acessar o Tor e para assinar e criptografar mensagens. Isto poderia gerar um problema de verificação de autenticidade da chave pública, uma vez que o protocolo do tor garante a autenticidade de uma chave pública realizando a derivação do endereço a partir da chave pública, permitindo que ao acessar um serviço oculto, o usuário tenha certeza de que a chave pública que ele recebeu está correta. Assim, o primeiro contato entre dois servidores teve que ser repensado para garantir que ambos os usuários consigam garantir que eles têm a chave pública correta de seus amigos.
+
+Sabemos que ao acessar um serviço oculto o Tor realiza a verificação da chave pública recebida. Assim, sabemos que quando queremos iniciar uma conversa com um usuário novo podemos simplesmente acessar o endpoint pubEndpoint\_getPublicKeyBase64 do usuário, e o Tor irá garantir que a chave pública que recebemos é a correta. Porém, como garantir que a chave pública que recebemos é a correta quando recebemos uma mensagem de um usuário com o qual nunca falamos antes? Para resolver esse problema, propomos um handshake inicial entre os dois servidores.
+
+Quando o servidor receber um pedido de envio de mensagem de um usuário com o qual ele nunca falou antes, ele irá responder esse pedido de envio de mensagem com a mensagem "refaça esse envio, vou pedir sua chave pública primeiro". O servidor então irá acessar o endpoint pubEndpoint\_getPublicKeyBase64 da pessoa que está enviando a mensagem, e assim que receber esse request novamente irá verificar se a chave pública recebida é a mesma que a chave pública que ele recebeu anteriormente. Esse processo acontece de forma síncrona, de modo que o segundo pedido de envio de mensagem demorará um pouco para ser respondido, sendo completado quando o servidor tiver certeza de que a chave pública recebida é a correta.
+
+Uma vez que ambos os servidores tem chaves públicas com autenticidade confirmada, eles podem assinar mensagens, criptografar mensagens, e verificar assinaturas digitais.
+
+Criptografia de mensagens não é necessária quando os usuários estão conversando através do tor, uma vez que o protocolo do tor já criptografa as mensagens de ponta-a-ponta. Porém, quando os usuários estão conversando de forma direta, a criptografia é necessária.
+
+\subsection{Pedidos exclusivos para amigos}
+
+Alguns pedidos entre servidores requerem uma "prova" de autenticidade. Por exemplo, caso o usuário A queira pedir o endereço IP do usuário B, ele deve provar que ele é amigo de B. Pedidos como esse tem um formato padronizado, e são gerados e verificados no arquivo friends.py. O servidor que recebe o pedido verifica se o pedido é válido, e se for, responde com a informação solicitada. O formato de cada pedido é o seguinte:
+
+\begin{itemize}
+    \item \textbf{origin}: Endereço do usuário que está fazendo o pedido.
+    \item \textbf{destination}: Endereço do usuário que está recebendo o pedido.
+    \item \textbf{timestamp}: Hora exata em que o pedido foi feito.
+    \item \textbf{kind}: Tipo de pedido que está sendo feito.
+    \item \textbf{signature}: Assinatura digital do pedido, gerada a partir do JSON do pedido.
+\end{itemize}
+
+Dessa maneira, pedidos não podem ser reutilizados e pedidos não podem ser feitos no nome de outro usuário.
+
+\section{Handshake P2P}
+
+Quando um usuário abre uma conversa na interface, o servidor vai seguir uma série de passos para determinar se uma conexão direta entre usuários pode ser feita.
+\begin{enumerate}
+    \item O servidor verifica se os usuários são amigos mútuos.
+    \item O servidor espera o outro usuário também ter esta conversa aberta.
+    \item O servidor pede os endereços de IP do outro usuário.
+    \item Se os usuários tiverem endereços de IP públicos e privados iguais, ele tenta estabelecer uma conexão pelo localhost.
+    \item Se os usuários tiverem endereços de IP públicos iguais e endereços de IP privados diferentes, ele tenta estabelecer uma conexão pela rede local.
+    \item Se os usuários tiverem endereços de IP públicos diferentes, ele tenta estabelecer uma conexão direta entre eles usando UPnP.
+\end{enumerate}
+
+Caso qualquer um desses passos não seja bem sucedido, os usuários ainda vão poder comunicar-se normalmente usando o Tor como intermediário.
+
+\section{Considerações finais}
+
+A implementação do protocolo não é um produto finalizado, e não deve ser utilizada como um substituto para programas de envio de mensagens popularmente utilizados. Enquanto ele consegue cumprir os requisitos que foram propostos, ele não foi testado extensivamente no mundo real e provavelmente é vulneravel a ataques. Ainda assim, ele é uma demonstração muito interessante de um tipo de arquitetura que não foi muito explorado por projetos acadêmicos até agora.
