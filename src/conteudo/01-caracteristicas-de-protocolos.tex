@@ -4,7 +4,7 @@
 
 \chapter{Definições importantes}
 
-Antes de analisar implementações existentes de protocolos de envio de mensagens descentralizados, é importante definir alguns conceitos e características importantes para a compreensão do funcionamento desses protocolos. Este capitulo será dedicado a explicar importantes definições e características de protocolos de comunicação.
+Antes de analisar implementações existentes de protocolos de envio de mensagens descentralizados, é importante definir alguns conceitos e características importantes para a compreensão do funcionamento desses protocolos. Este capítulo será dedicado a explicar definições e características importantes de protocolos de comunicação.
 
 \section{Tipos de protocolos de comunicação}
 
@@ -28,10 +28,10 @@ Por outro lado, podemos definir um protocolo descentralizado como:
 
 Os protocolos descentralizados têm várias vantagens em relação aos centralizados, como maior resistência a falhas, maior privacidade e menor vulnerabilidade a censura. No entanto, eles também apresentam desafios, como a necessidade de garantir a integridade e a consistência dos dados em um ambiente distribuído e a necessidade de lidar com questões de escalabilidade e desempenho. Além disso, a ausência de uma entidade centralizada pode dificultar a implementação de certas funcionalidades, como backups, moderação de conteúdo e integração com outros serviços.
 
-Independente do seu nível de centralização ou descentralização, os protocolos de comunicação podem ser classificados de acordo com várias características e funcionalidades. Algumas das características mais importantes incluem:
+Independentemente do seu nível de centralização ou descentralização, os protocolos de comunicação podem ser classificados de acordo com várias características e funcionalidades. Algumas das características mais importantes incluem:
 
 \begin{itemize}
-    \item \textbf{Privacidade de metadados:} Mesmo que a grande maioria dos protocolos modernos de comunicação garantam a privacidade do conteúdo das mensagens, muitos deles ainda coletam e armazenam metadados, como informações sobre quem enviou a mensagem, quando foi enviada e para quem foi enviada. Além disso, durante a sua transmissão, dados relacionados com os dispositivos de origem e destino, informações de interfaces de rede, endereços de IP podem ser coletadas por terceiros. Protocolos que garantem a privacidade de metadados são capazes de proteger essas informações e garantir que elas permaneçam privadas.
+    \item \textbf{Privacidade de metadados:} Mesmo que a grande maioria dos protocolos modernos de comunicação garantam a privacidade do conteúdo das mensagens, muitos deles ainda coletam e armazenam metadados, como informações sobre quem enviou a mensagem, quando foi enviada e para quem foi enviada. Além disso, durante a sua transmissão, dados relacionados com os dispositivos de origem e destino, informações de interfaces de rede, endereços de IP podem ser coletadas por terceiros. Protocolos que protegem a privacidade de metadados são capazes de impedir que essas informações sejam expostas e garantir sua confidencialidade.
     
     \item \textbf{Escalabilidade:} A escalabilidade é a capacidade de um sistema de crescer e lidar com um aumento no número de usuários e mensagens sem comprometer o desempenho. Protocolos não escaláveis não conseguem lidar com um aumento da demanda mesmo com a adição de mais recursos.
     
@@ -64,11 +64,11 @@ Como mensagens transmitidas pela Internet passam por muitos dispositivos diferen
 
 Esses três requerimentos podem ser atendidos através de criptografia, que é o processo de codificar informações de forma que apenas pessoas autorizadas possam decodificá-las. Protocolos modernos de criptografia, assinatura digital, e verificação de integridade permitem que qualquer mensagem recebida possa ser verificada, garantindo que veio de um remetente confiável, e que não foi alterada ou lida durante a sua transmissão.
 
-Sistemas de comunicação modernos podem utilizar estas ferramentas em passos discretos do processo de comunicação, ou no caminho completo do remetente ao destinatário. A criptografia de ponta a ponta é um método de criptografia em que os dados são criptografados no dispositivo do remetente e só podem ser descriptografados no dispositivo do destinatário. Isso garante que os dados permaneçam seguros, mesmo se forem roteados por uma entidade central, ou sejam transmitidos por uma rede não confiável.
+Sistemas de comunicação modernos podem utilizar estas ferramentas em passos discretos do processo de comunicação, ou no caminho completo do remetente ao destinatário. A criptografia de ponta a ponta é um método que garante que os dados sejam criptografados no dispositivo do remetente e só possam ser descriptografados no dispositivo do destinatário. Isso garante que os dados permaneçam seguros, mesmo se forem roteados por uma entidade central, ou sejam transmitidos por uma rede não confiável.
 
 \section {Redes locais, NATs e firewalls}
 
-A grande maioria de usuários da Internet não possui diretamente um endereço de IP público, que é um endereço único e globalmente acessível que identifica um dispositivo na Internet. Em vez disso, eles estão conectados a uma rede local, que é uma rede privada em que múltiplos dispositivos compartilham um único endereço de IP público. O roteador é o dispositivo reponsável por gerenciar o tráfego de dados entre a rede local e a Internet, redirecionando dados de respostas de serviços externos para os dispositivos corretos na rede local. Esse processo realizado pelo roteador é chamado de Network Address Translation (NAT).
+A maioria dos usuários da Internet não possui um endereço de IP público diretamente acessível, o qual é um identificador único e global que permite que um dispositivo seja reconhecido na rede. Em vez disso, eles geralmente estão conectados a uma rede local, que é uma rede privada onde vários dispositivos compartilham um único endereço de IP público. Nessa configuração, o roteador atua como o principal dispositivo de gerenciamento do tráfego de dados entre a rede local e a Internet, redirecionando as respostas dos serviços externos para os dispositivos corretos na rede. Esse processo realizado pelo roteador é conhecido como Network Address Translation (NAT).
 
 Geralmente, dispositivos que estão conectados a uma rede local por meio de um NAT possuem grandes restrições na sua habilidade de receber conexões de fora da rede local. Isso ocorre porque o NAT não sabe para qual dispositivo na rede local deve redirecionar a conexão recebida. Além disso, firewalls, que são programas de segurança que monitoram e controlam o tráfego de dados entre a rede local e a Internet, podem bloquear conexões recebidas de fora da rede local. Enquanto existem protocolos que permitem que um dispositivo dentro de um NAT receba conexões externas, não é incomum que ambos os dispositivos encontrem-se em redes que não permitem conexões externas. Nesse caso, eles não conseguem estabelecer uma conexão direta entre si, e vão precisar de um intermediário para ajudar a encaminhar as mensagens entre eles.
 
@@ -108,8 +108,8 @@ Quando um usuário acessa um site comum da Internet através da rede Tor, ele ap
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\textwidth]{loc-firefox}
-    \includegraphics[width=0.8\textwidth]{loc-tor}
+    \includegraphics[width=0.85\textwidth]{loc-firefox}
+    \includegraphics[width=0.85\textwidth]{loc-tor}
   
     % remember to cite the source of the image
     \caption{Captura de tela de um website de localicação acessado através do Firefox (acima) e do Tor (abaixo). Note que mesmo usando a mesma conexão com a Internet, o website acessado através do Tor determina a localização do Relay de Saída (nesse caso na Islândia), e não a do usuário.}
@@ -117,8 +117,8 @@ Quando um usuário acessa um site comum da Internet através da rede Tor, ele ap
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\textwidth]{speed-firefox}
-    \includegraphics[width=0.8\textwidth]{speed-tor}
+    \includegraphics[width=0.85\textwidth]{speed-firefox}
+    \includegraphics[width=0.85\textwidth]{speed-tor}
   
     % remember to cite the source of the image
     \caption{Captura de tela de um de teste de velocidade de conexão à Internet acessado através do Firefox (acima) e do Tor (abaixo). Note que a conexão através do Tor é muito mais lenta, uma vez que o tráfego é roteado através de vários relays, limitando a velocidade da conexão e introduzindo latência.}

@@ -1,0 +1,41 @@
+\chapter{Testes e Conclusão}
+
+A implementação do protótipo foi testada em diversas conexões com a internet, tanto institucionais, como a rede da Universidade de São Paulo, quanto residenciais e móveis. Como o UPnP não é universalmente compatível com todos os roteadores, a maior parte dos testes que utilizaram UPnP foi realizada em conexões residenciais de uma empresa que tem roteadores compatíveis com o protocolo. Como a rede do Tor não é restrita no Brasil, em nenhuma das conexões testadas houve problemas de acesso aos serviços ocultos de outros usuários. Os resultados dos testes realizados apresentam algumas considerações sobre as limitações deste protótipo.
+
+\section{Tempo de inicialização do Tor}
+
+O tempo de inicialização do Tor é uma inconveniência para a mobilidade deste protocolo. Enquanto esse programa termina de se inicializar em menos de 10 segundos na maioria dos casos, os serviços ocultos que são hospedados por ele demoram mais para serem adicionados à Tabela de Hash Distribuída do protocolo. Quando o Tor tenta acessar um serviço oculto que ainda não terminou de ser inicializado, ele demora muito para desistir da tentativa de conexão, gerando uma má experiência ao usuário. Por causa disso, é importante que o usuário espere pelo menos um minuto depois da inicialização completa do servidor para tentar se comunicar com outros usuários.
+
+Uma vez que a conectividade pelo Tor é essencial ao protocolo, mesmo em casos em que os usuários estão se comunicando de forma P2P, é importante que o usuário tenha uma conexão estável com a rede do Tor. Isso torna este protótipo inconveniente e imprático para utilização em movimento, como em um smartphone, por exemplo.
+
+\section{Limitações do UPnP}
+
+O UPnP é um protocolo que não é universalmente compatível com todos os roteadores. Em alguns casos, o UPnP não é habilitado por padrão, e em outros casos, o roteador não é compatível com o protocolo. Enquanto seria possível implementar instruções para o usuário manualmente abrir portas em seu roteador, isto é uma inconveniência e não foi implementado neste protótipo. Quando a conexão P2P não é possível, como por exemplo nesse caso, o programa simplesmente continua se comunicando com outros usuários através do Tor.
+
+Inicialmente, o programa utilizaria a biblioteca miniupnpc para abrir portas automaticamente, porém, ao longo dos testes, ela apresentou problemas relacionados com o timeout de tentativas de conexão com o roteador. Esta biblioteca, ao tentar descobrir dispositivos compatíveis com UPnP na rede, ficava indefinidamente esperando por uma resposta, tornando o processo de descoberta de dispositivos UPnP extremamente demorado. Por causa disso, o arquivo upnp.py apresenta uma implementação improvisada que utiliza o executável upnpc, que não sofre com este problema específico. Por outro lado, o executável upnpc também apresentava problemas de inconsistência na resposta de pedidos. Pedidos para a abertura de portas específicas entravam na tabela de roteamento, mas não estavam ativas. Além disso, muitos comandos terminavam com códigos de erro, mesmo tendo sido bem-sucedidos. Assim, a implementação teve que manualmente testar se os comandos executados eram bem-sucedidos, limpando todos os roteamentos pedidos quando encontrava um erro.
+
+\section{Velocidade de conexões e latência}
+
+Como a implementação prática do protocolo apenas permite o envio de mensagens de texto, que ocupam muito pouco espaço em disco, a velocidade da conexão entre dois usuários é em grande parte irrelevante. O parâmetro mais importante que foi analisado foi a latência de envio de mensagens entre os dispositivos. Para cada ação entre dispositivos foram coletadas 6 medidas de latência, e a média dessas medidas foi utilizada como a latência da conexão. A tabela \ref{tab:latencia} apresenta os resultados dessas medições. Como mencionado anteriormente, como o Tor demora para tornar os serviços ocultos acessíveis externamente, os programas foram iniciados e os testes só foram conduzidos depois de 1 minuto.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Ação} & \textbf{Tempo Médio} \\ \hline
+Pedido da chave pública do destinatário & 5.93s \\ \hline
+Handshake inicial entre dois clientes & 12.74s \\ \hline
+Envio de mensagens (Tor) & 1.86s \\ \hline
+Envio de mensagens (UPnP) & 6ms \\ \hline
+Envio de mensagens (Rede local) & 2ms \\ \hline
+Envio de mensagens (localhost) & 8ms \\ \hline
+\end{tabular}
+\caption{Medições de latência para diferentes ações e métodos de conexão}
+\label{tab:latencia}
+\end{table}
+
+O envio de mensagens através do Tor passa as mensagens por 6 computadores da rede do Tor antes que a mensagem seja entregue, tornando este método de conexão o mais limitado em latência. Uma consideração interessante é que, por causa do handshake inicial do Tor, a primeira conexão é muito mais demorada que as demais. Uma vez que ambos os servidores já se comunicaram, seu caminho fica armazenado, tornando conexões posteriores muito mais rápidas. Por causa disso, o pedido da chave pública (que é o primeiro passo no envio da primeira mensagem entre dois usuários) e o handshake (que é o primeiro pedido no sentido contrário do que a mensagem será enviada) são muito mais lentos que o envio de mensagens subsequentes.
+
+De forma muito interessante, o envio de mensagens através de UPnP e rede local é mais rápido que o envio de mensagens através de localhost. Isso se deve ao fato de que mensagens enviadas pelo localhost utilizam a biblioteca de Python Requests, que é complexa e mais lenta, enquanto pedidos enviados pela rede local e UPnP são enviados diretamente para o socket, sem intermediários. O envio de mensagens através de UPnP é mais lento que o envio de mensagens pela rede local por causa da latência da comunicação através da internet. De qualquer maneira, nos três casos, o envio das mensagens é extremamente rápido, apenas demorando alguns milissegundos.
+
+Os resultados desses testes foram realizados em situações bem ideais de rede, com conexões cabeadas e provedores de internet de alta qualidade. Condições adversas de rede definitivamente alterarão esses resultados.

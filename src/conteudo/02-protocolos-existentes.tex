@@ -34,20 +34,20 @@ Os protocolos analisados peer-to-peer sem relays são:
   \item \href{https://bitmessage.org/}{Bitmessage}
 \end{itemize}
 
-A análise de cada protocolo é focada na arquitetura de rede, e não considera em detalhes outras funcionalidades como chamadas de voz, videoconferência, ou compartilhamento de arquivos. A seguir, são apresentadas as análises dos protocolos selecionados.
+A análise de cada protocolo é focada na arquitetura de rede e não considera em detalhes outras funcionalidades, como chamadas de voz, videoconferência ou compartilhamento de arquivos. A seguir, são apresentadas as análises dos protocolos selecionados.
 
 \section{Protocolos Federados}
 
-Na arquitetura federada de envio de mensagens, cada usuário escolhe um servidor para ser seu provedor de mensagens. Essa maquina será responsável por rotear todas as comunicações do usuário, e em alguns casos também armazenar suas mensagens. É importante que o usuário possa confiar no seu provedor de mensagens, uma vez que ele é um intermediário de todas as comunicações do usuário, que muitas vezes podem ser não criptografadas.
+Na arquitetura federada de envio de mensagens, cada usuário escolhe um servidor para ser seu provedor de mensagens. Essa máquina será responsável por rotear todas as comunicações do usuário e, em alguns casos, também armazenar suas mensagens. É importante que o usuário possa confiar em seu provedor de mensagens, uma vez que ele é um intermediário de todas as comunicações do usuário, que muitas vezes podem não ser criptografadas.
 
 Caso um usuário queira se comunicar com outro usuário em um servidor diferente, os servidores precisam se comunicar entre si para rotear as mensagens. Como o servidor é responsável pelo recebimento e entrega das mensagens, os protocolos federados permitem o envio assíncrono de mensagens. Em geral, os endereços dos usuários nesses sistemas consistem em uma combinação de um nome de usuário com o endereço do servidor.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.5\textwidth]{federated-email}
+  \includegraphics[width=0.8\textwidth]{federated-email}
 
   % remember to cite the source of the image
-  \caption{Arquitetura do email, um protocolo federado. \cite{email-picture}}
+  \caption{Arquitetura do email, um protocolo federado, que consiste em cada usuário escolher um servidor para ser seu provedor de mensagens. Mensagens entre usuários de servidores diferentes são roteadas pelos próprios servidores. \cite{email-picture}}
 \end{figure}
 
 \subsection{E-Mail}
@@ -65,10 +65,10 @@ O protocolo Matrix é um sistema de comunicação descentralizado e federado pro
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.5\textwidth]{matrix}
+  \includegraphics[width=0.8\textwidth]{matrix}
 
   % remember to cite the source of the image
-  \caption{Arquitetura do protocolo Matrix \cite{matrixspec}}
+  \caption{Arquitetura do protocolo Matrix, que assim como o e-mail consiste em cada usuário escolher um servidor para ser seu provedor de mensagens. Mensagens entre usuários de servidores diferentes são roteadas pelos próprios servidores. \cite{matrixspec}}
 \end{figure}
 
 \begin{itemize}
@@ -87,7 +87,7 @@ XMPP (Extensible Messaging and Presence Protocol) é um protocolo de comunicaç�
 
 \section{Protocolos Peer-to-Peer com Relays que não usam Tor}
 
-Na arquitetura peer-to-peer com relays, seja com tor ou não, os usuários se conectam diretamente uns aos outros, e armazenam localmente suas mensagens. Para contornar limitações de rede, como camadas de NAT e firewalls, os usuários podem usar relays para intermediar a comunicação. Os relays são apenas responsáveis por encaminhar diretamente as mensagens, as apagando quando elas são entregues. Em alguns protocolos, esses relays podem armazenar a mensagem por um curto período de tempo, até o destinatário estar disponível para recebê-la. Os seguintes protocolos utilizam relays para intermediar a comunicação entre usuários.
+Na arquitetura peer-to-peer com relays, seja com Tor ou não, os usuários se conectam diretamente uns aos outros e armazenam localmente suas mensagens. Para contornar limitações de rede, como camadas de NAT e firewalls, os usuários podem usar relays para intermediar a comunicação. Os relays são apenas responsáveis por encaminhar diretamente as mensagens, apagando-as quando elas são entregues. Em alguns protocolos, esses relays podem armazenar a mensagem por um curto período de tempo, até o destinatário estar disponível para recebê-la. Os seguintes protocolos utilizam relays para intermediar a comunicação entre usuários.
 
 \subsection{SimpleX}
 
