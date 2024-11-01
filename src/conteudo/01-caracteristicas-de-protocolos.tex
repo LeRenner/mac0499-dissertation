@@ -16,7 +16,7 @@ Uma primeira distinção importante a ser feita é entre protocolos de comunica�
 \end{defin}
 }
 
-Um protocolo com arquitetura centralizada permite um controle mais rigoroso sobre o fluxo de dados, o que facilita a implementação de funcionalidades como backups, moderação de conteúdo e integração com outros serviços. No entanto, essa centralização também implica riscos, como maior vulnerabilidade a falhas de segurança, falhas de serviço e questões relacionadas à privacidade, já que todos os dados dos usuários são concentrados em um único ponto. Além disso, a dependência de uma entidade centralizada pode levar a restrições de acesso e à censura, uma vez que o controle das comunicações está nas mãos de uma única organização.
+Um protocolo com arquitetura centralizada permite um controle mais rigoroso sobre o fluxo de dados, o que facilita a implementação de funcionalidades como \textit{backups}, moderação de conteúdo e integração com outros serviços. No entanto, essa centralização também implica riscos, como maior vulnerabilidade a falhas de segurança, falhas de serviço e questões relacionadas à privacidade, já que todos os dados dos usuários são concentrados em um único ponto. Além disso, a dependência de uma entidade centralizada pode levar a restrições de acesso e à censura, uma vez que o controle das comunicações está nas mãos de uma única organização.
 
 Por outro lado, podemos definir um protocolo descentralizado como:
 
@@ -26,7 +26,7 @@ Por outro lado, podemos definir um protocolo descentralizado como:
 \end{defin}
 }
 
-Os protocolos descentralizados têm várias vantagens em relação aos centralizados, como maior resistência a falhas, maior privacidade e menor vulnerabilidade a censura. No entanto, eles também apresentam desafios, como a necessidade de garantir a integridade e a consistência dos dados em um ambiente distribuído e a necessidade de lidar com questões de escalabilidade e desempenho. Além disso, a ausência de uma entidade centralizada pode dificultar a implementação de certas funcionalidades, como backups, moderação de conteúdo e integração com outros serviços.
+Os protocolos descentralizados têm várias vantagens em relação aos centralizados, como maior resistência a falhas, maior privacidade e menor vulnerabilidade a censura. No entanto, eles também apresentam desafios, como a necessidade de garantir a integridade e a consistência dos dados em um ambiente distribuído e a necessidade de lidar com questões de escalabilidade e desempenho. Além disso, a ausência de uma entidade centralizada pode dificultar a implementação de certas funcionalidades, como \textit{backups}, moderação de conteúdo e integração com outros serviços.
 
 Independentemente do seu nível de centralização ou descentralização, os protocolos de comunicação podem ser classificados de acordo com várias características e funcionalidades. Algumas das características mais importantes incluem:
 
@@ -37,7 +37,7 @@ Independentemente do seu nível de centralização ou descentralização, os pro
     
     \item \textbf{Interoperabilidade:} A interoperabilidade é a capacidade de diferentes sistemas e protocolos de comunicação trabalharem juntos de forma eficiente e eficaz. Alguns protocolos analisados nesta monografia são mais versáteis e implementam uma série de padrões e especificações que permitem a comunicação com outros sistemas e protocolos.
 
-    \item \textbf{Assincronicidade:} Protocolos assíncronos permitem que os usuários enviem mensagens sem depender da disponibilidade do destinatário. Esta funcionalidade geralmente depende de um sistema de armazenamento de mensagens, que pode ser centralizado ou não, que permite que as mensagens sejam entregues futuramente quando o destinatário estiver online.
+    \item \textbf{Assincronicidade:} Protocolos assíncronos permitem que os usuários enviem mensagens sem depender da disponibilidade do destinatário. Esta funcionalidade geralmente depende de um sistema de armazenamento de mensagens, que pode ser centralizado ou não, que permite que as mensagens sejam entregues futuramente quando o destinatário estiver \textit{online}.
 \end{itemize}
 
 \section{Confidencialidade, integridade e autenticidade}
@@ -66,44 +66,44 @@ Esses três requerimentos podem ser atendidos através de criptografia, que é o
 
 Sistemas de comunicação modernos podem utilizar estas ferramentas em passos discretos do processo de comunicação, ou no caminho completo do remetente ao destinatário. A criptografia de ponta a ponta é um método que garante que os dados sejam criptografados no dispositivo do remetente e só possam ser descriptografados no dispositivo do destinatário. Isso garante que os dados permaneçam seguros, mesmo se forem roteados por uma entidade central, ou sejam transmitidos por uma rede não confiável.
 
-\section {Redes locais, NATs e firewalls}
+\section {Redes locais, NATs e \textit{firewalls}}
 
-A maioria dos usuários da Internet não possui um endereço de IP público diretamente acessível, o qual é um identificador único e global que permite que um dispositivo seja reconhecido na rede. Em vez disso, eles geralmente estão conectados a uma rede local, que é uma rede privada onde vários dispositivos compartilham um único endereço de IP público. Nessa configuração, o roteador atua como o principal dispositivo de gerenciamento do tráfego de dados entre a rede local e a Internet, redirecionando as respostas dos serviços externos para os dispositivos corretos na rede. Esse processo realizado pelo roteador é conhecido como Network Address Translation (NAT).
+A maioria dos usuários da Internet não possui um endereço de IP público diretamente acessível, o qual é um identificador único e global que permite que um dispositivo seja reconhecido na rede. Em vez disso, eles geralmente estão conectados a uma rede local, que é uma rede privada onde vários dispositivos compartilham um único endereço de IP público. Nessa configuração, o roteador atua como o principal dispositivo de gerenciamento do tráfego de dados entre a rede local e a Internet, redirecionando as respostas dos serviços externos para os dispositivos corretos na rede. Esse processo realizado pelo roteador é conhecido como \textit{Network Address Translation} (NAT).
 
-Geralmente, dispositivos que estão conectados a uma rede local por meio de um NAT possuem grandes restrições na sua habilidade de receber conexões de fora da rede local. Isso ocorre porque o NAT não sabe para qual dispositivo na rede local deve redirecionar a conexão recebida. Além disso, firewalls, que são programas de segurança que monitoram e controlam o tráfego de dados entre a rede local e a Internet, podem bloquear conexões recebidas de fora da rede local. Enquanto existem protocolos que permitem que um dispositivo dentro de um NAT receba conexões externas, não é incomum que ambos os dispositivos encontrem-se em redes que não permitem conexões externas. Nesse caso, eles não conseguem estabelecer uma conexão direta entre si, e vão precisar de um intermediário para ajudar a encaminhar as mensagens entre eles.
+Geralmente, dispositivos que estão conectados a uma rede local por meio de um NAT possuem grandes restrições na sua habilidade de receber conexões de fora da rede local. Isso ocorre porque o NAT não sabe para qual dispositivo na rede local deve redirecionar a conexão recebida. Além disso, \textit{firewalls}, que são programas de segurança que monitoram e controlam o tráfego de dados entre a rede local e a Internet, podem bloquear conexões recebidas de fora da rede local. Enquanto existem protocolos que permitem que um dispositivo dentro de um NAT receba conexões externas, não é incomum que ambos os dispositivos encontrem-se em redes que não permitem conexões externas. Nesse caso, eles não conseguem estabelecer uma conexão direta entre si, e vão precisar de um intermediário para ajudar a encaminhar as mensagens entre eles.
 
 \section {Relays em protocolos de comunicação}
 
-Um tipo de dispositivo comumente utilizado em protocolos de comunicação descentralizados é o relay.
+Um tipo de dispositivo comumente utilizado em protocolos de comunicação descentralizados é o \textit{relay}.
 
 \statetheoremsolid{
 \begin{defin}
-    Um \textbf{relay} é um servidor intermediário que ajuda a encaminhar mensagens entre diferentes usuários em um protocolo de comunicação descentralizado. Os relays geralmente possuem arquitetura interna bem simples, apenas encaminhando mensagens entre usuários, sem armazenar definitivamente ou processar dados.
+    Um \textbf{\textit{relay}} é um servidor intermediário que ajuda a encaminhar mensagens entre diferentes usuários em um protocolo de comunicação descentralizado. Os \textit{relays} geralmente possuem arquitetura interna bem simples, apenas encaminhando mensagens entre usuários, sem armazenar definitivamente ou processar dados.
 \end{defin}
 }
 
-Relays são principalmente utilizados para contornar restrições de roteamento em redes que possuem camadas de \textit{Network Address Translation} (NAT) ou firewalls, que podem impedir a comunicação direta entre dois usuários. Outras funcionalidades que eles podem prover incluem a capacidade de armazenar mensagens temporariamente, para que possam ser entregues mesmo quando o destinatário não está online, e a capacidade de diminuir os metadados que estão sendo transmitidos, uma vez que ele pode ocultar o endereço IP real do remetente e destinatário.
+\textit{Relays} são principalmente utilizados para contornar restrições de roteamento em redes que possuem camadas de \textit{Network Address Translation} (NAT) ou \textit{firewalls}, que podem impedir a comunicação direta entre dois usuários. Outras funcionalidades que eles podem prover incluem a capacidade de armazenar mensagens temporariamente, para que possam ser entregues mesmo quando o destinatário não está \textit{online}, e a capacidade de diminuir os metadados que estão sendo transmitidos, uma vez que ele pode ocultar o endereço IP real do remetente e destinatário.
 
-\section{The Onion Router (Tor)}
+\section{\textit{The Onion Router} (Tor)}
 
-O Tor é uma rede de comunicação descentralizada que permite que os usuários naveguem na Internet de forma anônima e segura. Ele é composto por uma rede de servidores de voluntários, chamados de relays, que se dispõe a redirecionar o tráfego de Internet de forma anônima. Como estes voluntários são desconhecidos, o protocolo da rede é desenhado para minimizar a quantidade de informações que cada relay tem acesso, garantindo a privacidade dos usuários. Esta rede pode ser utilizada tanto para navegação em websites comuns da Internet com mais privacidade, assim como para acessar serviços ocultos, que são sites que só podem ser acessados através da rede Tor.
+O \textit{Tor} é uma rede de comunicação descentralizada que permite que os usuários naveguem na Internet de forma anônima e segura. Ele é composto por uma rede de servidores de voluntários, chamados de \textit{relays}, que se dispõe a redirecionar o tráfego de Internet de forma anônima. Como estes voluntários são desconhecidos, o protocolo da rede é desenhado para minimizar a quantidade de informações que cada \textit{relay} tem acesso, garantindo a privacidade dos usuários. Esta rede pode ser utilizada tanto para navegação em websites comuns da Internet com mais privacidade, assim como para acessar serviços ocultos, que são sites que só podem ser acessados através da rede \textit{Tor}.
 
 \subsection{Circuitos e troca de chaves}
 
-Quando um usuário se conecta à rede Tor, o seu tráfego é roteado através de uma série de relays, chamada de circuito. Cada circuito é composto usualmente por três relays, chamados de entrada, intermediário e saída. O relay de entrada é o primeiro a receber a mensagem do usuário, o relay intermediário é o segundo a receber a mensagem, e o relay de saída é o último a enviar a mensagem para o destino. Cada relay apenas tem acesso a informações sobre o relay anterior e o próximo, o que ajuda a limitar a quantidade de informações que cada relay tem acesso.
+Quando um usuário se conecta à rede \textit{Tor}, o seu tráfego é roteado através de uma série de \textit{relays}, chamada de circuito. Cada circuito é composto usualmente por três \textit{relays}, chamados de entrada, intermediário e saída. O \textit{relay} de entrada é o primeiro a receber a mensagem do usuário, o \textit{relay} intermediário é o segundo a receber a mensagem, e o \textit{relay} de saída é o último a enviar a mensagem para o destino. Cada \textit{relay} apenas tem acesso a informações sobre o \textit{relay} anterior e o próximo, o que ajuda a limitar a quantidade de informações que cada \textit{relay} tem acesso.
 
-O usuário realiza a troca de chaves criptográficas com cada relay do circuito, de forma que cada relay possa criptografar e descriptografar a mensagem. Quando o usuário vai enviar um pedido, ele o criptografa com todas as chaves dos relays do circuito, começando com a chave do relay de saída, depois a chave do relay intermediário, e por fim a chave do relay de entrada. Cada relay descriptografa a mensagem com a sua chave, e analisa se deve encaminhar a mensagem para o próximo relay ou atuar como um relay de saída.
+O usuário realiza a troca de chaves criptográficas com cada \textit{relay} do circuito, de forma que cada \textit{relay} possa criptografar e descriptografar a mensagem. Quando o usuário vai enviar um pedido, ele o criptografa com todas as chaves dos \textit{relays} do circuito, começando com a chave do \textit{relay} de saída, depois a chave do \textit{relay} intermediário, e por fim a chave do \textit{relay} de entrada. Cada \textit{relay} descriptografa a mensagem com a sua chave, e analisa se deve encaminhar a mensagem para o próximo \textit{relay} ou atuar como um \textit{relay} de saída.
 
 Esse processo pode ser realizado uma vez para o usuário enviar uma requisição para um website na Internet comum, ou várias vezes para o usuário acessar um serviço oculto.
 
 \subsection{Acesso a sites comuns}
 
-Quando um usuário acessa um site comum da Internet através da rede Tor, ele apenas precisa estabelecer um circuito. Ele já é suficiente para obfuscar o tráfego, uma vez que cada relay apenas tem acesso a informações sobre o relay anterior e o próximo. Isso significa que:
+Quando um usuário acessa um site comum da Internet através da rede \textit{Tor}, ele apenas precisa estabelecer um circuito. Ele já é suficiente para obfuscar o tráfego, uma vez que cada \textit{relay} apenas tem acesso a informações sobre o \textit{relay} anterior e o próximo. Isso significa que:
 
 \begin{itemize}
-    \item O relay de entrada sabe o endereço IP do usuário, mas não sabe o que ele está acessando.
-    \item O relay intermediário não sabe nada sobre remetentes ou destinatários e não pode ver o conteúdo transmitido, apenas sabendo a quantidade de dados transmitidos.
-    \item O relay de saída sabe que algum usuário da rede está acessando aquele serviço, mas não sabe quem é o usuário.
+    \item O \textit{relay} de entrada sabe o endereço IP do usuário, mas não sabe o que ele está acessando.
+    \item O \textit{relay} intermediário não sabe nada sobre remetentes ou destinatários e não pode ver o conteúdo transmitido, apenas sabendo a quantidade de dados transmitidos.
+    \item O \textit{relay} de saída sabe que algum usuário da rede está acessando aquele serviço, mas não sabe quem é o usuário.
 \end{itemize}
 
 \begin{figure}
@@ -112,7 +112,7 @@ Quando um usuário acessa um site comum da Internet através da rede Tor, ele ap
     \includegraphics[width=0.85\textwidth]{loc-tor}
   
     % remember to cite the source of the image
-    \caption{Captura de tela de um website de localicação acessado através do Firefox (acima) e do Tor (abaixo). Note que mesmo usando a mesma conexão com a Internet, o website acessado através do Tor determina a localização do Relay de Saída (nesse caso na Islândia), e não a do usuário.}
+    \caption{Captura de tela de um website de localização acessado através do \textit{Firefox} (acima) e do \textit{Tor} (abaixo). Note que mesmo usando a mesma conexão com a Internet, o website acessado através do \textit{Tor} determina a localização do \textit{Relay} de Saída (nesse caso na Islândia), e não a do usuário.}
 \end{figure}
 
 \begin{figure}
@@ -121,19 +121,19 @@ Quando um usuário acessa um site comum da Internet através da rede Tor, ele ap
     \includegraphics[width=0.85\textwidth]{speed-tor}
   
     % remember to cite the source of the image
-    \caption{Captura de tela de um de teste de velocidade de conexão à Internet acessado através do Firefox (acima) e do Tor (abaixo). Note que a conexão através do Tor é muito mais lenta, uma vez que o tráfego é roteado através de vários relays, limitando a velocidade da conexão e introduzindo latência.}
+    \caption{Captura de tela de um de teste de velocidade de conexão à Internet acessado através do \textit{Firefox} (acima) e do \textit{Tor} (abaixo). Note que a conexão através do \textit{Tor} é muito mais lenta, uma vez que o tráfego é roteado através de vários \textit{relays}, limitando a velocidade da conexão e introduzindo latência.}
 \end{figure}
 
-Um vídeo excelente publicado pela Universidade de Nottingham que entra em mais detalhes sobre a troca de chaves e a criptografia do protocolo Tor pode ser encontrado em \cite{computerphile-tor}.
+Um vídeo excelente publicado pela Universidade de Nottingham que entra em mais detalhes sobre a troca de chaves e a criptografia do protocolo \textit{Tor} pode ser encontrado em \cite{computerphile-tor}.
 
-A utilização do protocolo Tor para acessar sites comuns da Internet é conceitualmente similar a utilizar um serviço de \textit{Virtual Private Network} (VPN). Ambos agem como um intermediário entre o usuário e o site acessado, escondendo o endereço IP real do usuário e protegendo a sua privacidade. No entanto, enquanto Tor é gratuito, mais anônimo e descentralizado, VPNs são na maioria das vezes pagas, centralizadas, mas geralmente possuem melhor desempenho.
+A utilização do protocolo \textit{Tor} para acessar sites comuns da Internet é conceitualmente similar a utilizar um serviço de \textit{Virtual Private Network} (\textit{VPN}). Ambos agem como um intermediário entre o usuário e o site acessado, escondendo o endereço IP real do usuário e protegendo a sua privacidade. No entanto, enquanto \textit{Tor} é gratuito, mais anônimo e descentralizado, \textit{VPNs} são na maioria das vezes pagas, centralizadas, mas geralmente possuem melhor desempenho.
 
 \subsection{Acesso a serviços ocultos}
 
-Além de permitir o acesso a sites comuns da Internet de forma anônima, o Tor também suporta a criação e acesso a serviços ocultos, que são sites que só podem ser acessados através da rede Tor. Estes sites possuem um endereço especial, terminado em .onion, que é gerado a partir de uma chave pública do servidor. A utilização de serviços ocultos permite que os usuários hospedem sites de forma anônima e segura, contornando restrições de firewalls e NATs, sem precisarem expor a localização física do servidor.
+Além de permitir o acesso a sites comuns da Internet de forma anônima, o \textit{Tor} também suporta a criação e acesso a serviços ocultos, que são sites que só podem ser acessados através da rede \textit{Tor}. Estes sites possuem um endereço especial, terminado em .onion, que é gerado a partir de uma chave pública do servidor. A utilização de serviços ocultos permite que os usuários hospedem sites de forma anônima e segura, contornando restrições de \textit{firewalls} e NATs, sem precisarem expor a localização física do servidor.
 
-Quando um usuário acessa um serviço oculto, ele estabelece uma série de circuitos, buscando que tanto ele quanto o serviço oculto estabeleçam um circuito com um relay intermediário em comum. Isso permite que o usuário e o serviço oculto possam se comunicar de forma anônima, sem que nenhum dos dois saiba a localização física do outro.
+Quando um usuário acessa um serviço oculto, ele estabelece uma série de circuitos, buscando que tanto ele quanto o serviço oculto estabeleçam um circuito com um \textit{relay} intermediário em comum. Isso permite que o usuário e o serviço oculto possam se comunicar de forma anônima, sem que nenhum dos dois saiba a localização física do outro.
 
-A Universidade de Nottingham também publicou um vídeo excelente que entra em mais detalhes sobre como funcionam os serviços ocultos do protocolo Tor, que pode ser encontrado em \cite{computerphile-hidden-services}.
+A Universidade de Nottingham também publicou um vídeo excelente que entra em mais detalhes sobre como funcionam os serviços ocultos do protocolo \textit{Tor}, que pode ser encontrado em \cite{computerphile-hidden-services}.
 
-Serviços ocultos são extremamente úteis no contexto da transmissão segura de mensagens online, uma vez que eles lidam com limitações de firewalls e NATs, oferecendo comunicação que é segura e anônima. Por outro lado, a grande quantidade de intermediários no encaminhamento de mensagens significa que a latência e a velocidade da comunicação podem ser comprometidas.
+Serviços ocultos são extremamente úteis no contexto da transmissão segura de mensagens \textit{online}, uma vez que eles lidam com limitações de \textit{firewalls} e NATs, oferecendo comunicação que é segura e anônima. Por outro lado, a grande quantidade de intermediários no encaminhamento de mensagens significa que a latência e a velocidade da comunicação podem ser comprometidas.
