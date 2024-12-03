@@ -2384,6 +2384,5 @@
     <bcf:citekey order="20" intorder="1">briar</bcf:citekey>
     <bcf:citekey order="21" intorder="1">ebtpaper</bcf:citekey>
     <bcf:citekey order="22" intorder="1">scuttlebutt</bcf:citekey>
-    <bcf:citekey order="23" intorder="1">scuttlebutt</bcf:citekey>
-    <bcf:citekey order="24" intorder="1">toxcore</bcf:citekey>
-    <bcf:citekey order="25" intorder="1">bitmessage</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">toxcore</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">bitmessage</bcf:citekey>

@@ -4,7 +4,7 @@
 
 \chapter{Implementações já existentes}
 
-Este capítulo da monografia realizará a análise de implementações de código aberto já existentes de protocolos descentralizados de envio de mensagens. Essas implementações fornecem uma base para compreender os desafios práticos, as abordagens de arquitetura e as estratégias de mitigação de problemas que foram desenvolvidas e testadas pela comunidade. Os protocolos analisados foram selecionados por serem abertos, descentralizados, e por terem uma arquitetura de rede singular, sendo relevante para este estudo. Os protocolos analisados foram categorizados pela sua arquitetura de rede, e divididos em quatro grupos principais: federados, \textit{peer-to-peer} com \textit{relays} que usam \textit{Tor}, \textit{peer-to-peer} com \textit{relays} que não usam \textit{Tor}, e \textit{peer-to-peer} sem \textit{relays}.
+Este capítulo da monografia realizará a análise de implementações de código aberto já existentes de protocolos descentralizados de envio de mensagens. Essas implementações fornecem uma base para compreender os desafios práticos, as abordagens de arquitetura e as estratégias de mitigação de problemas que foram desenvolvidas e testadas pela comunidade. Os protocolos analisados foram selecionados por serem abertos, descentralizados, e por terem uma arquitetura de rede singular, sendo relevante para este estudo. Os protocolos analisados foram categorizados pela sua arquitetura de rede, e divididos em quatro grupos principais: federados, \textit{peer-to-peer} com \textit{relays} que não usam \textit{Tor}, \textit{peer-to-peer} com \textit{relays} que usam \textit{Tor}, e \textit{peer-to-peer} sem \textit{relays}.
 
 Os protocolos analisados federados são:
 \begin{itemize}
@@ -34,7 +34,7 @@ Os protocolos analisados \textit{peer-to-peer} sem \textit{relays} são:
   \item \href{https://bitmessage.org/}{\textit{Bitmessage}}
 \end{itemize}
 
-A análise de cada protocolo é focada na arquitetura de rede e não considera em detalhes outras funcionalidades, como chamadas de voz, videoconferência ou compartilhamento de arquivos. A seguir, são apresentadas as análises dos protocolos selecionados.
+A análise de cada protocolo é focada na arquitetura de rede utilzada para troca de mensagens e não considera em detalhes outras funcionalidades, como chamadas de voz, videoconferência ou compartilhamento de arquivos. A seguir, são apresentadas as análises dos protocolos selecionados.
 
 \section{Protocolos Federados}
 
@@ -47,12 +47,15 @@ Caso um usuário queira se comunicar com outro usuário em um servidor diferente
   \includegraphics[width=0.8\textwidth]{federated-email}
 
   % remember to cite the source of the image
-  \caption{Arquitetura do \textit{email}, um protocolo federado, que consiste em cada usuário escolher um servidor para ser seu provedor de mensagens. Mensagens entre usuários de servidores diferentes são roteadas pelos próprios servidores. \cite{email-picture}}
+  \caption{Arquitetura do \textit{email}, uma aplicação federada, que consiste em cada usuário escolher um servidor para ser seu provedor de mensagens. Mensagens entre usuários de servidores diferentes são roteadas pelos próprios servidores. \cite{email-picture}}
+  \label{fig:federated-email}
 \end{figure}
 
 \subsection{\textit{E-Mail}}
 
 O \textit{e-mail} (correio eletrônico) é um sistema de comunicação digital que permite o envio e recebimento de mensagens e arquivos entre usuários através de redes de computadores, utilizando protocolos como \textit{SMTP}, \textit{POP3} e \textit{IMAP} para a transmissão e armazenamento das mensagens. É amplamente utilizado para comunicação pessoal e profissional, sendo uma das formas mais comuns de troca de informações na Internet. \cite{rfc5321}
+
+A figura \ref{fig:federated-email} ilustra a troca de mensagens via \textit{e-mail} entre o usuário de endereço alice@a.org e o usuário de endereço bob@b.org. Os servidor de a.org determina o endereço do servidor responsável por b.org através do sistema de resolução de nomes (DNS), e envia a mensagem para o servidor de b.org, que por sua vez entrega a mensagem para o usuário bob.
 
 \begin{itemize}
   \item \textbf{Tipo de endereço}: usuário@servidor
@@ -63,12 +66,15 @@ O \textit{e-mail} (correio eletrônico) é um sistema de comunicação digital q
 
 O protocolo \textit{Matrix} é um sistema de comunicação descentralizado e federado projetado para suportar mensagens instantâneas e colaboração em tempo real. Desenvolvido para ser uma solução aberta e interoperável, o \textit{Matrix} visa fornecer uma infraestrutura robusta para comunicação em diversos contextos, desde \textit{chat} e chamadas de voz até a troca de arquivos. \cite{matrixspec}
 
+A figura \ref{fig:matrix} ilustra a troca de mensagens via \textit{Matrix} entre usuários de diferentes servidores. Cada usuário escolhe um servidor para ser seu provedor de mensagens, e mensagens entre usuários de servidores diferentes são roteadas pelos próprios servidores.
+
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{matrix}
 
   % remember to cite the source of the image
   \caption{Arquitetura do protocolo \textit{Matrix}, que assim como o \textit{e-mail} consiste em cada usuário escolher um servidor para ser seu provedor de mensagens. Mensagens entre usuários de servidores diferentes são roteadas pelos próprios servidores. \cite{matrixspec}}
+  \label{fig:matrix}
 \end{figure}
 
 \begin{itemize}
@@ -86,7 +92,7 @@ O protocolo \textit{Matrix} é um sistema de comunicação descentralizado e fed
 \end{itemize}
 \section{Protocolos Peer-to-Peer com \textit{Relays} que não usam \textit{Tor}}
 
-Na arquitetura \textit{peer-to-peer} com \textit{relays}, seja com \textit{Tor} ou não, os usuários se conectam diretamente uns aos outros e armazenam localmente suas mensagens. Para contornar limitações de rede, como camadas de \textit{NAT} e \textit{firewalls}, os usuários podem usar \textit{relays} para intermediar a comunicação. Os \textit{relays} são apenas responsáveis por encaminhar diretamente as mensagens, apagando-as quando elas são entregues. Em alguns protocolos, esses \textit{relays} podem armazenar a mensagem por um curto período de tempo, até o destinatário estar disponível para recebê-la. Os seguintes protocolos utilizam \textit{relays} para intermediar a comunicação entre usuários.
+Na arquitetura \textit{peer-to-peer} com \textit{relays}, seja com \textit{Tor} ou não, os usuários se conectam diretamente uns aos outros e armazenam localmente suas mensagens. Para contornar limitações de rede, como camadas de \textit{NAT} e \textit{firewalls}, os usuários podem usar \textit{relays} para intermediar a comunicação. Os \textit{relays} são apenas responsáveis por encaminhar diretamente as mensagens, apagando-as quando elas são entregues. Em alguns protocolos, esses \textit{relays} podem armazenar a mensagem por um curto período de tempo, até o destinatário estar disponível para recebê-la. Os seguintes protocolos utilizam \textit{relays} não participantes na rede do \textit{Tor} para intermediar a comunicação entre usuários.
 
 \subsection{\textit{SimpleX}}
 

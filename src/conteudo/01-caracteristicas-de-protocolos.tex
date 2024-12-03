@@ -4,7 +4,7 @@
 
 \chapter{Definições importantes}
 
-Antes de analisar implementações existentes de protocolos de envio de mensagens descentralizados, é importante definir alguns conceitos e características importantes para a compreensão do funcionamento desses protocolos. Este capítulo será dedicado a explicar definições e características importantes de protocolos de comunicação.
+Antes de analisar implementações existentes de protocolos descentralizados de envio de mensagens, é importante definir alguns conceitos e características importantes para a compreensão do funcionamento desses protocolos. Este capítulo será dedicado a explicar tais pré-requisitos.
 
 \section{Tipos de protocolos de comunicação}
 
@@ -16,7 +16,7 @@ Uma primeira distinção importante a ser feita é entre protocolos de comunica�
 \end{defin}
 }
 
-Um protocolo com arquitetura centralizada permite um controle mais rigoroso sobre o fluxo de dados, o que facilita a implementação de funcionalidades como \textit{backups}, moderação de conteúdo e integração com outros serviços. No entanto, essa centralização também implica riscos, como maior vulnerabilidade a falhas de segurança, falhas de serviço e questões relacionadas à privacidade, já que todos os dados dos usuários são concentrados em um único ponto. Além disso, a dependência de uma entidade centralizada pode levar a restrições de acesso e à censura, uma vez que o controle das comunicações está nas mãos de uma única organização.
+Um protocolo com arquitetura centralizada permite um controle mais rigoroso sobre o fluxo de dados, o que facilita a implementação de funcionalidades como \textit{backups}, moderação de conteúdo e integração com outros serviços. No entanto, essa centralização também implica riscos, como maior vulnerabilidade a falhas de segurança, falhas de serviço e questões relacionadas à privacidade, já que todos os dados dos usuários são concentrados em um único ponto. Tal característica é resumida pelo termo "ponto único de falha". Além disso, a dependência de uma entidade centralizada pode levar a restrições de acesso e à censura, uma vez que o controle das comunicações está nas mãos de uma única organização.
 
 Por outro lado, podemos definir um protocolo descentralizado como:
 
@@ -31,7 +31,7 @@ Os protocolos descentralizados têm várias vantagens em relação aos centraliz
 Independentemente do seu nível de centralização ou descentralização, os protocolos de comunicação podem ser classificados de acordo com várias características e funcionalidades. Algumas das características mais importantes incluem:
 
 \begin{itemize}
-    \item \textbf{Privacidade de metadados:} Mesmo que a grande maioria dos protocolos modernos de comunicação garantam a privacidade do conteúdo das mensagens, muitos deles ainda coletam e armazenam metadados, como informações sobre quem enviou a mensagem, quando foi enviada e para quem foi enviada. Além disso, durante a sua transmissão, dados relacionados com os dispositivos de origem e destino, informações de interfaces de rede, endereços de IP podem ser coletadas por terceiros. Protocolos que protegem a privacidade de metadados são capazes de impedir que essas informações sejam expostas e garantir sua confidencialidade.
+    \item \textbf{Privacidade de metadados:} Mesmo que a grande maioria dos protocolos modernos de comunicação garantam a privacidade do conteúdo das mensagens, muitos deles ainda coletam e armazenam metadados, como informações sobre quem enviou a mensagem, quando foi enviada e para quem foi enviada. Além disso, durante a sua transmissão, dados relacionados com os dispositivos de origem e destino, informações de interfaces de rede e endereços de IP podem ser coletados por terceiros. Protocolos que protegem a privacidade de metadados são capazes de impedir que essas informações sejam expostas e garantir sua confidencialidade.
     
     \item \textbf{Escalabilidade:} A escalabilidade é a capacidade de um sistema de crescer e lidar com um aumento no número de usuários e mensagens sem comprometer o desempenho. Protocolos não escaláveis não conseguem lidar com um aumento da demanda mesmo com a adição de mais recursos.
     
@@ -70,7 +70,21 @@ Sistemas de comunicação modernos podem utilizar estas ferramentas em passos di
 
 A maioria dos usuários da Internet não possui um endereço de IP público diretamente acessível, o qual é um identificador único e global que permite que um dispositivo seja reconhecido na rede. Em vez disso, eles geralmente estão conectados a uma rede local, que é uma rede privada onde vários dispositivos compartilham um único endereço de IP público. Nessa configuração, o roteador atua como o principal dispositivo de gerenciamento do tráfego de dados entre a rede local e a Internet, redirecionando as respostas dos serviços externos para os dispositivos corretos na rede. Esse processo realizado pelo roteador é conhecido como \textit{Network Address Translation} (NAT).
 
-Geralmente, dispositivos que estão conectados a uma rede local por meio de um NAT possuem grandes restrições na sua habilidade de receber conexões de fora da rede local. Isso ocorre porque o NAT não sabe para qual dispositivo na rede local deve redirecionar a conexão recebida. Além disso, \textit{firewalls}, que são programas de segurança que monitoram e controlam o tráfego de dados entre a rede local e a Internet, podem bloquear conexões recebidas de fora da rede local. Enquanto existem protocolos que permitem que um dispositivo dentro de um NAT receba conexões externas, não é incomum que ambos os dispositivos encontrem-se em redes que não permitem conexões externas. Nesse caso, eles não conseguem estabelecer uma conexão direta entre si, e vão precisar de um intermediário para ajudar a encaminhar as mensagens entre eles.
+Geralmente, dispositivos que estão conectados a uma rede local por meio de um NAT possuem grandes restrições na sua habilidade de receber conexões de fora da rede local. Isso ocorre porque o NAT não sabe para qual dispositivo na rede local deve redirecionar a conexão recebida. Além disso, \textit{firewalls}, que são programas de segurança que monitoram e controlam o tráfego de dados entre a rede local e a Internet, podem bloquear conexões recebidas de fora da rede local. Quando dois dispositivos não conseguem estabelecer uma conexão direta entre si, eles vão precisar de um intermediário para ajudar a encaminhar as mensagens entre eles.
+
+Enquanto muitos roteadores impõe restrições na habilidade de receber conexões externas, algumas técnicas e protocolos podem contornar estar restrições. Uma delas é o \textit{Universal Plug and Play} (UPnP), que é um protocolo que permite que dispositivos na rede local abram portas automaticamente no roteador, permitindo que conexões externas sejam estabelecidas com eles. Outra técnica é o \textit{hole punching}, que é um método que permite que dois dispositivos atrás de NATs diferentes estabeleçam uma conexão direta entre si, sem a necessidade de um intermediário.
+
+\subsection{\textit{Universal Plug and Play} (UPnP)}
+
+O \textit{UPnP} é um protocolo de rede que permite que dispositivos na rede local descubram e se comuniquem uns com os outros de forma automática. Uma das funcionalidades mais importantes do \textit{UPnP} é a capacidade de abrir portas automaticamente no roteador, permitindo que dispositivos na rede local recebam conexões externas. Isso é particularmente útil para aplicações \textit{peer-to-peer} (P2P), que precisam estabelecer conexões diretas entre dispositivos na rede local e dispositivos externos.
+
+O \textit{UPnP} é amplamente utilizado em aplicações de comunicação, como chamadas de voz e vídeo, compartilhamento de arquivos e jogos \textit{online}. No entanto, o \textit{UPnP} também apresenta considerações de segurança, uma vez que permite que dispositivos na rede local abram portas no roteador sem a necessidade de autenticação. Isso pode ser explorado por atacantes para comprometer a segurança da rede local e acessar dispositivos internos. Além disso, nem todos os roteadores suportam o \textit{UPnP}, o que pode limitar a sua eficácia em certas configurações de rede.
+
+\subsection{\textit{Hole punching}}
+
+\textit{Hole punching} é uma técnica que permite que dois dispositivos atrás de NATs diferentes estabeleçam uma conexão direta entre si, sem a necessidade de um intermediário. A técnica funciona explorando as regras de tradução de endereços do NAT para criar um "buraco" na barreira de segurança do dispositivo. Uma vez que o buraco é criado, os dispositivos podem se comunicar diretamente entre si, sem a necessidade de um intermediário.
+
+Uma consideração importante sobre esta técnica é que ela necessita de um servidor ou outro canal de comunicação entre os dispositivos para coordenar o processo de \textit{hole punching}. Além disso, a eficácia do \textit{hole punching} pode variar dependendo do tipo de NATs envolvidos, da configuração da rede e de outros fatores. No entanto, quando bem-sucedido, o \textit{hole punching} pode permitir que dispositivos estabeleçam conexões diretas entre si.
 
 \section {Relays em protocolos de comunicação}
 
@@ -82,7 +96,7 @@ Um tipo de dispositivo comumente utilizado em protocolos de comunicação descen
 \end{defin}
 }
 
-\textit{Relays} são principalmente utilizados para contornar restrições de roteamento em redes que possuem camadas de \textit{Network Address Translation} (NAT) ou \textit{firewalls}, que podem impedir a comunicação direta entre dois usuários. Outras funcionalidades que eles podem prover incluem a capacidade de armazenar mensagens temporariamente, para que possam ser entregues mesmo quando o destinatário não está \textit{online}, e a capacidade de diminuir os metadados que estão sendo transmitidos, uma vez que ele pode ocultar o endereço IP real do remetente e destinatário.
+\textit{Relays} são principalmente utilizados para contornar restrições de roteamento em redes que possuem camadas de \textit{Network Address Translation} (NAT) ou \textit{firewalls}, que podem impedir a comunicação direta entre dois usuários. Outras funcionalidades que eles podem prover incluem a capacidade de armazenar mensagens temporariamente, para que possam ser entregues mesmo quando o destinatário não está \textit{online}, e a capacidade de diminuir os metadados que estão sendo transmitidos, uma vez que eles podem ocultar o endereço IP real do remetente e destinatário.
 
 \section{\textit{The Onion Router} (Tor)}
 
@@ -113,6 +127,7 @@ Quando um usuário acessa um site comum da Internet através da rede \textit{Tor
   
     % remember to cite the source of the image
     \caption{Captura de tela de um website de localização acessado através do \textit{Firefox} (acima) e do \textit{Tor} (abaixo). Note que mesmo usando a mesma conexão com a Internet, o website acessado através do \textit{Tor} determina a localização do \textit{Relay} de Saída (nesse caso na Islândia), e não a do usuário.}
+    \label{fig:mylocation}
 \end{figure}
 
 \begin{figure}
@@ -122,11 +137,12 @@ Quando um usuário acessa um site comum da Internet através da rede \textit{Tor
   
     % remember to cite the source of the image
     \caption{Captura de tela de um de teste de velocidade de conexão à Internet acessado através do \textit{Firefox} (acima) e do \textit{Tor} (abaixo). Note que a conexão através do \textit{Tor} é muito mais lenta, uma vez que o tráfego é roteado através de vários \textit{relays}, limitando a velocidade da conexão e introduzindo latência.}
+    \label{fig:speedtest}
 \end{figure}
 
 Um vídeo excelente publicado pela Universidade de Nottingham que entra em mais detalhes sobre a troca de chaves e a criptografia do protocolo \textit{Tor} pode ser encontrado em \cite{computerphile-tor}.
 
-A utilização do protocolo \textit{Tor} para acessar sites comuns da Internet é conceitualmente similar a utilizar um serviço de \textit{Virtual Private Network} (\textit{VPN}). Ambos agem como um intermediário entre o usuário e o site acessado, escondendo o endereço IP real do usuário e protegendo a sua privacidade. No entanto, enquanto \textit{Tor} é gratuito, mais anônimo e descentralizado, \textit{VPNs} são na maioria das vezes pagas, centralizadas, mas geralmente possuem melhor desempenho.
+A utilização do protocolo \textit{Tor} para acessar sites comuns da Internet é conceitualmente similar a utilizar um serviço de \textit{Virtual Private Network} (\textit{VPN}). Ambos agem como um intermediário entre o usuário e o site acessado, escondendo o endereço IP real do usuário e protegendo a sua privacidade. No entanto, enquanto \textit{Tor} é gratuito, mais anônimo e descentralizado, \textit{VPNs} são na maioria das vezes pagas e centralizadas, mas geralmente possuem melhor desempenho.
 
 \subsection{Acesso a serviços ocultos}
 
@@ -135,5 +151,7 @@ Além de permitir o acesso a sites comuns da Internet de forma anônima, o \text
 Quando um usuário acessa um serviço oculto, ele estabelece uma série de circuitos, buscando que tanto ele quanto o serviço oculto estabeleçam um circuito com um \textit{relay} intermediário em comum. Isso permite que o usuário e o serviço oculto possam se comunicar de forma anônima, sem que nenhum dos dois saiba a localização física do outro.
 
 A Universidade de Nottingham também publicou um vídeo excelente que entra em mais detalhes sobre como funcionam os serviços ocultos do protocolo \textit{Tor}, que pode ser encontrado em \cite{computerphile-hidden-services}.
+
+Uma forma de atestar o funcionamento do \textit{Tor} é por meio do acesso a algum site que verifique a geolocalização do endereço de IP do usuário, como o \textit{mylocation.org}. Esse site utiliza a base de dados de registros de IPs para informar no mínimo em qual país o usuário se encontra com base em seu endereço de IP. A figura \ref{fig:mylocation} explica como o site \textit{mylocation.org} determina a localização do \textit{relay} de saída do \textit{Tor}, e não a do usuário. Uma consequência da utlilização do \textit{Tor} é a redução na taxa de transmissão de dados e o aumento da latência nas comunicações. A figura \ref{fig:speedtest} mostra como a velocidade de conexão à Internet é reduzida quando o tráfego é roteado através de vários \textit{relays}. Ambas foram capturas de tela do mesmo website, \textit{speedtest.net}, acessado através do \textit{Firefox} e do \textit{Tor Browser}.
 
 Serviços ocultos são extremamente úteis no contexto da transmissão segura de mensagens \textit{online}, uma vez que eles lidam com limitações de \textit{firewalls} e NATs, oferecendo comunicação que é segura e anônima. Por outro lado, a grande quantidade de intermediários no encaminhamento de mensagens significa que a latência e a velocidade da comunicação podem ser comprometidas.

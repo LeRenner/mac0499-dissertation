@@ -39,11 +39,11 @@ Para evitar que o servidor do programa esteja constantemente monitorando outros 
 
 Esta solução permite que mensagens sejam enviadas em qualquer configuração de rede, permite que usuários se comuniquem de forma anônima, permite que os usuários se comuniquem de forma direta, não depende de \textit{relays} específicos da rede e é resistente a maus atores.
 
-\section{Detalhes da implementação prática do protocolo}
+\section{Detalhes da implementação do protocolo}
 
-A implementação desse protótipo foi organizada em torno de um único executável que lida com todos os aspectos do servidor. Este executável roda \textit{Tor} como um subprocesso e sobe todos os \textit{endpoints} necessários para a comunicação entre usuários. Alguns desses \textit{endpoints} são acessíveis apenas localmente, enquanto outros serão acessíveis pela rede \textit{Tor}. A interface do usuário é feita através de um cliente \textit{web}, que se comunica com o executável através de uma \textit{API}.
+A implementação desse protótipo foi organizada em torno de um único executável que lida com todos os aspectos do servidor. Este executável roda o \textit{Tor} como um subprocesso e sobe todos os \textit{endpoints} necessários para a comunicação entre usuários. Alguns desses \textit{endpoints} são acessíveis apenas localmente, enquanto outros serão acessíveis pela rede \textit{Tor}. A interface do usuário é feita através de um cliente \textit{web}, que se comunica com o executável através de uma \textit{API}.
 
-Eu tenho experiência com a linguagem de programação \textit{Python} e, por isso, escolhi utilizá-la para o desenvolvimento do protótipo. \textit{Python} é uma linguagem de programação de alto nível, que possui uma grande quantidade de bibliotecas disponíveis para diversas funcionalidades. Além disso, \textit{Python} é uma linguagem de programação muito utilizada para desenvolvimento de aplicações \textit{web}, o que facilita a interação com a interface do usuário. O cliente \textit{web} é escrito em \textit{HTML}, \textit{CSS} e \textit{JavaScript}, e não utiliza nenhum \textit{framework} de \textit{frontend}.
+Dada a experiência do autor dessa monografia com a linguagem de programação \textit{Python}, escolheu-se utilizá-la para o desenvolvimento do protótipo. \textit{Python} é uma linguagem de programação de alto nível, que possui uma grande quantidade de bibliotecas disponíveis para diversas funcionalidades. Além disso, \textit{Python} é uma linguagem de programação muito utilizada para desenvolvimento de aplicações \textit{web}, o que facilita a interação com a interface do usuário. O cliente \textit{web} é escrito em \textit{HTML}, \textit{CSS} e \textit{JavaScript}, e não utiliza nenhum \textit{framework} de \textit{frontend}.
 
 Enquanto o servidor utiliza muitas bibliotecas, a principal é \textit{Flask}. \textit{Flask} é um \textit{framework web} minimalista para \textit{Python}, que permite a criação de aplicações \textit{web} de forma rápida e fácil. \textit{Flask} é muito utilizado para a criação de \textit{APIs} e é muito fácil de se utilizar.
 
@@ -63,7 +63,7 @@ O servidor de \textit{backend} é composto por 12 arquivos, cada um com funçõe
     \item \textbf{publicEndpoints.py}: Contém \textit{endpoints} que devem ser acessíveis pela rede \textit{Tor}, como por exemplo para solicitar endereços de IP, solicitar conexões \textit{P2P}, ou para enviar mensagens.
     \item \textbf{serverCrypto.py}: Contém funções relacionadas à criptografia, como por exemplo assinaturas eletrônicas, criptografia de mensagens, e geração de chaves.
     \item \textbf{setup.py}: Contém funções para inicializar o \textit{Tor}, configurando portas, arquivos de configuração, e inicializando o processo.
-    \item \textbf{upnp.py}: Contém funções para abrir portas no roteador do usuário, utilizando o protocolo \textit{UPnP}. Contém uma implementação improvisada porque a biblioteca de \textit{UPnP} para \textit{Python} não funcionou corretamente.
+    \item \textbf{upnp.py}: Contém funções para abrir portas no roteador do usuário, utilizando o protocolo \textit{UPnP}. Contém uma implementação própria porque a biblioteca de \textit{UPnP} para \textit{Python} não funcionou corretamente.
 \end{itemize}
 O servidor abre uma série de \textit{endpoints} locais e públicos, que são acessíveis pela rede \textit{Tor}. Os \textit{endpoints} públicos são:
 
@@ -96,13 +96,34 @@ Os \textit{endpoints} locais são:
 
 \subsection{Cliente \textit{web}}
 
-O cliente \textit{web} não é muito sofisticado, sendo composto por uma aba de conversas e uma aba de amigos. A aba de conversas mostra uma lista com todas as pessoas com as quais o usuário já conversou e permite que o usuário selecione uma conversa para visualizar. A aba de amigos mostra uma lista com todos os amigos do usuário e permite que o usuário adicione ou remova amigos.
+O cliente \textit{web} é composto por uma aba de conversas e uma aba de amigos. A aba de conversas mostra uma lista com todas as pessoas com as quais o usuário já conversou e permite que o usuário selecione uma conversa para visualizar. A aba de amigos mostra uma lista com todos os amigos do usuário e permite que o usuário adicione ou remova amigos.
 
-Como o cliente não é o escopo principal deste projeto, ele é simples e apenas cumpre os requisitos necessários ao projeto.
+Como o cliente não é o escopo principal deste projeto, ele é simples e apenas cumpre os requisitos necessários ao projeto. As imagens \ref{fig:mensagens}, \ref{fig:amigos} e \ref{fig:home} mostram respectivamente a conversa entre dois usuários, a aba que contém os amigos do usuário e a aba principal da interface.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{mensagens.png}
+    \caption{Captura de tela da interface mostrando a conversa entre dois usuários.}
+    \label{fig:mensagens}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{amigos.png}
+    \caption{Captura de tela da aba que contém os amigos de um dado usuário.}
+    \label{fig:amigos}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{home.png}
+    \caption{Captura de tela da aba principal da interface, contendo todas as conversas de um dado usuário.}
+    \label{fig:home}
+\end{figure}
 
 \section{Criptografia e \textit{handshakes}}
 
-O servidor utiliza alguns métodos de criptografia para garantir a segurança das mensagens trocadas entre os usuários. A intenção inicial do projeto era que o servidor utilizasse a mesma chave pública e privada que o subprocesso do \textit{Tor}, porém, como o \textit{Tor} usa regras de derivação de chave diferentes das da biblioteca \textit{ED25519} do \textit{Python}, os servidores vão compartilhar chaves privadas, mas vão utilizar chaves públicas diferentes para acessar o \textit{Tor} e para assinar e criptografar mensagens. Isto poderia gerar um problema de verificação de autenticidade da chave pública, uma vez que o protocolo do \textit{Tor} garante a autenticidade de uma chave pública realizando a derivação do endereço a partir da chave pública, permitindo que, ao acessar um serviço oculto, o usuário tenha certeza de que a chave pública que ele recebeu está correta. Assim, o primeiro contato entre dois servidores teve que ser repensado para garantir que ambos os usuários consigam assegurar que têm a chave pública correta de seus amigos.
+O servidor utiliza alguns métodos de criptografia para garantir a segurança das mensagens trocadas entre os usuários. A intenção inicial do projeto era que o servidor utilizasse a mesma chave pública e privada que o subprocesso do \textit{Tor}, porém, como o \textit{Tor} usa regras de derivação de chave diferentes das da biblioteca \textit{ED25519}\footnote{ED25519 é um esquema de assinatura digital e criptografia de chave pública baseado no algoritmo de curva elíptica Edwards. Ele permite que mensagens sejam assinadas e sua autenticidade seja verificada, e permite que usuários criptografem mensagens para outros usuários, apenas tendo acesso a chave pública do destinatário.} do \textit{Python}, os servidores vão compartilhar chaves privadas, mas vão utilizar chaves públicas diferentes para acessar o \textit{Tor} e para assinar e criptografar mensagens. Isto poderia gerar um problema de verificação de autenticidade da chave pública, uma vez que o protocolo do \textit{Tor} garante a autenticidade de uma chave pública realizando a derivação do endereço a partir da chave pública, permitindo que, ao acessar um serviço oculto, o usuário tenha certeza de que a chave pública que ele recebeu está correta. Assim, o primeiro contato entre dois servidores teve que ser repensado para garantir que ambos os usuários consigam assegurar que têm a chave pública correta de seus amigos.
 
 Sabemos que, ao acessar um serviço oculto, o \textit{Tor} realiza a verificação da chave pública recebida. Assim, sabemos que, quando queremos iniciar uma conversa com um usuário novo, podemos simplesmente acessar o \textit{endpoint} \textit{pubEndpoint\_getPublicKeyBase64} do usuário, e o \textit{Tor} irá garantir que a chave pública que recebemos é a correta. Porém, como garantir que a chave pública que recebemos é a correta quando recebemos uma mensagem de um usuário com o qual nunca falamos antes? Para resolver esse problema, propomos um \textit{handshake} inicial entre os dois servidores.
 
@@ -142,4 +163,4 @@ Caso qualquer um desses passos não seja bem-sucedido, os usuários ainda poder�
 
 \section{Considerações finais}
 
-A implementação do protocolo não é um produto finalizado e não deve ser utilizada como um substituto para programas de envio de mensagens popularmente utilizados. Embora ele consiga cumprir os requisitos que foram propostos, ele não foi testado extensivamente no mundo real e provavelmente é vulnerável a ataques. Ainda assim, ele é uma demonstração muito interessante de um tipo de arquitetura que não foi muito explorado por projetos acadêmicos até agora.
+A implementação do protocolo não é um produto finalizado e não deve ser utilizada como um substituto para programas de envio de mensagens popularmente utilizados. Embora ele consiga cumprir os requisitos que foram propostos, ele não foi testado extensivamente no mundo real e provavelmente é vulnerável a ataques. Ainda assim, ele é uma demonstração muito interessante de um tipo de arquitetura que não foi muito explorado por projetos acadêmicos até agora. O protocolo foi implementado como software libre seguindo a liçença \textit{GNU GPL v3} e está disponível publicamente em \url{https://github.com/LeRenner/mac0499-prototype} e \url{https://linux.ime.usp.br/~renner/MAC0499/}. O código deste programa contém dependências disponíveis por meio de outras liçenças. O arquivo /LIÇENÇA.txt contém uma lista de todas as dependências e suas liçenças.

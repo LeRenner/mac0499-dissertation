@@ -1,6 +1,6 @@
-\chapter{Testes e Conclusão}
+\chapter{Análise de desempenho}
 
-A implementação do protótipo foi testada em diversas conexões com a \textit{internet}, tanto institucionais, como a rede da Universidade de São Paulo, quanto residenciais e móveis. Como o \textit{UPnP} não é universalmente compatível com todos os roteadores, a maior parte dos testes que utilizaram \textit{UPnP} foi realizada em conexões residenciais de uma empresa que tem roteadores compatíveis com o protocolo. Como a rede do \textit{Tor} não é restrita no Brasil, em nenhuma das conexões testadas houve problemas de acesso aos serviços ocultos de outros usuários. Os resultados dos testes realizados apresentam algumas considerações sobre as limitações deste protótipo.
+A implementação do protótipo foi testada em diversas conexões com a \textit{internet}, tanto institucionais, como a rede da Universidade de São Paulo, quanto residenciais e móveis. Como o \textit{UPnP} não é universalmente compatível com todos os roteadores, a maior parte dos testes que utilizaram \textit{UPnP} foi realizada em conexões residenciais de uma empresa que tem roteadores compatíveis com o protocolo. Como a rede do \textit{Tor} não é restrita no Brasil, em nenhuma das conexões testadas houve problemas de acesso aos serviços ocultos de outros usuários. Os resultados dos experimentos realizados para avaliar o desempenho da proposta apresentam algumas considerações sobre as limitações deste protótipo.
 
 \section{Tempo de inicialização do \textit{Tor}}
 
@@ -12,11 +12,41 @@ Uma vez que a conectividade pelo \textit{Tor} é essencial ao protocolo, mesmo e
 
 O \textit{UPnP} é um protocolo que não é universalmente compatível com todos os roteadores. Em alguns casos, o \textit{UPnP} não é habilitado por padrão, e em outros casos, o roteador não é compatível com o protocolo. Enquanto seria possível implementar instruções para o usuário manualmente abrir portas em seu roteador, isto é uma inconveniência e não foi implementado neste protótipo. Quando a conexão \textit{P2P} não é possível, como por exemplo nesse caso, o programa simplesmente continua se comunicando com outros usuários através do \textit{Tor}.
 
-Inicialmente, o programa utilizaria a biblioteca \textit{miniupnpc} para abrir portas automaticamente, porém, ao longo dos testes, ela apresentou problemas relacionados com o \textit{timeout} de tentativas de conexão com o roteador. Esta biblioteca, ao tentar descobrir dispositivos compatíveis com \textit{UPnP} na rede, ficava indefinidamente esperando por uma resposta, tornando o processo de descoberta de dispositivos \textit{UPnP} extremamente demorado. Por causa disso, o arquivo \textit{upnp.py} apresenta uma implementação improvisada que utiliza o executável \textit{upnpc}, que não sofre com este problema específico. Por outro lado, o executável \textit{upnpc} também apresentava problemas de inconsistência na resposta de pedidos. Pedidos para a abertura de portas específicas entravam na tabela de roteamento, mas não estavam ativos. Além disso, muitos comandos terminavam com códigos de erro, mesmo tendo sido bem-sucedidos. Assim, a implementação teve que manualmente testar se os comandos executados eram bem-sucedidos, limpando todos os roteamentos pedidos quando encontrava um erro.
+Inicialmente, o programa utilizaria a biblioteca \textit{miniupnpc} para abrir portas automaticamente, porém, ao longo dos testes, ela apresentou problemas relacionados com o \textit{timeout} de tentativas de conexão com o roteador. Esta biblioteca, ao tentar descobrir dispositivos compatíveis com \textit{UPnP} na rede, ficava indefinidamente esperando por uma resposta, tornando o processo de descoberta de dispositivos \textit{UPnP} extremamente demorado. Por causa disso, o arquivo \textit{upnp.py} apresenta uma implementação própria que utiliza o executável \textit{upnpc}, que não sofre com este problema específico. Por outro lado, o executável \textit{upnpc} também apresentava problemas de inconsistência na resposta de pedidos. Pedidos para a abertura de portas específicas entravam na tabela de roteamento, mas não estavam ativos. Além disso, muitos comandos terminavam com códigos de erro, mesmo tendo sido bem-sucedidos. Assim, a implementação teve que manualmente testar se os comandos executados eram bem-sucedidos, limpando todos os roteamentos pedidos quando encontrava um erro.
 
 \section{Velocidade de conexões e latência}
 
-Como a implementação prática do protocolo apenas permite o envio de mensagens de texto, que ocupam muito pouco espaço em disco, a velocidade da conexão entre dois usuários é em grande parte irrelevante. O parâmetro mais importante que foi analisado foi a latência de envio de mensagens entre os dispositivos. Para cada ação entre dispositivos foram coletadas 6 medidas de latência, e a média dessas medidas foi utilizada como a latência da conexão. A tabela \ref{tab:latencia} apresenta os resultados dessas medições. Como mencionado anteriormente, como o \textit{Tor} demora para tornar os serviços ocultos acessíveis externamente, os programas foram iniciados e os testes só foram conduzidos depois de 1 minuto.
+Como a implementação prática do protocolo apenas permite o envio de mensagens de texto, que ocupam muito pouco espaço em disco, a velocidade da conexão entre dois usuários é em grande parte irrelevante. O parâmetro mais importante que foi analisado foi a latência de envio de mensagens entre os dispositivos. Para cada ação entre dispositivos foram coletadas 6 medidas de latência, e a média dessas medidas foi utilizada como a latência da conexão. A Tabela \ref{tab:latencia} apresenta os resultados dessas medições. Como mencionado anteriormente, como o \textit{Tor} demora para tornar os serviços ocultos acessíveis externamente, os programas foram iniciados e os testes só foram conduzidos depois de 1 minuto. As maquinas utilizadas contém as seguintes especificações técnicas:
+
+Maquina 1:
+
+\begin{tcolorbox}[colback=gray!10, colframe=gray, sharp corners=south]
+\begin{itemize}
+    \setlength\itemsep{0em}
+    \setlength\leftmargini{2em}
+    \item Servidor montado para hospedar websites e armazenar aquivos em uma conexão residencial
+    \item Processador: AMD Ryzen 5 1600 AF
+    \item Memória: 16GB DDR4 2666MHz ECC
+    \item Armazenamento: SSD NVMe 256GB
+    \item Sistema Operacional: Debian Linux 12 Bookworm
+    \item Conexão com a \textit{Internet}: Conexão residencial de fibra ótica com 600MBits/s (Download) e 300MBits/s (Upload)
+\end{itemize}
+\end{tcolorbox}
+
+Maquina 2:
+
+\begin{tcolorbox}[colback=gray!10, colframe=gray, sharp corners=south]
+\begin{itemize}
+    \setlength\itemsep{0em}
+    \setlength\leftmargini{2em}
+    \item Laptop para uso pessoal (Thinkpad L14 Gen 3)
+    \item Processador: AMD Ryzen 5 5500U
+    \item Memória: 16GB DDR4 3200MHz
+    \item Armazenamento: SSD NVMe 256GB
+    \item Sistema Operacional: Manjaro Linux 24.2.0 (Gnome)
+    \item Conexão com a internet: Mesma que a Maquina 1 (Testes de rede local) através de cabo de rede, e conexão com a rede Wi-Fi Eduroam da USP (Testes de rede externa)
+\end{itemize}
+\end{tcolorbox}
 
 \begin{table}[H]
 \centering
