@@ -16,7 +16,35 @@ Inicialmente, o programa utilizaria a biblioteca \textit{miniupnpc} para abrir p
 
 \section{Velocidade de conexões e latência}
 
-Como a implementação prática do protocolo apenas permite o envio de mensagens de texto, que ocupam muito pouco espaço em disco, a velocidade da conexão entre dois usuários é em grande parte irrelevante. O parâmetro mais importante que foi analisado foi a latência de envio de mensagens entre os dispositivos. Para cada ação entre dispositivos foram coletadas 6 medidas de latência, e a média dessas medidas foi utilizada como a latência da conexão. A Tabela \ref{tab:latencia} apresenta os resultados dessas medições. Como mencionado anteriormente, como o \textit{Tor} demora para tornar os serviços ocultos acessíveis externamente, os programas foram iniciados e os testes só foram conduzidos depois de 1 minuto. As maquinas utilizadas contém as seguintes especificações técnicas:
+Como a implementação prática do protocolo apenas permite o envio de mensagens de texto, que ocupam muito pouco espaço em disco, a velocidade da conexão entre dois usuários é em grande parte irrelevante. O parâmetro mais importante que foi analisado foi a latência de envio de mensagens entre os dispositivos. Para cada ação entre dispositivos foram coletadas 6 medidas de latência, e a média dessas medidas foi utilizada como a latência da conexão. As Tabelas \ref{tab:latencia_handshake} e \ref{tab:latencia_mensagens} apresentam os resultados dessas medições. Como mencionado anteriormente, como o \textit{Tor} demora para tornar os serviços ocultos acessíveis externamente, os programas foram iniciados e os testes só foram conduzidos depois de 1 minuto.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Ação} & \textbf{Tempo Médio} & \textbf{Desvio Padrão} \\ \hline
+Pedido da chave pública do destinatário & 5.94s & 0.83s \\ \hline
+\textit{Handshake} inicial entre dois clientes & 13.82s & 1.77s \\ \hline
+\end{tabular}
+\caption{Medições de latência para pedido da chave pública e \textit{handshake}}
+\label{tab:latencia_handshake}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Ação} & \textbf{Tempo Médio} & \textbf{Desvio Padrão} \\ \hline
+Envio de mensagens (\textit{Tor}) & 1740ms & 220ms \\ \hline
+Envio de mensagens (\textit{UPnP}) & 5.83ms & 0.75ms \\ \hline
+Envio de mensagens (Rede local) & 2.33ms & 0.52ms \\ \hline
+Envio de mensagens (\textit{localhost}) & 8ms & 1.41ms \\ \hline
+\end{tabular}
+\caption{Medições de latência para envio de mensagens}
+\label{tab:latencia_mensagens}
+\end{table}
+
+As maquinas utilizadas para estes testes contém as seguintes especificações técnicas:
 
 Maquina 1:
 
@@ -48,24 +76,29 @@ Maquina 2:
 \end{itemize}
 \end{tcolorbox}
 
-\begin{table}[H]
-\centering
-\begin{tabular}{|c|c|}
-\hline
-\textbf{Ação} & \textbf{Tempo Médio} \\ \hline
-Pedido da chave pública do destinatário & 5.93s \\ \hline
-\textit{Handshake} inicial entre dois clientes & 12.74s \\ \hline
-Envio de mensagens (\textit{Tor}) & 1.86s \\ \hline
-Envio de mensagens (\textit{UPnP}) & 6ms \\ \hline
-Envio de mensagens (Rede local) & 2ms \\ \hline
-Envio de mensagens (\textit{localhost}) & 8ms \\ \hline
-\end{tabular}
-\caption{Medições de latência para diferentes ações e métodos de conexão}
-\label{tab:latencia}
-\end{table}
-
 O envio de mensagens através do \textit{Tor} passa as mensagens por 6 computadores da rede do \textit{Tor} antes que a mensagem seja entregue, tornando este método de conexão o mais limitado em latência. Uma consideração interessante é que, por causa do \textit{handshake} inicial do \textit{Tor}, a primeira conexão é muito mais demorada do que as demais. Uma vez que ambos os servidores já se comunicaram, seu caminho fica armazenado, tornando conexões posteriores muito mais rápidas. Por causa disso, o pedido da chave pública (que é o primeiro passo no envio da primeira mensagem entre dois usuários) e o \textit{handshake} (que é o primeiro pedido no sentido contrário do que a mensagem será enviada) são muito mais lentos do que o envio de mensagens subsequentes.
 
 De forma muito interessante, o envio de mensagens através de \textit{UPnP} e rede local é mais rápido do que o envio de mensagens através de \textit{localhost}. Isso se deve ao fato de que mensagens enviadas pelo \textit{localhost} utilizam a biblioteca de \textit{Python Requests}, que é complexa e mais lenta, enquanto pedidos enviados pela rede local e \textit{UPnP} são enviados diretamente para o \textit{socket}, sem intermediários. O envio de mensagens através de \textit{UPnP} é mais lento do que o envio de mensagens pela rede local por causa da latência da comunicação através da \textit{internet}. De qualquer maneira, nos três casos, o envio das mensagens é extremamente rápido, apenas demorando alguns milissegundos.
 
 Os resultados desses testes foram realizados em situações bem ideais de rede, com conexões cabeadas e provedores de \textit{internet} de alta qualidade. Condições adversas de rede definitivamente alterarão esses resultados.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{packet-tor.png}
+\caption{Captura de tela do Wireshark mostrando um pacote criptografado pelo \textit{Tor}}
+\label{fig:packet-tor}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{packet-local.png}
+\caption{Captura de tela do Wireshark mostrando um pacote criptografado em rede local}
+\label{fig:packet-local}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{packet-plaintext.png}
+\caption{Captura de tela do Wireshark mostrando um pacote de dados não criptografado}
+\label{fig:packet-plaintext}
+\end{figure}
