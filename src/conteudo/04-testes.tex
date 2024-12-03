@@ -84,21 +84,23 @@ Os resultados desses testes foram realizados em situações bem ideais de rede, 
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{packet-tor.png}
-\caption{Captura de tela do Wireshark mostrando um pacote criptografado pelo \textit{Tor}}
+\includegraphics[width=0.95\textwidth]{packet-tor.png}
+\caption{Captura de tela do Wireshark mostrando um pacote criptografado pelo \textit{Tor}. Note que o conteúdo do pacote é criptografado, e aparece portanto como uma série de caracteres aleatórios. A barra mais a direita, sublinhada em azul, contém o conteúdo do pacote em hexadecimal e sendo interpretado como texto.}
 \label{fig:packet-tor}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{packet-local.png}
-\caption{Captura de tela do Wireshark mostrando um pacote criptografado em rede local}
+\includegraphics[width=0.95\textwidth]{packet-local.png}
+\caption{Captura de tela do Wireshark mostrando um pacote criptografado pelo protótipo em uma conexão entre amigos em uma rede local. O conteúdo do pacote é texto criptografado, e depois codificado em base64. Por isso, o conteúdo do pacote é ilegível a uma pessoa não autorizada.}
 \label{fig:packet-local}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{packet-plaintext.png}
-\caption{Captura de tela do Wireshark mostrando um pacote de dados não criptografado}
+\includegraphics[width=1\textwidth]{packet-plaintext.png}
+\caption{Captura de tela do Wireshark mostrando um pacote de dados não criptografado como exemplo. Neste caso, é possível ver o conteúdo do pacote em texto, na direita da tela.}
 \label{fig:packet-plaintext}
 \end{figure}
+
+As Imagens \ref{fig:packet-tor}, \ref{fig:packet-local}, e \ref{fig:packet-plaintext} mostram capturas de tela do programa Wireshark, que é um programa de análise de pacotes de rede. A Imagem \ref{fig:packet-tor} mostra um pacote criptografado pelo \textit{Tor}, que é ilegível a uma pessoa não autorizada. A Imagem \ref{fig:packet-local} mostra um pacote criptografado pelo protótipo em uma conexão entre amigoe em uma rede local, que é codificado em base64 e também ilegível a uma pessoa não autorizada. A Imagem \ref{fig:packet-plaintext} mostra um pacote qualquer de dados não criptografado, que é legível a qualquer pessoa que tenha acesso ao pacote.
