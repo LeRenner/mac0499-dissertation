@@ -20,4 +20,4 @@ jobs:
       - name: Upload PDF as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: tese.pdf
+          path: tese.pdf
