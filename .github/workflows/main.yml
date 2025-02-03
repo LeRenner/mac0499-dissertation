@@ -3,7 +3,7 @@ name: Create and release document PDF
 on:
   push:
     branches:
-    - mainRelease.txt
+      - '**'
 
 jobs:
   push_to_registry:
